@@ -1,0 +1,16 @@
+{
+  "name": "시퀀스팡3",
+  "short_name": "시퀀스팡3",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#100b18",
+  "theme_color": "#100b18",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
