@@ -3,8 +3,8 @@
   "short_name": "시퀀스팡3",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#100b18",
-  "theme_color": "#100b18",
+  "background_color": "#06291f",
+  "theme_color": "#06291f",
   "icons": [
     {
       "src": "/favicon.svg",

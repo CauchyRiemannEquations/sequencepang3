@@ -2,7 +2,6 @@ import {
   Crown,
   HelpCircle,
   Play,
-  Sparkles,
   Volume2,
   VolumeX,
 } from "lucide-react";
@@ -58,11 +57,11 @@ export default function Home({
   return (
     <main className="home-poster">
       <div className="poster-title">
+        <span className="edition-pill"><Seed /> 용과 에디션</span>
         <h1>
           <GameLogo />
         </h1>
-        <p>연결할수록 더 달콤한!</p>
-        <span className="sugar-underline" />
+        <p className="logo-english">SEQUENCE PANG 3</p>
       </div>
       <div className="mascot-stage">
         <div className="mascot-halo" />
@@ -75,41 +74,32 @@ export default function Home({
           height="1024"
         />
         <span className="poster-tile poster-one">
-          1<Seed />
-        </span>
-        <span className="poster-tile poster-two">
           2<Seed />
         </span>
+        <span className="poster-tile poster-two">
+          4<Seed />
+        </span>
         <span className="poster-tile poster-three">
-          3<Seed />
+          6<Seed />
         </span>
         <span className="poster-sparkle sparkle-a">✦</span>
         <span className="poster-sparkle sparkle-b">✧</span>
-        <span className="mascot-caption">
-          생각이 톡톡!
-          <br />
-          재미가 팡팡!
-        </span>
       </div>
       <div className="poster-controls">
         <button className="candy-play" onClick={onPlay}>
           <Play fill="currentColor" />
-          <span>PLAY</span>
-          <Sparkles className="play-sparkle" />
+          <span>시작하기</span>
         </button>
         <div className="poster-secondary">
           <button onClick={onHelp}>
             <HelpCircle size={19} />
-            플레이 방법
+            도움말
           </button>
           <button onClick={onSound}>
-            {audio ? <Volume2 size={19} /> : <VolumeX size={19} />}사운드{" "}
-            {audio ? "ON" : "OFF"}
+            {audio ? <Volume2 size={19} /> : <VolumeX size={19} />}
+            소리 {audio ? "켜짐" : "꺼짐"}
           </button>
         </div>
-        <p className="poster-caption">
-          작은 숫자들이 만드는, 나만의 달콤한 한 수.
-        </p>
       </div>
     </main>
   );

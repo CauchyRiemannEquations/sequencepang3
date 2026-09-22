@@ -1,6 +1,17 @@
-import { useLayoutEffect, useRef, type CSSProperties } from "react";
+import {
+  useLayoutEffect,
+  useRef,
+  type CSSProperties,
+  type PointerEvent as ReactPointerEvent,
+} from "react";
 import { LockKeyhole } from "lucide-react";
 import type { Board as BoardType, Crack } from "../game/types";
+import {
+  DRAG_HIT_RADIUS,
+  dragHits,
+  type DragTarget,
+  type Point,
+} from "../game/dragHit";
 import { Seed } from "./Symbols";
 type Props = {
   board: BoardType;
@@ -20,7 +31,10 @@ type Props = {
 export default function Board(p: Props) {
   const ref = useRef<HTMLDivElement>(null),
     active = useRef<number | null>(null),
-    last = useRef<{ x: number; y: number } | null>(null);
+    gestureBoard = useRef<BoardType | null>(null),
+    last = useRef<Point | null>(null),
+    targets = useRef<DragTarget[]>([]),
+    lastHit = useRef<number | null>(null);
   useLayoutEffect(() => {
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const rowHeight = (ref.current?.getBoundingClientRect().height ?? 0) / 6;
@@ -38,27 +52,62 @@ export default function Board(p: Props) {
         );
     });
   }, [p.board]);
-  const hit = (x: number, y: number) => {
-    const r = ref.current!.getBoundingClientRect();
-    const col = Math.floor(((x - r.left) / r.width) * 6),
-      row = Math.floor(((y - r.top) / r.height) * 6);
-    return x >= r.left &&
-      x < r.right &&
-      y >= r.top &&
-      y < r.bottom &&
-      col >= 0 &&
-      col < 6 &&
-      row >= 0 &&
-      row < 6
-      ? row * 6 + col
-      : -1;
+  const measureTargets = () => {
+    const board = ref.current!;
+    const bounds = board.getBoundingClientRect();
+    const scaleX = bounds.width / board.offsetWidth,
+      scaleY = bounds.height / board.offsetHeight;
+    // Layout offsets ignore the tiles' falling/selected animation transforms.
+    return Array.from(board.querySelectorAll<HTMLButtonElement>("[data-index]"))
+      .map((tile) => ({
+        index: Number(tile.dataset.index),
+        x:
+          bounds.left +
+          (board.clientLeft + tile.offsetLeft + tile.offsetWidth / 2) * scaleX,
+        y:
+          bounds.top +
+          (board.clientTop + tile.offsetTop + tile.offsetHeight / 2) * scaleY,
+        width: tile.offsetWidth * scaleX,
+        height: tile.offsetHeight * scaleY,
+        radius:
+          Math.min(tile.offsetWidth * scaleX, tile.offsetHeight * scaleY) *
+          DRAG_HIT_RADIUS,
+      }));
   };
   const cancel = () => {
     if (active.current !== null) {
+      const pointerId = active.current;
       active.current = null;
+      gestureBoard.current = null;
       last.current = null;
+      lastHit.current = null;
+      targets.current = [];
+      if (ref.current?.hasPointerCapture(pointerId))
+        ref.current.releasePointerCapture(pointerId);
       p.onCancel();
     }
+  };
+  useLayoutEffect(() => {
+    // A swap/reroll must not turn the remainder of its gesture into an attack.
+    if (p.disabled || (gestureBoard.current && gestureBoard.current !== p.board))
+      cancel();
+  }, [p.disabled, p.board]);
+
+  const moveTo = (point: Point) => {
+    const previous = last.current ?? point;
+    for (const i of dragHits(previous, point, targets.current)) {
+      // Remaining inside a tile must not retry invalid moves or backtrack twice.
+      if (i !== lastHit.current) {
+        lastHit.current = i;
+        p.onAdd(i);
+      }
+    }
+    last.current = point;
+  };
+  const followPointer = (e: ReactPointerEvent<HTMLDivElement>) => {
+    for (const sample of e.nativeEvent.getCoalescedEvents?.() ?? [])
+      moveTo({ x: sample.clientX, y: sample.clientY });
+    moveTo({ x: e.clientX, y: e.clientY });
   };
   return (
     <div className={`board-shell ${p.ripe ? "ripe-board" : ""}`}>
@@ -69,39 +118,51 @@ export default function Board(p: Props) {
         aria-label="6 곱하기 6 숫자 보드"
         onPointerDown={(e) => {
           if (p.disabled || active.current !== null || e.button !== 0) return;
-          const i = hit(e.clientX, e.clientY);
-          if (i < 0) return;
+          const measured = measureTargets();
+          // A tap may start anywhere on a tile; only dragging needs a centre hit.
+          const first = measured.find(
+            (t) =>
+              Math.abs(e.clientX - t.x) <= t.width / 2 &&
+              Math.abs(e.clientY - t.y) <= t.height / 2,
+          );
+          if (!first || p.board[first.index].locked) return;
           e.preventDefault();
           active.current = e.pointerId;
+          gestureBoard.current = p.board;
           last.current = { x: e.clientX, y: e.clientY };
+          targets.current = measured;
+          lastHit.current = first.index;
           e.currentTarget.setPointerCapture(e.pointerId);
-          p.onStart(i);
+          p.onStart(first.index);
         }}
         onPointerMove={(e) => {
           if (active.current !== e.pointerId || p.disabled) return;
           e.preventDefault();
-          const prev = last.current ?? { x: e.clientX, y: e.clientY };
-          const distance = Math.hypot(e.clientX - prev.x, e.clientY - prev.y);
-          const steps = Math.max(1, Math.ceil(distance / 8));
-          for (let n = 1; n <= steps; n++) {
-            const i = hit(
-              prev.x + ((e.clientX - prev.x) * n) / steps,
-              prev.y + ((e.clientY - prev.y) * n) / steps,
-            );
-            if (i >= 0) p.onAdd(i);
-          }
-          last.current = { x: e.clientX, y: e.clientY };
+          followPointer(e);
         }}
         onPointerUp={(e) => {
           if (active.current !== e.pointerId) return;
+          if (p.disabled) {
+            cancel();
+            return;
+          }
+          // Some phones release over the final tile before a final move arrives.
+          followPointer(e);
           active.current = null;
+          gestureBoard.current = null;
           last.current = null;
+          lastHit.current = null;
+          targets.current = [];
           if (e.currentTarget.hasPointerCapture(e.pointerId))
             e.currentTarget.releasePointerCapture(e.pointerId);
           p.onEnd();
         }}
-        onPointerCancel={cancel}
-        onLostPointerCapture={cancel}
+        onPointerCancel={(e) => {
+          if (active.current === e.pointerId) cancel();
+        }}
+        onLostPointerCapture={(e) => {
+          if (active.current === e.pointerId) cancel();
+        }}
         onContextMenu={(e) => e.preventDefault()}
       >
         {p.board.map((t, i) => (
@@ -134,7 +195,10 @@ export default function Board(p: Props) {
                     ?.querySelector<HTMLButtonElement>(`[data-index="${next}"]`)
                     ?.focus();
               }
-              if (e.key === "Escape") p.onCancel();
+              if (e.key === "Escape") {
+                if (active.current !== null) cancel();
+                else p.onCancel();
+              }
             }}
           >
             <span className="tile-number">

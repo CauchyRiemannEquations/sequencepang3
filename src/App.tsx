@@ -8,6 +8,7 @@ import {
   Code2,
   GitBranch,
   HelpCircle,
+  House,
   Leaf,
   Maximize2,
   Pause,
@@ -248,26 +249,19 @@ export default function App() {
       <WorldDecor />
       <header className="app-header">
         <button
+          className="icon-button home-button"
+          aria-label="메인 메뉴"
+          onClick={() => !home && setPaused(true)}
+        >
+          <House size={19} />
+        </button>
+        <button
           className="wordmark"
           aria-label="시퀀스팡3 메인"
           onClick={() => (home ? undefined : setPaused(true))}
         >
           <GameLogo small />
-          <span className="brand-mark">
-            <Seed />
-            <Seed />
-            <Seed />
-          </span>
-          <span>
-            SEQUENCE
-            <span className="brand-pang">
-              PANG<span className="brand-three">3</span>
-            </span>
-          </span>
         </button>
-        <span className="edition">
-          DRAGON FRUIT EDITION <i /> VOL. 03
-        </span>
         <div className="header-actions">
           <button
             className="icon-button"
@@ -280,7 +274,7 @@ export default function App() {
             {audio ? <Volume2 size={18} /> : <VolumeX size={18} />}
           </button>
           <button
-            className="icon-button"
+            className="icon-button header-help"
             aria-label="플레이 방법"
             onClick={() => setHelp(true)}
           >
@@ -311,14 +305,10 @@ export default function App() {
         <main className="game-layout">
           <aside className="journey-panel">
             <div className="section-label">
-              <span>YOUR RUN</span>
+              <span>이번 모험</span>
               <span>0{run.stage} / 07</span>
             </div>
-            <h2>
-              작은 씨앗에서
-              <br />
-              강력한 한 수로.
-            </h2>
+            <h2>용과의 정원</h2>
             <nav className="stage-list" aria-label="런 진행">
               {STAGES.map((name, i) => (
                 <div
@@ -364,15 +354,15 @@ export default function App() {
           <section className="play-area" aria-label="전투">
             <div className="battle-heading">
               <span className="eyebrow">
-                STAGE {String(run.stage).padStart(2, "0")}{" "}
+                스테이지 {String(run.stage).padStart(2, "0")}{" "}
                 <span className="stage-slash">/ 07</span>
               </span>
               <span className="battle-kind">
                 {run.stage === 4
-                  ? "ELITE"
+                  ? "엘리트"
                   : run.stage === 7
-                    ? `BOSS · PHASE ${b.phase === 1 ? "I" : "II"}`
-                    : "ENCOUNTER"}
+                    ? `보스 · ${b.phase === 1 ? "1" : "2"}단계`
+                    : "일반 전투"}
               </span>
             </div>
             <div className="enemy-row">
@@ -381,7 +371,7 @@ export default function App() {
                 <span className="mini-label">{enemy.subtitle}</span>
                 <h1>{b.enemy}</h1>
                 <div className="hp-heading">
-                  <span>ENEMY HP</span>
+                  <span>체력</span>
                   <span>
                     <strong>{b.hp}</strong> / {enemy.hp}
                   </span>
@@ -397,9 +387,9 @@ export default function App() {
               <div
                 className={`turn-display ${enemy.turns - b.turn <= 2 ? "last-turns" : ""}`}
               >
-                <span>TURN</span>
+                <span>남은 턴</span>
                 <strong>{String(enemy.turns - b.turn).padStart(2, "0")}</strong>
-                <span>LEFT / {enemy.turns}</span>
+                <span>/ {enemy.turns}</span>
               </div>
             </div>
             <div className="battle-description">
@@ -440,7 +430,7 @@ export default function App() {
                     <span className="difference">
                       {preview
                         ? `D = ${preview.sequence.difference > 0 ? "+" : ""}${preview.sequence.difference}`
-                        : "KEEP CONNECTING"}
+                        : "계속 이어보세요"}
                     </span>
                   </>
                 ) : (
@@ -456,7 +446,7 @@ export default function App() {
                     <strong>{preview.damage.total}</strong> DMG
                   </>
                 ) : (
-                  <span>DRAG TO CONNECT</span>
+                  <span>드래그로 연결</span>
                 )}
               </span>
             </div>
@@ -514,10 +504,10 @@ export default function App() {
               <span>
                 <span className="small-dot" />
                 {busy
-                  ? "POPPING…"
+                  ? "팡!"
                   : swapMode
-                    ? "SWAP MODE"
-                    : "FIND YOUR SEQUENCE"}
+                    ? "숫자 교환 중"
+                    : "같은 간격으로, 길게 연결!"}
               </span>
               <div className="utility-actions">
                 {run.abilities.some((a) => a.id === "SWAP") && (
@@ -565,7 +555,7 @@ export default function App() {
           <aside className={`build-panel ${expandedBuild ? "expanded" : ""}`}>
             <div className="section-label">
               <span>
-                YOUR BUILD{" "}
+                나의 능력{" "}
                 <span className="count">
                   {run.abilities.length.toString().padStart(2, "0")}
                 </span>
@@ -646,7 +636,6 @@ export default function App() {
                     <br />
                     나만의 능력을 선택하세요.
                   </p>
-                  <span>YOUR FIRST SEED AWAITS</span>
                 </div>
               )}
             </div>
@@ -667,9 +656,6 @@ export default function App() {
       <footer className="app-footer">
         <span>
           SEQUENCE PANG <span className="muted">/</span> 03
-        </span>
-        <span>
-          {home ? "CONNECT. GROW. POP." : "EVERY SEQUENCE IS A POSSIBILITY."}
         </span>
         {import.meta.env.DEV && (
           <button className="debug-toggle" onClick={() => setDebug(!debug)}>
@@ -700,7 +686,7 @@ export default function App() {
           >
             <X />
           </button>
-          <span className="eyebrow">HOW TO PLAY</span>
+          <span className="eyebrow">플레이 방법</span>
           <h2>잇고. 키우고. 터뜨리세요.</h2>
           <div className="help-example">
             <span>2</span>
@@ -711,15 +697,15 @@ export default function App() {
           </div>
           <div className="help-steps">
             <p>
-              <b>01 · CONNECT</b>인접한 숫자를 3개 이상, 같은 간격으로
+              <b>01 · 숫자 잇기</b>인접한 숫자를 3개 이상, 같은 간격으로
               연결하세요. 대각선과 꺾인 경로도 가능해요.
             </p>
             <p>
-              <b>02 · BUILD</b>손을 떼면 공격! 적을 이기고 능력을 얻으세요. 여러
+              <b>02 · 능력 모으기</b>손을 떼면 공격! 적을 이기고 능력을 얻으세요. 여러
               능력의 조건을 함께 맞출수록 강해집니다.
             </p>
             <p>
-              <b>03 · RIPE</b>Pattern 조건을 3번 채우면 RIPE. 다음에 조건을 맞출
+              <b>03 · 보너스 익히기</b>Pattern 조건을 3번 채우면 RIPE. 다음에 조건을 맞출
               때 보너스가 2배로 터집니다.
             </p>
           </div>
@@ -734,13 +720,16 @@ export default function App() {
       )}
       {paused && !help && (
         <Modal label="일시 정지" onClose={() => setPaused(false)}>
-          <span className="eyebrow">TAKE YOUR TIME</span>
+          <span className="eyebrow">잠깐 쉬어가기</span>
           <h2>다음 한 수를 생각할 시간.</h2>
           <p className="modal-subtitle">
             제한 시간은 없어요. 천천히 찾아보세요.
           </p>
           <button className="primary-button" onClick={() => setPaused(false)}>
             계속 플레이 <ArrowRight size={18} />
+          </button>
+          <button className="text-button" onClick={() => setHelp(true)}>
+            <HelpCircle size={16} /> 플레이 방법
           </button>
           <button
             className="text-button"
@@ -749,7 +738,7 @@ export default function App() {
               setRun((r) => ({ ...r, screen: "home" }));
             }}
           >
-            런을 종료하고 메인으로
+            이번 모험을 마치고 메인으로
           </button>
         </Modal>
       )}
@@ -770,11 +759,10 @@ export default function App() {
           {run.screen === "reward" && (
             <>
               <span className="eyebrow">
-                <Check size={15} /> STAGE {String(run.stage).padStart(2, "0")}{" "}
-                CLEAR
+                <Check size={15} /> 스테이지 {String(run.stage).padStart(2, "0")} 완료
               </span>
               <h2>
-                CHOOSE A SEED<span className="pink">.</span>
+                능력을 선택하세요<span className="pink">!</span>
               </h2>
               <p className="modal-subtitle">다음 수열의 가능성을 키워보세요.</p>
               <div className="choice-grid">
@@ -799,11 +787,9 @@ export default function App() {
                 <GitBranch size={16} /> STAGE 03 · MUTATION
               </span>
               <h2>
-                A DIFFERENT KIND
-                <br />
-                OF GROWTH<span className="pink">.</span>
+                새로운 가능성<span className="pink">!</span>
               </h2>
-              <p className="modal-subtitle">런 전체를 바꿀, 하나의 변이.</p>
+              <p className="modal-subtitle">이번 모험에 함께할 변이를 선택하세요.</p>
               <div className="choice-grid mutation-choices">
                 {(["JUICY", "DOUBLE CORE", "WILD"] as Mutation[]).map(
                   (id, i) => (
@@ -826,7 +812,7 @@ export default function App() {
                         {mutationDescriptions[id]}
                       </span>
                       <span className="card-bottom">
-                        PERMANENT <ArrowRight size={16} />
+                        모험 내내 적용 <ArrowRight size={16} />
                       </span>
                     </button>
                   ),
@@ -878,7 +864,7 @@ export default function App() {
                             : "Pattern 하나를 RIPE 2/3로 준비"}
                       </span>
                       <span className="card-bottom">
-                        SELECT <ArrowRight size={16} />
+                        선택하기 <ArrowRight size={16} />
                       </span>
                     </button>
                   ))}
@@ -961,8 +947,8 @@ export default function App() {
                   : `STAGE ${run.stage} / 7`}
               </span>
               <h2 className="result-title">
-                RUN {run.screen === "clear" ? "CLEAR" : "OVER"}
-                <span className="pink">.</span>
+                {run.screen === "clear" ? "모험 완료" : "아쉬워요"}
+                <span className="pink">!</span>
               </h2>
               <p className="modal-subtitle">
                 {run.screen === "clear"
@@ -983,7 +969,7 @@ export default function App() {
                   <span>RIPE 발동</span>
                 </div>
               </div>
-              <span className="section-label">FINAL BUILD</span>
+              <span className="section-label">함께한 능력</span>
               <div className="final-build">
                 {run.abilities.length ? (
                   run.abilities.map((a) => (
@@ -998,7 +984,7 @@ export default function App() {
                 {mutation && <span className="pink">{mutation}</span>}
               </div>
               <button className="primary-button" onClick={restart}>
-                {run.screen === "clear" ? "PLAY AGAIN" : "RETRY"}
+                {run.screen === "clear" ? "다시 시작하기" : "다시 도전하기"}
                 <RotateCcw size={19} />
               </button>
             </>
