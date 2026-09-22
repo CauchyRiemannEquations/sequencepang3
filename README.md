@@ -3,6 +3,12 @@
 React + TypeScript + Vite. 용과 테마의 6×6 수열 퍼즐 로그라이크입니다.
 게임 데이터, 전투, 능력 판정은 모두 브라우저에서 처리합니다. 계정, API, 데이터베이스, 외부 폰트 요청이 없습니다.
 
+## 바로 플레이
+
+https://sequencepang3.vercel.app
+
+GitHub의 main 브랜치를 Vercel 프로젝트 sequencepang3에 연결했습니다. main에 push하면 자동으로 다시 배포됩니다.
+
 ## 디자인
 
 귀여운 용과 캐릭터, 검은 씨앗 적, 윤기 나는 크림색 타일과 핑크 효과를 사용합니다. 참고 이미지의 숫자·카드 설명은 게임 규칙에 적용하지 않았습니다. 아트 제작 정보는 [ART.md](ART.md), 폰트 라이선스는 public/fonts/OFL.txt에 있습니다.
