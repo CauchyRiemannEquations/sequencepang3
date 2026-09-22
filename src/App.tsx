@@ -73,14 +73,10 @@ export default function App(){
 
  const next=useMemo(()=>[SCRIPT[deckPos%SCRIPT.length],SCRIPT[(deckPos+1)%SCRIPT.length]],[deckPos]);
 
- const draw=()=>{
-   const n=SCRIPT[deckPos%SCRIPT.length];
-   setDeckPos(p=>p+1);
-   return n;
- };
-
  const replaceHand=(idx:number)=>{
-   setHand(h=>h.map((n,i)=>i===idx?draw():n));
+   const drawn=SCRIPT[deckPos%SCRIPT.length];
+   setDeckPos(p=>p+1);
+   setHand(h=>h.map((n,i)=>i===idx?drawn:n));
    setSelected(null);
  };
 
