@@ -1,5 +1,5 @@
 import {describe,it,expect} from 'vitest';
-import {createGame,moveCard,solutionFor,rulesFor,runCards,canMove,availableMoves,type Game,type Card} from './solitaire';
+import {createGame,moveCard,solutionFor,rulesFor,runCards,canMove,availableMoves,canPartition,canFinishRemaining,POOL,TOTAL_CARDS,type Game,type Card} from './solitaire';
 const c=(value:number,linked=false):Card=>({id:String(value),value,linked});
 const fixture=(piles:Card[][]):Game=>({piles,cells:[null,null],collected:[],moves:0,deal:0});
 describe('sequence rules',()=>{
@@ -9,12 +9,12 @@ describe('sequence rules',()=>{
 describe('single card solitaire',()=>{
  it.each([0,1,2])('finishes authored deal %i using only legal single-card moves',deal=>{
    let game=createGame(deal);
-   const all=game.piles.flat().map(c=>c.id).sort();expect(new Set(all).size).toBe(20);
+   const all=game.piles.flat().map(c=>c.id).sort();expect(new Set(all).size).toBe(40);
    for(const action of solutionFor(deal)){
      const before=structuredClone(game);const next=moveCard(game,action.from,action.to);expect(next,JSON.stringify(action)).not.toBeNull();expect(game).toEqual(before);game=next!;
      expect([...game.piles.flat(),...game.cells.filter((c):c is Card=>!!c),...game.collected.flatMap(r=>r.cards)].map(c=>c.id).sort()).toEqual(all);
    }
-   expect(game.collected).toHaveLength(4);expect(game.moves).toBe(22);expect(game.piles.flat()).toHaveLength(0);expect(game.cells).toEqual([null,null]);expect(availableMoves(game)).toEqual([]);
+   expect(game.collected).toHaveLength(8);expect(game.moves).toBe(42);expect(game.piles.flat()).toHaveLength(0);expect(game.cells).toEqual([null,null]);expect(availableMoves(game)).toEqual([]);
  });
  it('moves only the top card; removing it reveals the next one',()=>{
    const game=fixture([[c(1),c(3) ],[]]);const next=moveCard(game,{kind:'pile',index:0},{kind:'pile',index:1})!;
@@ -46,5 +46,21 @@ describe('single card solitaire',()=>{
    expect(runCards(parked.piles[0])).toHaveLength(2);expect(parked.cells[0]?.linked).toBe(false);
    const returned=moveCard(parked,{kind:'cell',index:0},{kind:'pile',index:0})!;
    expect(runCards(returned.piles[0])).toHaveLength(3);
+ });
+});
+
+describe('fixed pool and impossible leftovers',()=>{
+ it('uses identical 40-card inventory across all layouts, with 4 and 8 as shared cards',()=>{
+   const expected=POOL.flatMap(({value,count})=>Array(count).fill(value)).sort((a,b)=>a-b);
+   expect(expected).toHaveLength(TOTAL_CARDS);
+   for(const deal of [0,1,2])expect(createGame(deal).piles.flat().map(c=>c.value).sort((a,b)=>a-b)).toEqual(expected);
+   expect(POOL.filter(p=>p.count===4).map(p=>p.value)).toEqual([4,8]);
+ });
+ it('detects impossible leftovers despite legal card movements',()=>{
+   expect(canPartition([1,1,1,1,1])).toBe(false);
+   expect(canPartition([1,3,5,7,9,2,4,8,16,32])).toBe(true);
+   expect(canPartition([1,2,3,4])).toBe(false);
+   expect(canPartition([])).toBe(true);
+   expect(canFinishRemaining(createGame())).toBe(true);
  });
 });

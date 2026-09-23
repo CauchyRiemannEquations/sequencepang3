@@ -4,26 +4,32 @@ export type Rule = { kind: 'arithmetic' | 'geometric'; step: number };
 export type Collection = { cards: Card[]; rule: Rule };
 export type Game = { piles: Card[][]; cells: (Card | null)[]; collected: Collection[]; moves: number; deal: number };
 export const RUN_LENGTH = 5;
-export const TOTAL_RUNS = 4;
-const GROUPS = [[1,3,5,7,9], [2,5,8,11,14], [1,2,4,8,16], [3,6,12,24,48]];
+export const TOTAL_RUNS = 8;
+export const POOL_VERSION = 'pool16-v1';
+// Six arithmetic runs and two geometric runs form one witness partition.
+// These are not assigned targets: players can collect any valid five-card run.
+const GROUPS = [[11,12,13,14,15], [1,3,5,7,9], [2,3,4,5,6], [4,6,8,10,12], [12,13,14,15,16], [7,8,9,10,11], [1,2,4,8,16], [1,2,4,8,16]];
+export const POOL = Array.from({length:16},(_,i)=>({value:i+1,count:GROUPS.flat().filter(v=>v===i+1).length}));
+export const TOTAL_CARDS = GROUPS.flat().length;
 const ROUTES = [
   [1,0,2,3,0, 2,1,3,0,1, 0,3,1,2,2, 3,1,0,2,3],
   [0,2,1,3,2, 1,3,0,1,0, 3,2,0,1,3, 2,0,3,2,1],
   [3,1,0,2,1, 0,2,3,0,2, 1,3,2,0,1, 2,0,1,3,3],
-];
-// A reproducible deal, with a witness solution. The last two cards are parked
-// over the opening and must be freed before building their eventual sequences.
+].map(route=>[...route,...route]);
+const PARKED = [34,39];
+// Every layout uses the exact same multiset. Route + witness stay deterministic.
 export function createGame(deal = 0): Game {
+  const index=((Math.trunc(deal)%ROUTES.length)+ROUTES.length)%ROUTES.length;
   const piles: Card[][] = Array.from({length: 5}, () => []);
   const cards = GROUPS.flatMap((values,g) => values.map((value,i) => ({id: `${g}-${i}`, value, linked: false})));
-  const route = ROUTES[deal % ROUTES.length];
+  const route = ROUTES[index];
   for (let i = cards.length - 1; i >= 0; i--) {
-    if (i === 9 || i === 14) continue;
+    if (PARKED.includes(i)) continue;
     piles[route[i]].push(cards[i]);
   }
-  piles[route[0]].push(cards[9]);
-  piles[route[1]].push(cards[14]);
-  return {piles, cells:[null,null], collected:[], moves:0, deal: deal % ROUTES.length};
+  piles[route[0]].push(cards[PARKED[0]]);
+  piles[route[1]].push(cards[PARKED[1]]);
+  return {piles, cells:[null,null], collected:[], moves:0, deal:index};
 }
 export function topCard(game: Game, at: Location): Card | undefined {
   return at.kind === 'pile' ? game.piles[at.index]?.at(-1) : game.cells[at.index] ?? undefined;
@@ -84,6 +90,39 @@ export function solutionFor(deal: number): {from: Location; to: Location}[] {
     {from:{kind:'pile',index:route[0]},to:{kind:'cell',index:0}},
     {from:{kind:'pile',index:route[1]},to:{kind:'cell',index:1}},
   ];
-  for (let i=0;i<20;i++) moves.push({from:i===9?{kind:'cell',index:0}:i===14?{kind:'cell',index:1}:{kind:'pile',index:route[i]},to:{kind:'pile',index:4}});
+  for (let i=0;i<TOTAL_CARDS;i++) moves.push({from:PARKED.includes(i)?{kind:'cell',index:PARKED.indexOf(i)}:{kind:'pile',index:route[i]},to:{kind:'pile',index:4}});
   return moves;
+}
+
+// A mathematical dead end can exist even when single-card moves remain.
+// Exact cover ignores pile access; false proves impossibility, true is not a hint.
+export function canPartition(values: number[]): boolean {
+  if (values.length % RUN_LENGTH !== 0) return false;
+  if (!values.length) return true;
+  const distinct=[...new Set(values)].sort((a,b)=>a-b);
+  const patterns:number[][]=[];
+  for (const a of distinct) {
+    for (let d=1; a+4*d<=distinct.at(-1)!;d++) {
+      const run=Array.from({length:5},(_,i)=>a+i*d);
+      if(run.every(v=>distinct.includes(v)))patterns.push(run);
+    }
+    for(const r of [2,3]) {
+      const run=Array.from({length:5},(_,i)=>a*r**i);
+      if(run.every(v=>distinct.includes(v)))patterns.push(run);
+    }
+  }
+  const vectors=patterns.map(p=>distinct.map(v=>p.includes(v)?1:0));
+  const memo=new Map<string,boolean>();
+  function solve(counts:number[]):boolean {
+    if(counts.every(c=>c===0))return true;
+    const key=counts.join(',');const cached=memo.get(key);if(cached!==undefined)return cached;
+    const usable=vectors.filter(p=>p.every((n,i)=>n<=counts[i]));
+    const options=counts.flatMap((c,i)=>c?[usable.filter(p=>p[i]>0)]:[]).sort((a,b)=>a.length-b.length)[0];
+    const possible=options.some(p=>solve(counts.map((c,i)=>c-p[i])));
+    memo.set(key,possible);return possible;
+  }
+  return solve(distinct.map(v=>values.filter(n=>n===v).length));
+}
+export function canFinishRemaining(game:Game):boolean {
+  return canPartition([...game.piles.flat(),...game.cells.filter((c):c is Card=>!!c)].map(c=>c.value));
 }
