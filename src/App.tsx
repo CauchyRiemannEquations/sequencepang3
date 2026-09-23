@@ -64,13 +64,14 @@ export default function App() {
     const g=gesture.current;if(!g||g.pointerId!==e.pointerId)return;
     if(g.active){
       suppressClick.current=true;
+      setTimeout(()=>{suppressClick.current=false},0);
       const target=document.elementFromPoint(e.clientX,e.clientY)?.closest<HTMLElement>('[data-destination]');
       if(target)move(g.from,locate(target.dataset.destination!));
       else setNotice('이동을 취소했어요. 카드는 원래 자리에 있어요.');
     }
     gesture.current=null;setDrag(null);setHover(null);
   }
-  function cancelDrag(){if(gesture.current?.active)suppressClick.current=true;gesture.current=null;setDrag(null);setHover(null);}
+  function cancelDrag(){if(gesture.current?.active){suppressClick.current=true;setTimeout(()=>{suppressClick.current=false},0)}gesture.current=null;setDrag(null);setHover(null);}
   function click(at:Location){if(suppressClick.current){suppressClick.current=false;return;}choose(at);}
   function restart(deal=game.deal){setGame(createGame(deal));setHistory([]);setSelected(null);setReset(false);setBurst(false);cancelDrag();setNotice('맨 위 카드 한 장을 옮겨 수열을 만들어 보세요.');}
   function undo(){const previous=history.at(-1);if(!previous)return;setGame(previous);setHistory(h=>h.slice(0,-1));setSelected(null);setBurst(false);cancelDrag();setNotice('직전 이동을 되돌렸어요.');}
