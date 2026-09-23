@@ -8,5 +8,5 @@ const built=await build({entryPoints:[resolve(root,'src/tripeaks/main.tsx')],bun
 const js=built.outputFiles.find(f=>f.path.endsWith('.js')).text.replaceAll('</script','<\\/script');
 const font=(await readFile(resolve(root,'public/fonts/Jua-Regular.ttf'))).toString('base64');
 const css=built.outputFiles.find(f=>f.path.endsWith('.css')).text.replaceAll('/fonts/Jua-Regular.ttf',`data:font/ttf;base64,${font}`);
-const html=`<!doctype html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#082e27"><title>시퀀스팡3 · 트라이픽스 프로토타입</title><style>${css}</style></head><body><div id="root"></div><script>${js}</script></body></html>`;
+const html=`<!doctype html><html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#082e27"><title>시퀀스팡3 · 느긋한 숫자 카드</title><style>${css}</style></head><body><div id="root"></div><script>${js}</script></body></html>`;
 await mkdir(dirname(output),{recursive:true});await writeFile(output,html);console.log(output);

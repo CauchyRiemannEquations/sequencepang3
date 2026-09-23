@@ -1,40 +1,42 @@
 import {describe,it,expect} from 'vitest';
-import {buildBoard,newGame,reduceGame,canPick,isOpen,chainValues,remainingMs,VALUES,DURATION_MS,REFRESH_COST_MS,type Game} from './game';
-const start=()=>reduceGame(newGame(),{type:'start',now:1000});
-const pick=(g:Game,id:number)=>reduceGame(g,{type:'pick',id,now:2000});
-describe('tripeaks sequence prototype',()=>{
- it('exposes only the nine bottom cards at the start',()=>{const g=start();expect(g.cards.filter(c=>isOpen(g,c.id))).toHaveLength(9);expect(canPick(g,0)).toBe(false);expect(pick(g,0)).toBe(g)});
- it.each([0,1,2])('keeps the same inventory and a real clear path in layout %i',layout=>{
-  let g=reduceGame(newGame(layout),{type:'start',now:1000});
-  for(let round=1;round<=3;round++){
-   const b=buildBoard(round,layout);expect(b.cards.map(c=>c.value).sort((a,b)=>a-b)).toEqual([...VALUES].sort((a,b)=>a-b));
-   for(let i=0;i<18;i++){expect(canPick(g,b.solution[i])).toBe(true);g=pick(g,b.solution[i]);if(i%3===2)g=reduceGame(g,{type:'pang',now:2000});}
-   expect(g.score).toBe(round*18);expect(g.round).toBe(round+1);expect(g.removed).toEqual([]);
+import {newGame,reduceGame,findTriple,ensurePlayable,canPick,values,type Game} from './game';
+const start=(layout=0)=>reduceGame(newGame(layout),{type:'start'});
+function collect(g:Game){for(const id of findTriple(g.cards)!)g=reduceGame(g,{type:'pick',id});return reduceGame(g,{type:'pang'});}
+describe('untimed open nine-card game',()=>{
+ it('starts with all nine cards exposed and a playable triple',()=>{const g=start();expect(g.cards).toHaveLength(9);expect(new Set(g.cards.map(c=>c.id)).size).toBe(9);expect(findTriple(g.cards)).not.toBeNull();expect(g.phase).toBe('playing');expect('deadline' in g).toBe(false)});
+ it.each([0,1,2])('keeps layout %i solvable through 200 collections without raising difficulty',layout=>{
+  let g=start(layout);
+  for(let i=0;i<200;i++){
+   if(g.phase==='goal')g=reduceGame(g,{type:'continue'});
+   const old=structuredClone(g);g=collect(g);
+   expect(g.cards).toHaveLength(9);expect(new Set(g.cards.map(c=>c.id)).size).toBe(9);expect(g.cards.every(c=>c.value>=1&&c.value<=12)).toBe(true);expect(findTriple(g.cards)).not.toBeNull();expect(g.score).toBe((i+1)*3);expect(old.cards).toHaveLength(9);
   }
  });
- it('undo and cancel restore the covered-card dependency without awarding points',()=>{
-  let g=start();const ids=buildBoard(1,0).solution;
-  g=pick(pick(g,ids[0]),ids[1]);expect(g.score).toBe(0);expect(g.chain).toHaveLength(2);
-  g=reduceGame(g,{type:'undo',now:2001});expect(g.chain).toEqual([ids[0]]);expect(isOpen(g,ids[1])).toBe(true);
-  g=reduceGame(g,{type:'cancel',now:2002});expect(g.chain).toEqual([]);expect(g.score).toBe(0);expect(g.cards.filter(c=>isOpen(g,c.id))).toHaveLength(9);
+ it('repairs a completely impossible board by changing only three slots',()=>{
+  const cards=Array.from({length:9},(_,i)=>({id:i+1,value:5}));expect(findTriple(cards)).toBeNull();
+  const fixed=ensurePlayable(cards,7,10);expect(fixed.repaired).toBe(true);expect(findTriple(fixed.cards)).not.toBeNull();expect(fixed.cards.filter((c,i)=>c!==cards[i])).toHaveLength(3);expect(cards.every(c=>c.value===5)).toBe(true);
  });
- it('rejects a changed rule and only banks chains of at least three',()=>{
-  let g=start();const ids=buildBoard(1,0).solution;g=pick(pick(g,ids[0]),ids[1]);
-  expect(chainValues(g)).toEqual([2,5]);expect(reduceGame(g,{type:'pang',now:2000})).toBe(g);
-  const invalid=g.cards.find(c=>isOpen(g,c.id)&&c.value!==8)!;expect(pick(g,invalid.id)).toBe(g);
-  g=pick(g,ids[2]);const scored=reduceGame(g,{type:'pang',now:2000});expect(scored.score).toBe(3);expect(scored.removed).toEqual(ids.slice(0,3));expect(scored.chain).toEqual([]);
+ it('does not alter an already playable board',()=>{const g=start();const fixed=ensurePlayable(g.cards,g.seed,g.nextId);expect(fixed.cards).toBe(g.cards);expect(fixed.repaired).toBe(false)});
+ it('keeps selected cards on the board and restores selection freely',()=>{
+  let g=start();const ids=findTriple(g.cards)!;const cards=g.cards;
+  for(const id of ids)g=reduceGame(g,{type:'pick',id});expect(g.cards).toBe(cards);expect(values(g)).toHaveLength(3);
+  g=reduceGame(g,{type:'undo'});expect(g.selected).toHaveLength(2);g=reduceGame(g,{type:'pick',id:ids[0]});expect(g.selected).toEqual([]);expect(g.score).toBe(0);
  });
- it('counts a valid pending sequence at timeout once, but not a pair',()=>{
-  let g=start();const ids=buildBoard(1,0).solution;
-  for(const id of ids.slice(0,3))g=pick(g,id);
-  const over=reduceGame(g,{type:'tick',now:61000});expect(over.phase).toBe('over');expect(over.score).toBe(3);expect(over.chain).toEqual([]);expect(reduceGame(over,{type:'pang',now:62000})).toBe(over);
-  const pair=pick(pick(start(),ids[0]),ids[1]);expect(reduceGame(pair,{type:'tick',now:61000}).score).toBe(0);
+ it('rejects mismatched cards and prevents scoring pairs or duplicate identities',()=>{
+  let g=start();const ids=findTriple(g.cards)!;
+  for(const id of ids.slice(0,2))g=reduceGame(g,{type:'pick',id});expect(reduceGame(g,{type:'pang'})).toBe(g);
+  const invalid=g.cards.find(c=>!g.selected.includes(c.id)&&!canPick(g,c.id));if(invalid)expect(reduceGame(g,{type:'pick',id:invalid.id})).toBe(g);
+  expect(canPick(g,ids[0])).toBe(false);
  });
- it('settles timeout before late taps can add cards',()=>{const g=start(),id=buildBoard(1,0).solution[0];const next=reduceGame(g,{type:'pick',id,now:61000});expect(next.phase).toBe('over');expect(next.score).toBe(0);expect(next.chain).toEqual([])});
- it('refresh costs three seconds, banks valid pending cards, and does not extend time',()=>{
-  let g=start();for(const id of buildBoard(1,0).solution.slice(0,3))g=pick(g,id);
-  const n=reduceGame(g,{type:'refresh',now:2000});expect(n.deadline).toBe(g.deadline-REFRESH_COST_MS);expect(n.score).toBe(3);expect(n.round).toBe(2);expect(n.chain).toEqual([]);
-  expect(reduceGame(start(),{type:'refresh',now:60000}).phase).toBe('over');
+ it('reaches a positive goal without failure and continues with the same board and score',()=>{
+  let g=start();for(let i=0;i<10;i++)g=collect(g);expect(g.score).toBe(30);expect(g.phase).toBe('goal');
+  const next=reduceGame(g,{type:'continue'});expect(next.phase).toBe('playing');expect(next.goal).toBe(60);expect(next.score).toBe(30);expect(next.cards).toBe(g.cards);
  });
- it('uses real elapsed time, including time between ticks, and preserves immutable states',()=>{const g=start(),copy=structuredClone(g);expect(remainingMs(g,31000)).toBe(DURATION_MS-30000);pick(g,buildBoard(1,0).solution[0]);expect(g).toEqual(copy)});
+ it('replenishes only collected slots when a repair is unnecessary',()=>{
+  let g=start();const ids=findTriple(g.cards)!;const before=g.cards;
+  for(const id of ids)g=reduceGame(g,{type:'pick',id});const next=reduceGame(g,{type:'pang'});
+  expect(next.selected).toEqual([]);expect(next.score).toBe(3);
+  if(!next.repaired)before.forEach((c,i)=>{if(!ids.includes(c.id))expect(next.cards[i]).toBe(c)});
+ });
+ it('replays a seed deterministically and does not mutate source state',()=>{const a=start(),b=start();expect(a).toEqual(b);const copy=structuredClone(a);collect(a);expect(a).toEqual(copy)});
 });
