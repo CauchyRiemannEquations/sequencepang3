@@ -1,0 +1,304 @@
+{
+  "checks": [
+    "Both exact PNG logos load and are included in active PWA precache",
+    "320/390/430px: complete mascot/home wordmark; complete game wordmark; no horizontal overflow or header-control collision",
+    "Installation guide, animated help, offline logos, offline stage clear, clear mascot and persisted progress remain functional"
+  ],
+  "screens": [
+    {
+      "size": {
+        "width": 320,
+        "height": 568
+      },
+      "home": {
+        "source": "/coconut/logos/home-logo.png",
+        "naturalWidth": 1536,
+        "naturalHeight": 1024,
+        "rect": {
+          "x": 6,
+          "y": 17,
+          "width": 308,
+          "height": 205.328125,
+          "top": 17,
+          "right": 314,
+          "bottom": 222.328125,
+          "left": 6
+        },
+        "parent": {
+          "x": 6,
+          "y": 17,
+          "width": 308,
+          "height": 205.328125,
+          "top": 17,
+          "right": 314,
+          "bottom": 222.328125,
+          "left": 6
+        },
+        "width": 320,
+        "scrollWidth": 320
+      },
+      "game": {
+        "box": {
+          "x": 90,
+          "y": 10,
+          "width": 140,
+          "height": 51.03125,
+          "top": 10,
+          "right": 230,
+          "bottom": 61.03125,
+          "left": 90
+        },
+        "image": {
+          "x": 90,
+          "y": -14.046875,
+          "width": 140,
+          "height": 93.328125,
+          "top": -14.046875,
+          "right": 230,
+          "bottom": 79.28125,
+          "left": 90
+        },
+        "header": {
+          "x": 8,
+          "y": 10,
+          "width": 304,
+          "height": 51.03125,
+          "top": 10,
+          "right": 312,
+          "bottom": 61.03125,
+          "left": 8
+        },
+        "buttons": [
+          {
+            "x": 8,
+            "y": 13.515625,
+            "width": 44,
+            "height": 44,
+            "top": 13.515625,
+            "right": 52,
+            "bottom": 57.515625,
+            "left": 8
+          },
+          {
+            "x": 268,
+            "y": 13.515625,
+            "width": 44,
+            "height": 44,
+            "top": 13.515625,
+            "right": 312,
+            "bottom": 57.515625,
+            "left": 268
+          }
+        ],
+        "art": {
+          "left": 94.1015625,
+          "right": 226.08072916666666,
+          "top": 12.75,
+          "bottom": 58.86979166666666
+        },
+        "width": 320,
+        "scrollWidth": 320
+      }
+    },
+    {
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "home": {
+        "source": "/coconut/logos/home-logo.png",
+        "naturalWidth": 1536,
+        "naturalHeight": 1024,
+        "rect": {
+          "x": 16,
+          "y": 71.671875,
+          "width": 358,
+          "height": 238.65625,
+          "top": 71.671875,
+          "right": 374,
+          "bottom": 310.328125,
+          "left": 16
+        },
+        "parent": {
+          "x": 16,
+          "y": 71.671875,
+          "width": 358,
+          "height": 238.65625,
+          "top": 71.671875,
+          "right": 374,
+          "bottom": 310.328125,
+          "left": 16
+        },
+        "width": 390,
+        "scrollWidth": 390
+      },
+      "game": {
+        "box": {
+          "x": 117,
+          "y": 66.515625,
+          "width": 156,
+          "height": 56.875,
+          "top": 66.515625,
+          "right": 273,
+          "bottom": 123.390625,
+          "left": 117
+        },
+        "image": {
+          "x": 117,
+          "y": 39.703125,
+          "width": 156,
+          "height": 104,
+          "top": 39.703125,
+          "right": 273,
+          "bottom": 143.703125,
+          "left": 117
+        },
+        "header": {
+          "x": 16,
+          "y": 66.515625,
+          "width": 358,
+          "height": 56.875,
+          "top": 66.515625,
+          "right": 374,
+          "bottom": 123.390625,
+          "left": 16
+        },
+        "buttons": [
+          {
+            "x": 16,
+            "y": 72.953125,
+            "width": 44,
+            "height": 44,
+            "top": 72.953125,
+            "right": 60,
+            "bottom": 116.953125,
+            "left": 16
+          },
+          {
+            "x": 330,
+            "y": 72.953125,
+            "width": 44,
+            "height": 44,
+            "top": 72.953125,
+            "right": 374,
+            "bottom": 116.953125,
+            "left": 330
+          }
+        ],
+        "art": {
+          "left": 121.5703125,
+          "right": 268.6328125,
+          "top": 69.5625,
+          "bottom": 120.953125
+        },
+        "width": 390,
+        "scrollWidth": 390
+      }
+    },
+    {
+      "size": {
+        "width": 430,
+        "height": 932
+      },
+      "home": {
+        "source": "/coconut/logos/home-logo.png",
+        "naturalWidth": 1536,
+        "naturalHeight": 1024,
+        "rect": {
+          "x": 16,
+          "y": 102.328125,
+          "width": 398,
+          "height": 265.328125,
+          "top": 102.328125,
+          "right": 414,
+          "bottom": 367.65625,
+          "left": 16
+        },
+        "parent": {
+          "x": 16,
+          "y": 102.328125,
+          "width": 398,
+          "height": 265.328125,
+          "top": 102.328125,
+          "right": 414,
+          "bottom": 367.65625,
+          "left": 16
+        },
+        "width": 430,
+        "scrollWidth": 430
+      },
+      "game": {
+        "box": {
+          "x": 132,
+          "y": 108.6875,
+          "width": 166,
+          "height": 60.515625,
+          "top": 108.6875,
+          "right": 298,
+          "bottom": 169.203125,
+          "left": 132
+        },
+        "image": {
+          "x": 132,
+          "y": 80.171875,
+          "width": 166,
+          "height": 110.65625,
+          "top": 80.171875,
+          "right": 298,
+          "bottom": 190.828125,
+          "left": 132
+        },
+        "header": {
+          "x": 16,
+          "y": 108.6875,
+          "width": 398,
+          "height": 60.515625,
+          "top": 108.6875,
+          "right": 414,
+          "bottom": 169.203125,
+          "left": 16
+        },
+        "buttons": [
+          {
+            "x": 16,
+            "y": 116.9375,
+            "width": 44,
+            "height": 44,
+            "top": 116.9375,
+            "right": 60,
+            "bottom": 160.9375,
+            "left": 16
+          },
+          {
+            "x": 370,
+            "y": 116.9375,
+            "width": 44,
+            "height": 44,
+            "top": 116.9375,
+            "right": 414,
+            "bottom": 160.9375,
+            "left": 370
+          }
+        ],
+        "art": {
+          "left": 136.86328125,
+          "right": 293.35286458333337,
+          "top": 111.9453125,
+          "bottom": 166.63020833333334
+        },
+        "width": 430,
+        "scrollWidth": 430
+      }
+    }
+  ],
+  "consoleErrors": [],
+  "failedResources": [],
+  "baseCommit": "fde49f37a2badcade03fda2aa120b7ea1380846c",
+  "assets": {
+    "home": "1562.png → public/coconut/logos/home-logo.png",
+    "game": "1563.png → public/coconut/logos/game-logo.png"
+  },
+  "originalPixels": "Both supplied RGBA PNG files copied byte-for-byte without editing",
+  "tests": 76,
+  "build": "passed"
+}
