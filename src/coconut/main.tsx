@@ -1,6 +1,6 @@
 import React,{useState,useEffect,useRef} from 'react';
 import {createRoot} from 'react-dom/client';
-import {ArrowLeft,RotateCcw,Undo2,Play,HelpCircle,Check,Grid2X2,Lock,Download,Settings} from 'lucide-react';
+import {ArrowLeft,RotateCcw,Undo2,Play,HelpCircle,Check,Grid2X2,Download,Settings} from 'lucide-react';
 import {WIDTH,HEIGHT,blockedReason,classify,hasMove} from './engine';
 import {STAGES,boardBounds} from './stages';
 import {PROGRESS_KEY,readProgress,nextStage,completeStage,type Progress} from './progress';
@@ -9,9 +9,11 @@ import {usePwaInstall} from './usePwaInstall';
 import {InstallGuide} from './InstallGuide';
 import {AudioSettings} from './AudioSettings';
 import {GameAudio} from './audio';
+import {StageSelect} from './StageSelect';
 import './style.css';
 import './journey.css';
 import './logos.css';
+import './stage-select.css';
 
 type Screen='main'|'stages'|'game'|'clear';
 function loadProgress(){
@@ -27,6 +29,7 @@ function App(){
  async function installApp(){if(!await pwa.install())setInstallGuide(true);}
  const [progress,setProgress]=useState<Progress>(loadProgress);
  const [stageIndex,setStageIndex]=useState(0);
+ const [stageSelectionId,setStageSelectionId]=useState(1);
  const stage=STAGES[stageIndex],tiles=stage.tiles,bounds=boardBounds(tiles);
  const [remaining,setRemaining]=useState(tiles.map(t=>t.id)),[selected,setSelected]=useState<string[]>([]),[history,setHistory]=useState<string[][]>([]);
  const [phase,setPhase]=useState<'idle'|'valid'|'invalid'>('idle'),[notice,setNotice]=useState(stage.lesson),[fresh,setFresh]=useState<string[]>([]);
@@ -47,7 +50,10 @@ function App(){
   cancel();audio.setScene('play');const target=STAGES[index];setStageIndex(index);setRemaining(target.tiles.map(t=>t.id));
   setSelected([]);setHistory([]);setFresh([]);setPhase('idle');setNotice(target.lesson);setScreen('game');
  }
- function navigate(target:Screen){cancel();audio.setScene(target==='game'?'play':'menu');setPhase('idle');setSelected([]);setHelp(false);setScreen(target);}
+ function navigate(target:Screen){
+  if(target==='stages')setStageSelectionId(screen==='game'||screen==='clear'?stage.id:nextId);
+  cancel();audio.setScene(target==='game'?'play':'menu');setPhase('idle');setSelected([]);setHelp(false);setScreen(target);
+ }
  function tap(id:string){
   if(phase!=='idle'||!remaining.includes(id))return;
   const tile=tiles.find(t=>t.id===id);if(!tile)return;
@@ -87,21 +93,7 @@ function App(){
    <button className="help-button stage-select" onClick={()=>navigate('stages')}><Grid2X2 size={21}/> 스테이지 선택</button>
    <div className="home-links"><button className="text-button" onClick={()=>setHelp(true)}><span aria-hidden="true">?</span> 플레이 방법</button><a className="text-button contact-button" href="mailto:cremationmath@gmail.com" aria-label="문의하기"><span aria-hidden="true">✉</span> 문의하기</a>{settingsButton}</div>{!pwa.installed&&<button className="install-button" disabled={pwa.busy} onClick={installApp}><Download size={15}/> 홈 화면에 설치</button>}<p className="quiet">시간제한 없이, 나만의 속도로</p>
   </section>}
-  {screen==='stages'&&<section className="stages-content">
-   <header className="game-header"><button className="round" aria-label="메인으로" onClick={()=>navigate('main')}><ArrowLeft/></button><h1>코코넛 섬</h1><span className="stage-total">{progress.cleared.length}/{STAGES.length}</span></header>
-   <p className="stages-intro">한 단계씩, 새로운 길을 열어요</p>
-   {[0,10,20].map(offset=><section className="chapter" key={offset} aria-label={`${offset+1}~${offset+10}단계 ${['첫 만남','선택과 해방','같은 숫자, 다른 위치'][offset/10]}`}>
-    <h2>{['첫 만남','선택과 해방','같은 숫자, 다른 위치'][offset/10]}<small>{offset+1}–{offset+10}</small></h2>
-    <div className="stage-grid">{STAGES.slice(offset,offset+10).map(item=>{
-     const cleared=progress.cleared.includes(item.id),unlocked=item.id<=nextId||cleared;
-     return <button key={item.id} data-stage={item.id} className={`stage-card ${cleared?'completed':''} ${item.id===nextId&&!allCleared?'current':''}`} disabled={!unlocked} aria-label={`${item.id}단계 ${item.name}${cleared?', 클리어':!unlocked?', 잠김':''}`} onClick={()=>start(item.id-1)}>
-      <strong>{String(item.id).padStart(2,'0')}</strong><span>{item.name}</span><small>{cleared?<><Check size={14}/> 클리어</>:unlocked?`${item.tiles.length}패`: <><Lock size={13}/> 잠김</>}</small>
-     </button>;
-    })}</div>
-   </section>)}
-   <div className="game-bottom-links">{settingsButton}</div>
-   {allCleared&&<p className="journey-complete">{STAGES.length}단계 여정 완료! 원하는 섬에 다시 도전해 보세요.</p>}
-  </section>}
+  {screen==='stages'&&<StageSelect progress={progress} nextId={nextId} initialStageId={stageSelectionId} allCleared={allCleared} onStart={id=>start(id-1)} onBack={()=>navigate('main')} footer={settingsButton}/>}
   {screen==='game'&&<section className="game-content">
    <header className="game-header"><button className="round" aria-label="스테이지 선택으로" onClick={()=>navigate('stages')}><ArrowLeft/></button><h1 className="game-brand" aria-label="시퀀스팡3"><img src="/coconut/logos/game-logo.png" alt="" width="1536" height="1024"/></h1><button className="round" aria-label="게임 방법" onClick={()=>setHelp(true)}><HelpCircle/></button></header>
    <div className="stats"><div><span>STAGE</span><strong data-testid="stage">{stageLabel}</strong></div><img className="mascot tiny" src="/coconut/mascot.webp" alt=""/><div><span>남은 패</span><strong data-testid="remaining">{remaining.length}<small> / {tiles.length}</small></strong></div></div>
