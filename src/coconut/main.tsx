@@ -61,7 +61,7 @@ function App(){
  return <main className={`app ${screen}`}>
   <div className="ambient" aria-hidden="true"/>
   {screen==='main'&&<section className="home-content">
-   <span className="edition">COCONUT ISLAND</span><img className="mascot home-mascot" src="/coconut/mascot.webp" alt="잎을 단 반쪽 코코넛"/>
+   <img className="mascot home-mascot" src="/coconut/mascot.webp" alt="잎을 단 반쪽 코코넛"/>
    <h1 className="logo" aria-label="시퀀스팡3"><span>시</span><span>퀀</span><span>스</span><span>팡</span><b>3</b></h1>
    <p className="tagline">차곡차곡, 수열을 찾아요</p><div className="showcase" aria-hidden="true"><i>1</i><i>3</i><i>5</i></div>
    <p className="home-progress"><Check size={17}/> 클리어 {progress.cleared.length} / {STAGES.length}</p>
