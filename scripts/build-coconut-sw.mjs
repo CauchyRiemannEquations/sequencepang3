@@ -16,9 +16,16 @@ const paths=['index.html','coconut/index.html','manifest.webmanifest','fonts/Jua
 const hash=createHash('sha256');
 for(const file of paths){hash.update(file);hash.update(await readFile(path.join(dist,file)));}
 const version=hash.digest('hex').slice(0,16);
+// Music is optional: cache only requested audio, independently from the app shell.
+const audioPaths=(await files('audio')).filter(file=>/\.(ogg|wav)$/.test(file)).sort();
+const audioHash=createHash('sha256');
+for(const file of audioPaths){audioHash.update(file);audioHash.update(await readFile(path.join(dist,file)));}
+const audioVersion=audioHash.digest('hex').slice(0,16);
 const urls=paths.map(file=>`/${file}`);
 const source=`// Generated from the production build. Do not edit dist manually.
 const CACHE='sequencepang3-coconut-${version}';
+const AUDIO_CACHE='sequencepang3-audio-${audioVersion}';
+const AUDIO_ASSETS=new Set(${JSON.stringify(audioPaths.map(file=>`/${file}`))});
 const PRECACHE=${JSON.stringify(urls)};
 const ASSETS=new Set(PRECACHE);
 const HOME='/index.html';
@@ -28,7 +35,7 @@ self.addEventListener('install',event=>{
 });
 self.addEventListener('activate',event=>{
  event.waitUntil((async()=>{
-  for(const name of await caches.keys())if(name.startsWith('sequencepang3-coconut-')&&name!==CACHE)await caches.delete(name);
+  for(const name of await caches.keys())if((name.startsWith('sequencepang3-coconut-')&&name!==CACHE)||(name.startsWith('sequencepang3-audio-')&&name!==AUDIO_CACHE))await caches.delete(name);
   await self.clients.claim();
  })());
 });
@@ -43,6 +50,15 @@ self.addEventListener('fetch',event=>{
    try{const response=await fetch(request);if(response.ok)return response;}catch{}
    // Keep the offline HTML paired with this worker's complete asset revision.
    return (await caches.open(CACHE)).match(HOME);
+  })());return;
+ }
+ if(AUDIO_ASSETS.has(url.pathname)){
+  event.respondWith((async()=>{
+   let cache;
+   try{cache=await caches.open(AUDIO_CACHE);const cached=await cache.match(url.pathname);if(cached)return cached;}catch{}
+   const response=await fetch(request);
+   if(response.ok&&response.status===200&&cache){try{await cache.put(url.pathname,response.clone());}catch{/* Quota limits never interrupt playback. */}}
+   return response;
   })());return;
  }
  if(ASSETS.has(url.pathname))event.respondWith((async()=>{

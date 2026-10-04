@@ -1,0 +1,9 @@
+{
+  "file": "public/audio/music/02_tidal_patterns_play.wav",
+  "source": "Original 44.1 kHz stereo WAV from coconut-audio-v1",
+  "encoding": "28 kHz 16-bit stereo PCM",
+  "frames": 2560000,
+  "duration_seconds": 91.42857142857143,
+  "sha256": "ff2e3e35165455f72a4a9d9160024f56effe5132f1441f4b63e27510bf10d10d",
+  "reason": "Keep older-browser WAV fallback under repository connector upload-body limit; original preferred Ogg is unchanged"
+}

@@ -1,0 +1,19 @@
+SequencePang3 Coconut Island audio pack v1
+Created 2026-10-04.
+
+All musical scores in this pack were newly composed for the coconut 30-stage
+untimed sequence-mahjong game. All sounds were synthesized deterministically
+from mathematical waveforms and seeded noise. No sampled recordings, soundfont,
+external song, commercial music-generation service or third-party stem was used.
+Synthesis and numerical QA utilities are adapted from the earlier original
+SequencePang2 pack made for this user; its compositions and recordings were not
+reused. New tine-like, felt-key and coconut-tone voices were added here.
+
+Instrument names describe synthesized timbres, not performers or real recordings.
+The pack includes code and score data for editing and recreation. No assertion
+of unique legal copyrightability, guaranteed non-similarity to every existing
+song, or human-listening/mastering approval is made.
+
+Technical checks are scoped to files and their numerical signals. The transition
+demo is assembled offline, not recorded from an integrated game.
+The repository and live deployment were not modified by this asset task.
