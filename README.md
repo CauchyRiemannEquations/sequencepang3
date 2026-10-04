@@ -14,6 +14,8 @@
 - [100단계 로드맵 및 30단계 구성](docs/COCONUT-ROADMAP.md)
 - 홈 화면 설치(PWA), 코코넛 앱 아이콘과 오프라인 플레이를 지원합니다.
 - [아이콘·설치·오프라인 구성](docs/COCONUT-PWA.md)
+- 설정에서 켤 수 있는 원본 배경음악과 패·수열·완료 효과음을 제공합니다. 일반 버튼은 무음입니다
+- [오디오 연결·설정·오프라인 동작](docs/COCONUT-AUDIO.md)
 - [초기 코코넛 시안 기록](docs/COCONUT-PROTOTYPE.md)
 
 ## 실행과 배포
