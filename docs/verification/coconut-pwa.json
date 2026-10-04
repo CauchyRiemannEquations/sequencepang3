@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-04",
+  "browser": "Chromium 153",
+  "build": true,
+  "rulesTests": 72,
+  "installabilityErrors": [],
+  "manifest": {
+    "id": "/",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone"
+  },
+  "icons": [
+    {
+      "src": "/coconut/icons/icon-192.png",
+      "dimensions": [
+        192,
+        192
+      ],
+      "purpose": "any"
+    },
+    {
+      "src": "/coconut/icons/icon-512.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "purpose": "any"
+    },
+    {
+      "src": "/coconut/icons/icon-maskable-512.png",
+      "dimensions": [
+        512,
+        512
+      ],
+      "purpose": "maskable"
+    }
+  ],
+  "precacheFiles": [
+    "/assets/main-CYManOat.js",
+    "/assets/main-D-Kmp6Vv.css",
+    "/coconut/icons/apple-touch-icon.png",
+    "/coconut/icons/favicon-32.png",
+    "/coconut/icons/icon-192.png",
+    "/coconut/icons/icon-512.png",
+    "/coconut/icons/icon-maskable-512.png",
+    "/coconut/index.html",
+    "/coconut/mascot.webp",
+    "/fonts/Jua-Regular.ttf",
+    "/index.html",
+    "/manifest.webmanifest"
+  ],
+  "checks": [
+    "service worker active at canonical root",
+    "icons decode at declared sizes",
+    "deferred prompt invoked once (simulation)",
+    "fallback installation guide",
+    "appinstalled hides button (simulation)",
+    "offline old URL redirects to root preserving query",
+    "local font and mascot offline",
+    "animated help offline",
+    "stage30 actual taps offline",
+    "progress persists offline reload",
+    "new worker waits without game reload",
+    "cache revision activates after closing previous client",
+    "latest root migration and eyebrow removal preserved",
+    "unrelated cache retained",
+    "progress survives worker update",
+    "320px layout"
+  ],
+  "limitations": [
+    "Native Android/iOS home-screen installation not exercised on a physical device"
+  ],
+  "pageErrors": []
+}

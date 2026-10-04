@@ -1,18 +1,36 @@
 {
+  "id": "/",
   "name": "시퀀스팡3 · 코코넛 수열 마작",
   "short_name": "시퀀스팡3",
+  "description": "열린 패 세 개로 등차·등비수열을 완성하는 코코넛 퍼즐 30단계",
+  "lang": "ko",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#074b43",
   "theme_color": "#074b43",
+  "categories": [
+    "games",
+    "education"
+  ],
   "icons": [
     {
-      "src": "/coconut-icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
+      "src": "/coconut/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "/coconut/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/coconut/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
-  ],
-  "description": "시간제한 없이 즐기는 코코넛 수열 마작 30단계",
-  "scope": "/"
+  ]
 }

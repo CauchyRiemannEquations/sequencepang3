@@ -9,7 +9,7 @@ describe('canonical coconut entry',()=>{
   const html=read('index.html');
   expect(html).toContain('src="/src/coconut/main.tsx"');
   expect(html).toContain('시퀀스팡3 · 코코넛 수열 마작');
-  expect(html).toContain('href="/coconut-icon.svg"');
+  expect(html).toContain('href="/coconut/icons/favicon-32.png"');
   expect(html).toContain('href="/manifest.webmanifest"');
   expect(html).not.toMatch(/Sequence Solitaire|용과|src="\/src\/main.tsx"/);
  });
@@ -30,7 +30,7 @@ describe('canonical coconut entry',()=>{
   expect(manifest.name).toContain('코코넛');
   expect(manifest.start_url).toBe('/');
   expect(manifest.scope).toBe('/');
-  expect(manifest.icons[0].src).toBe('/coconut-icon.svg');
+  expect(manifest.icons[0].src).toBe('/coconut/icons/icon-192.png');
   expect(existsSync(new URL('../public'+manifest.icons[0].src,import.meta.url))).toBe(true);
   expect(PROGRESS_KEY).toBe('sequencepang3-coconut-progress-v1');
  });

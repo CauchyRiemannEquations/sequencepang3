@@ -12,6 +12,8 @@
 - 움직이는 플레이 예시와 `cremationmath@gmail.com` 문의 버튼을 제공합니다.
 - 스테이지 선택, 다음 단계 이동, 브라우저별 클리어 기록을 제공합니다.
 - [100단계 로드맵 및 30단계 구성](docs/COCONUT-ROADMAP.md)
+- 홈 화면 설치(PWA), 코코넛 앱 아이콘과 오프라인 플레이를 지원합니다.
+- [아이콘·설치·오프라인 구성](docs/COCONUT-PWA.md)
 - [초기 코코넛 시안 기록](docs/COCONUT-PROTOTYPE.md)
 
 ## 실행과 배포

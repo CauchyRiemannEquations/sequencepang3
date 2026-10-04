@@ -10,3 +10,4 @@
 .home-links .text-button>span{flex:none;font-size:13px;width:20px;height:20px}
 .home-links .contact-button{color:#b9d1b0}
 @media(max-width:359px){.home-links{gap:3px}.home-links .text-button{font-size:13px;padding-inline:7px}}
+.install-button{display:inline-flex;align-items:center;justify-content:center;gap:6px;margin:3px 0 0;padding:8px 12px;min-height:40px;background:#073f3633;border:1px solid #8ba98266;border-radius:12px;color:#b9d1b0;font-size:12px}.install-button:disabled{opacity:.5}.install-button:focus-visible{outline:2px solid #b9d1b0;outline-offset:3px}.install-guide p{font-size:14px;line-height:1.6}.install-guide .demo-tip{font-size:12px}.install-symbol{margin:10px auto 15px;color:#4c795f}.install-steps{padding:13px 10px;margin:12px 0;border-radius:14px;background:#e3e7d8;text-align:left}.install-steps strong{font-size:14px}.install-steps p{margin:7px 0 0;color:#58745c}.install-guide .demo-done{margin-top:4px}

@@ -1,10 +1,12 @@
 import React,{useState,useEffect,useRef} from 'react';
 import {createRoot} from 'react-dom/client';
-import {ArrowLeft,RotateCcw,Undo2,Play,HelpCircle,Check,Grid2X2,Lock} from 'lucide-react';
+import {ArrowLeft,RotateCcw,Undo2,Play,HelpCircle,Check,Grid2X2,Lock,Download} from 'lucide-react';
 import {WIDTH,HEIGHT,blockedReason,classify,hasMove} from './engine';
 import {STAGES,boardBounds} from './stages';
 import {PROGRESS_KEY,readProgress,nextStage,completeStage,type Progress} from './progress';
 import {HelpDialog} from './HelpDialog';
+import {usePwaInstall} from './usePwaInstall';
+import {InstallGuide} from './InstallGuide';
 import './style.css';
 import './journey.css';
 
@@ -15,6 +17,9 @@ function loadProgress(){
 }
 function App(){
  const [screen,setScreen]=useState<Screen>('main'),[help,setHelp]=useState(false);
+ const pwa=usePwaInstall();
+ const [installGuide,setInstallGuide]=useState(false);
+ async function installApp(){if(!await pwa.install())setInstallGuide(true);}
  const [progress,setProgress]=useState<Progress>(loadProgress);
  const [stageIndex,setStageIndex]=useState(0);
  const stage=STAGES[stageIndex],tiles=stage.tiles,bounds=boardBounds(tiles);
@@ -67,7 +72,7 @@ function App(){
    <p className="home-progress"><Check size={17}/> 클리어 {progress.cleared.length} / {STAGES.length}</p>
    <button className="primary start" onClick={()=>start(nextId-1)}>{allCleared?'다시 도전':`${nextId}단계 시작`} <Play fill="currentColor" size={24}/></button>
    <button className="help-button stage-select" onClick={()=>navigate('stages')}><Grid2X2 size={21}/> 스테이지 선택</button>
-   <div className="home-links"><button className="text-button" onClick={()=>setHelp(true)}><span aria-hidden="true">?</span> 플레이 방법</button><a className="text-button contact-button" href="mailto:cremationmath@gmail.com" aria-label="문의하기"><span aria-hidden="true">✉</span> 문의하기</a></div><p className="quiet">시간제한 없이, 나만의 속도로</p>
+   <div className="home-links"><button className="text-button" onClick={()=>setHelp(true)}><span aria-hidden="true">?</span> 플레이 방법</button><a className="text-button contact-button" href="mailto:cremationmath@gmail.com" aria-label="문의하기"><span aria-hidden="true">✉</span> 문의하기</a></div>{!pwa.installed&&<button className="install-button" disabled={pwa.busy} onClick={installApp}><Download size={15}/> 홈 화면에 설치</button>}<p className="quiet">시간제한 없이, 나만의 속도로</p>
   </section>}
   {screen==='stages'&&<section className="stages-content">
    <header className="game-header"><button className="round" aria-label="메인으로" onClick={()=>navigate('main')}><ArrowLeft/></button><h1>코코넛 섬</h1><span className="stage-total">{progress.cleared.length}/{STAGES.length}</span></header>
@@ -107,6 +112,7 @@ function App(){
    {stageIndex<STAGES.length-1?<button className="primary" onClick={()=>start(stageIndex+1)}>다음 단계 <Play fill="currentColor" size={21}/></button>:<><p className="journey-note">준비된 {STAGES.length}단계를 모두 클리어했어요!</p><button className="primary" onClick={()=>navigate('stages')}>스테이지 선택</button></>}
    <button className="help-button" onClick={()=>start(stageIndex)}><RotateCcw size={19}/> 다시 플레이</button><button className="exit" onClick={()=>navigate('main')}>메인으로</button>
   </section>}
+  {installGuide&&<InstallGuide onClose={()=>setInstallGuide(false)}/>}
   {help&&<HelpDialog onClose={()=>setHelp(false)}/>}
  </main>;
 }
