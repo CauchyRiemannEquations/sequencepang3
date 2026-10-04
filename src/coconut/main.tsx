@@ -16,7 +16,7 @@ function App(){
  function tap(id:string){
   if(phase!=='idle')return;
   const tile=TILES.find(t=>t.id===id)!;const reason=blockedReason(tile,remaining);
-  if(reason){message(reason==='above'?'위에 겹친 패를 먼저 없애 주세요':'왼쪽이나 오른쪽 이웃 패를 먼저 없애 주세요');return;}
+  if(reason){message('위에 겹친 패를 먼저 없애 주세요');return;}
   if(selected.includes(id)){setSelected(selected.filter(s=>s!==id));message('선택을 취소했어요');return;}
   const next=[...selected,id];setSelected(next);
   if(next.length<3){message(`${next.length}개 선택 · 패를 다시 누르면 취소`);return;}
@@ -57,7 +57,7 @@ function App(){
    <button className="exit" onClick={exit}>메인으로 나가기</button>
   </section>}
   {screen==='clear'&&<section className="clear-content"><div className="sparkles" aria-hidden="true">✦　✧　✦</div><img className="mascot clear-mascot" src="/coconut/mascot.webp" alt="기뻐하는 코코넛"/><p className="edition">STAGE 01</p><h1>클리어!</h1><p>24개의 패를 모두 찾았어요</p><div className="clear-badge"><Check size={22}/> 수열 8개 완성</div><button className="primary" onClick={restart}><RotateCcw size={21}/>다시 플레이</button><button className="help-button" onClick={exit}>메인으로</button></section>}
-  {help&&<div className="modal-backdrop" onClick={()=>setHelp(false)}><section className="rules" role="dialog" aria-modal="true" aria-labelledby="rules-title" onClick={e=>e.stopPropagation()}><button className="close" aria-label="게임 방법 닫기" onClick={()=>setHelp(false)}><X/></button><Leaf className="rules-leaf"/><h2 id="rules-title">세 개를 골라, 수열 완성</h2><p>위가 비어 있고, 왼쪽이나 오른쪽이 열린 패를 탭하세요.</p><div className="example"><b>1 · 3 · 5</b><span>같은 차이 +2 · 등차수열</span></div><div className="example"><b>2 · 4 · 8</b><span>같은 비율 ×2 · 등비수열</span></div><p>고르는 순서는 상관없어요.<br/>같은 숫자가 섞인 조합은 안 돼요.</p><p>선택한 패를 다시 누르면 취소돼요.<br/>세 패가 사라진 뒤, 아래와 옆의 패가 열려요.</p><button className="mint" onClick={()=>setHelp(false)}>알겠어요</button></section></div>}
+  {help&&<div className="modal-backdrop" onClick={()=>setHelp(false)}><section className="rules" role="dialog" aria-modal="true" aria-labelledby="rules-title" onClick={e=>e.stopPropagation()}><button className="close" aria-label="게임 방법 닫기" onClick={()=>setHelp(false)}><X/></button><Leaf className="rules-leaf"/><h2 id="rules-title">세 개를 골라, 수열 완성</h2><p>위에 다른 패가 덮여 있지 않으면 탭할 수 있어요. 좌우에 패가 있어도 괜찮아요.</p><div className="example"><b>1 · 3 · 5</b><span>같은 차이 +2 · 등차수열</span></div><div className="example"><b>2 · 4 · 8</b><span>같은 비율 ×2 · 등비수열</span></div><p>고르는 순서는 상관없어요.<br/>같은 숫자가 섞인 조합은 안 돼요.</p><p>선택한 패를 다시 누르면 취소돼요.<br/>세 패가 사라진 뒤, 그 아래의 패가 열려요.</p><button className="mint" onClick={()=>setHelp(false)}>알겠어요</button></section></div>}
  </main>
 }
 createRoot(document.getElementById('root')!).render(<App/>);
