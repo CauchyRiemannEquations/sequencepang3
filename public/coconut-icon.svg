@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="코코넛">
+  <rect width="64" height="64" rx="17" fill="#074b43"/>
+  <path d="M33 20C29 8 41 5 51 10C46 20 38 24 33 20Z" fill="#9cce75"/>
+  <path d="M32 22C26 12 18 9 13 14C17 23 25 26 32 22Z" fill="#76b968"/>
+  <path d="M10 30C10 19 22 16 32 17C45 17 55 24 55 34C55 49 45 58 31 58C18 58 10 46 10 30Z" fill="#9b643c"/>
+  <ellipse cx="32" cy="31" rx="22" ry="15" fill="#e4bd87"/>
+  <ellipse cx="32" cy="30" rx="18" ry="11" fill="#fff5dc"/>
+  <circle cx="25" cy="30" r="2" fill="#453025"/>
+  <circle cx="39" cy="30" r="2" fill="#453025"/>
+  <path d="M29 34Q32 37 35 34" fill="none" stroke="#453025" stroke-width="2" stroke-linecap="round"/>
+</svg>
