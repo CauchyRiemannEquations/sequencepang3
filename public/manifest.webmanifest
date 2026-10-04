@@ -1,16 +1,18 @@
 {
-  "name": "시퀀스팡3",
+  "name": "시퀀스팡3 · 코코넛 수열 마작",
   "short_name": "시퀀스팡3",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#06291f",
-  "theme_color": "#06291f",
+  "background_color": "#074b43",
+  "theme_color": "#074b43",
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "/coconut-icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
     }
-  ]
+  ],
+  "description": "시간제한 없이 즐기는 코코넛 수열 마작 30단계",
+  "scope": "/"
 }

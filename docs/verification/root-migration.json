@@ -1,0 +1,50 @@
+{
+  "checks": [
+    "Root loads coconut 30-stage app, current contact link, mascot, title, and new icon",
+    "Animated help opens, changes lesson, pauses, resumes, and closes at root",
+    "Root stage 1 plays through clear, unlocks stage 2, and persists after reload",
+    "All three old page URLs replace to root, preserving query, hash, and saved progress",
+    "Existing 20-stage progress survives the old-link migration and resumes at stage 21",
+    "All 30 stage cards remain; final stage works across five viewport widths and clears the full journey",
+    "Coconut icon, manifest and mascot all resolve; old dragon-fruit icon is absent; zero page/console errors or failed resources"
+  ],
+  "viewports": [
+    {
+      "width": 320,
+      "height": 568,
+      "scrollWidth": 320,
+      "tileCount": 24
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "scrollWidth": 360,
+      "tileCount": 24
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "tileCount": 24
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "scrollWidth": 430,
+      "tileCount": 24
+    },
+    {
+      "width": 1280,
+      "height": 900,
+      "scrollWidth": 1280,
+      "tileCount": 24
+    }
+  ],
+  "requests": [],
+  "consoleErrors": [],
+  "baseCommit": "6d6906a3306362c2c3b70023bece22d90525fbda",
+  "unitTests": 72,
+  "build": "passed",
+  "coconutSourceChanged": false,
+  "scope": "Local production-build browser validation. Production redirects require post-deployment verification."
+}
