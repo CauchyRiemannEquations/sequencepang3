@@ -9,6 +9,7 @@ import {usePwaInstall} from './usePwaInstall';
 import {InstallGuide} from './InstallGuide';
 import './style.css';
 import './journey.css';
+import './logos.css';
 
 type Screen='main'|'stages'|'game'|'clear';
 function loadProgress(){
@@ -66,8 +67,7 @@ function App(){
  return <main className={`app ${screen}`}>
   <div className="ambient" aria-hidden="true"/>
   {screen==='main'&&<section className="home-content">
-   <img className="mascot home-mascot" src="/coconut/mascot.webp" alt="잎을 단 반쪽 코코넛"/>
-   <h1 className="logo" aria-label="시퀀스팡3"><span>시</span><span>퀀</span><span>스</span><span>팡</span><b>3</b></h1>
+   <h1 className="home-brand" aria-label="시퀀스팡3"><img src="/coconut/logos/home-logo.png" alt="" width="1536" height="1024" fetchPriority="high"/></h1>
    <p className="tagline">차곡차곡, 수열을 찾아요</p><div className="showcase" aria-hidden="true"><i>1</i><i>3</i><i>5</i></div>
    <p className="home-progress"><Check size={17}/> 클리어 {progress.cleared.length} / {STAGES.length}</p>
    <button className="primary start" onClick={()=>start(nextId-1)}>{allCleared?'다시 도전':`${nextId}단계 시작`} <Play fill="currentColor" size={24}/></button>
@@ -89,7 +89,7 @@ function App(){
    {allCleared&&<p className="journey-complete">{STAGES.length}단계 여정 완료! 원하는 섬에 다시 도전해 보세요.</p>}
   </section>}
   {screen==='game'&&<section className="game-content">
-   <header className="game-header"><button className="round" aria-label="스테이지 선택으로" onClick={()=>navigate('stages')}><ArrowLeft/></button><h1>시퀀스팡<span>3</span></h1><button className="round" aria-label="게임 방법" onClick={()=>setHelp(true)}><HelpCircle/></button></header>
+   <header className="game-header"><button className="round" aria-label="스테이지 선택으로" onClick={()=>navigate('stages')}><ArrowLeft/></button><h1 className="game-brand" aria-label="시퀀스팡3"><img src="/coconut/logos/game-logo.png" alt="" width="1536" height="1024"/></h1><button className="round" aria-label="게임 방법" onClick={()=>setHelp(true)}><HelpCircle/></button></header>
    <div className="stats"><div><span>STAGE</span><strong data-testid="stage">{stageLabel}</strong></div><img className="mascot tiny" src="/coconut/mascot.webp" alt=""/><div><span>남은 패</span><strong data-testid="remaining">{remaining.length}<small> / {tiles.length}</small></strong></div></div>
    <p className="stage-name">{stage.name}</p>
    <div className="board-frame"><div className="board" aria-label={`${layerCount}층 수열 마작 보드`} style={{aspectRatio:`${bounds.width}/${bounds.height}`,maxWidth:bounds.width*1.15}}>

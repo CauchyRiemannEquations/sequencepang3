@@ -1,0 +1,7 @@
+/* Display the supplied PNG artwork unchanged, including its original alpha. */
+.home-brand{width:calc(100% + 20px);max-width:408px;flex:none;margin:0 -10px;line-height:0}
+.home-brand img{display:block;width:100%;height:auto;object-fit:contain}
+/* Trim outer padding in the compact game header without editing the PNG.
+   Source viewport y=264..824 preserves the entire logo (solid art y=294..800). */
+.game-header .game-brand{position:relative;flex:none;width:clamp(140px,40vw,166px);aspect-ratio:1536/560;margin:0 8px;overflow:hidden;line-height:0;text-shadow:none}
+.game-brand img{position:absolute;display:block;width:100%;height:auto;max-width:none;left:0;top:-47.142857%}

@@ -11,7 +11,8 @@ async function files(directory){
 const manifest=JSON.parse(await readFile(path.join(dist,'.vite/manifest.json'),'utf8'));
 const assets=[...new Set(Object.values(manifest).flatMap(entry=>[entry.file,...(entry.css||[])]))].sort();
 const icons=(await files('coconut/icons')).filter(file=>file.endsWith('.png'));
-const paths=['index.html','coconut/index.html','manifest.webmanifest','fonts/Jua-Regular.ttf','coconut/mascot.webp',...assets,...icons].sort();
+const logos=(await files('coconut/logos')).filter(file=>file.endsWith('.png'));
+const paths=['index.html','coconut/index.html','manifest.webmanifest','fonts/Jua-Regular.ttf','coconut/mascot.webp',...assets,...icons,...logos].sort();
 const hash=createHash('sha256');
 for(const file of paths){hash.update(file);hash.update(await readFile(path.join(dist,file)));}
 const version=hash.digest('hex').slice(0,16);
