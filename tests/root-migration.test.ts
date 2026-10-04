@@ -8,7 +8,7 @@ describe('canonical coconut entry',()=>{
  it('loads the current coconut game at the root with matching metadata',()=>{
   const html=read('index.html');
   expect(html).toContain('src="/src/coconut/main.tsx"');
-  expect(html).toContain('시퀀스팡3 · 코코넛 수열 마작');
+  expect(html).toContain('<title>시퀀스팡3</title>');
   expect(html).toContain('href="/coconut/icons/favicon-32.png"');
   expect(html).toContain('href="/manifest.webmanifest"');
   expect(html).not.toMatch(/Sequence Solitaire|용과|src="\/src\/main.tsx"/);
@@ -27,7 +27,8 @@ describe('canonical coconut entry',()=>{
  });
  it('uses coconut install branding and preserves existing origin-wide progress',()=>{
   const manifest=JSON.parse(read('public/manifest.webmanifest'));
-  expect(manifest.name).toContain('코코넛');
+  expect(manifest.name).toBe('시퀀스팡3');
+  expect(manifest.short_name).toBe('시퀀스팡3');
   expect(manifest.start_url).toBe('/');
   expect(manifest.scope).toBe('/');
   expect(manifest.icons[0].src).toBe('/coconut/icons/icon-192.png');
