@@ -1,12 +1,12 @@
 import {describe,it,expect} from 'vitest';
 import {STAGES,boardBounds} from './stages';
-import {availableMoves,legalMove,WIDTH,HEIGHT} from './engine';
+import {availableMoves,legalMove,blockedReason,WIDTH,HEIGHT} from './engine';
 import {readProgress,nextStage,completeStage} from './progress';
 
-describe('twenty-stage coconut journey',()=>{
- it('has twenty contiguous, distinct fixed boards',()=>{
-  expect(STAGES.map(s=>s.id)).toEqual(Array.from({length:20},(_,i)=>i+1));
-  expect(new Set(STAGES.map(s=>JSON.stringify(s.tiles)))).toHaveLength(20);
+describe('thirty-stage coconut journey',()=>{
+ it('has thirty contiguous, distinct fixed boards',()=>{
+  expect(STAGES.map(s=>s.id)).toEqual(Array.from({length:30},(_,i)=>i+1));
+  expect(new Set(STAGES.map(s=>JSON.stringify(s.tiles)))).toHaveLength(30);
  });
  it.each(STAGES)('stage $id has a valid complete solution',stage=>{
   const tiles=stage.tiles,bounds=boardBounds(tiles);
@@ -35,6 +35,16 @@ describe('twenty-stage coconut journey',()=>{
   }
   visit(stage.tiles.map(t=>t.id));expect(stage.validation.allChoicesSolvable).toBe(true);
  });
+ it.each(STAGES.slice(20))('stage $id has same-number choices that open different lower tiles',stage=>{
+  const remaining=stage.tiles.map(t=>t.id),groups=new Map<string,Set<string>>();
+  for(const move of availableMoves(remaining,stage.tiles)){
+   const key=move.map(id=>stage.tiles.find(t=>t.id===id)!.value).sort((a,b)=>a-b).join(',');
+   const after=remaining.filter(id=>!move.includes(id));
+   const opened=stage.tiles.filter(tile=>after.includes(tile.id)&&blockedReason(tile,remaining,stage.tiles)&&!blockedReason(tile,after,stage.tiles)).map(t=>t.id).sort().join(',');
+   if(!groups.has(key))groups.set(key,new Set());groups.get(key)!.add(opened);
+  }
+  expect([...groups.values()].some(choices=>choices.size>1)).toBe(true);
+ });
  it('rejects absent, unknown, and duplicate tile ids',()=>{
   const s=STAGES[0],remaining=s.tiles.map(t=>t.id);
   expect(legalMove(['bad','bad','bad'],remaining,s.tiles)).toBe(false);
@@ -45,14 +55,18 @@ describe('twenty-stage coconut journey',()=>{
 
 describe('local stage progress',()=>{
  it('recovers from missing or malformed storage',()=>{
-  for(const raw of [null,'bad','{"version":2,"cleared":[20]}','{"version":1,"cleared":false}'])expect(readProgress(raw,20)).toEqual({version:1,cleared:[]});
+  for(const raw of [null,'bad','{"version":2,"cleared":[20]}','{"version":1,"cleared":false}'])expect(readProgress(raw,30)).toEqual({version:1,cleared:[]});
  });
  it('filters invalid entries and keeps completed stage ids unique',()=>{
-  expect(readProgress('{"version":1,"cleared":[2,1,2,0,21,"3",1.5]}',20)).toEqual({version:1,cleared:[1,2]});
+  expect(readProgress('{"version":1,"cleared":[2,1,2,0,31,"3",1.5]}',30)).toEqual({version:1,cleared:[1,2]});
  });
- it('unlocks the next unfinished stage and stops at twenty',()=>{
-  let progress=readProgress(null,20);expect(nextStage(progress,20)).toBe(1);
-  for(let id=1;id<=20;id++){progress=completeStage(progress,id,20);expect(nextStage(progress,20)).toBe(Math.min(id+1,20));}
-  expect(progress.cleared).toHaveLength(20);expect(completeStage(progress,20,20).cleared).toHaveLength(20);
+ it('preserves twenty cleared stages and unlocks twenty-one after the update',()=>{
+  const progress=readProgress(JSON.stringify({version:1,cleared:Array.from({length:20},(_,i)=>i+1)}),30);
+  expect(progress.cleared).toHaveLength(20);expect(nextStage(progress,30)).toBe(21);
+ });
+ it('unlocks the next unfinished stage and stops at thirty',()=>{
+  let progress=readProgress(null,30);expect(nextStage(progress,30)).toBe(1);
+  for(let id=1;id<=30;id++){progress=completeStage(progress,id,30);expect(nextStage(progress,30)).toBe(Math.min(id+1,30));}
+  expect(progress.cleared).toHaveLength(30);expect(completeStage(progress,30,30).cleared).toHaveLength(30);
  });
 });

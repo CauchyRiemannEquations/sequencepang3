@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-04",
+  "rulesTests": 68,
+  "browser": "Chromium 153",
+  "viewport": "390x844 + 320x640 + 1280x900",
+  "stages": [
+    {
+      "stage": 21,
+      "removals": 8,
+      "clear": true
+    },
+    {
+      "stage": 22,
+      "removals": 8,
+      "clear": true
+    },
+    {
+      "stage": 23,
+      "removals": 8,
+      "clear": true
+    },
+    {
+      "stage": 24,
+      "removals": 8,
+      "clear": true
+    },
+    {
+      "stage": 25,
+      "removals": 8,
+      "clear": true
+    },
+    {
+      "stage": 26,
+      "removals": 8,
+      "clear": true
+    },
+    {
+      "stage": 27,
+      "removals": 8,
+      "clear": true
+    },
+    {
+      "stage": 28,
+      "removals": 8,
+      "clear": true
+    },
+    {
+      "stage": 29,
+      "removals": 8,
+      "clear": true
+    },
+    {
+      "stage": 30,
+      "removals": 8,
+      "clear": true
+    }
+  ],
+  "checks": [
+    "original twenty boards unchanged",
+    "twenty-cleared save unlocks stage21",
+    "new stages clear through tile taps",
+    "undo",
+    "restart cancels pending removal",
+    "thirty stages unlocked after completion",
+    "progress survives reload",
+    "arithmetic/geometric/removal/unlock/cancel demos",
+    "pause and replay",
+    "tab keyboard and Escape focus restoration",
+    "reduced motion static examples",
+    "contact mailto and SequencePang2 CSS",
+    "no horizontal overflow",
+    "legacy root renders"
+  ],
+  "pageErrors": []
+}

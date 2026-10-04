@@ -1,9 +1,10 @@
 import React,{useState,useEffect,useRef} from 'react';
 import {createRoot} from 'react-dom/client';
-import {ArrowLeft,RotateCcw,Undo2,Play,HelpCircle,X,Check,Leaf,Grid2X2,Lock} from 'lucide-react';
+import {ArrowLeft,RotateCcw,Undo2,Play,HelpCircle,Check,Grid2X2,Lock} from 'lucide-react';
 import {WIDTH,HEIGHT,blockedReason,classify,hasMove} from './engine';
 import {STAGES,boardBounds} from './stages';
 import {PROGRESS_KEY,readProgress,nextStage,completeStage,type Progress} from './progress';
+import {HelpDialog} from './HelpDialog';
 import './style.css';
 import './journey.css';
 
@@ -66,13 +67,13 @@ function App(){
    <p className="home-progress"><Check size={17}/> 클리어 {progress.cleared.length} / {STAGES.length}</p>
    <button className="primary start" onClick={()=>start(nextId-1)}>{allCleared?'다시 도전':`${nextId}단계 시작`} <Play fill="currentColor" size={24}/></button>
    <button className="help-button stage-select" onClick={()=>navigate('stages')}><Grid2X2 size={21}/> 스테이지 선택</button>
-   <button className="home-help" onClick={()=>setHelp(true)}><HelpCircle size={19}/> 게임 방법</button><p className="quiet">시간제한 없이, 나만의 속도로</p>
+   <div className="home-links"><button className="text-button" onClick={()=>setHelp(true)}><span aria-hidden="true">?</span> 플레이 방법</button><a className="text-button contact-button" href="mailto:cremationmath@gmail.com" aria-label="문의하기"><span aria-hidden="true">✉</span> 문의하기</a></div><p className="quiet">시간제한 없이, 나만의 속도로</p>
   </section>}
   {screen==='stages'&&<section className="stages-content">
    <header className="game-header"><button className="round" aria-label="메인으로" onClick={()=>navigate('main')}><ArrowLeft/></button><h1>코코넛 섬</h1><span className="stage-total">{progress.cleared.length}/{STAGES.length}</span></header>
    <p className="stages-intro">한 단계씩, 새로운 길을 열어요</p>
-   {[0,10].map(offset=><section className="chapter" key={offset} aria-label={offset===0?'1~10단계 입문':'11~20단계 선택과 해방'}>
-    <h2>{offset===0?'첫 만남':'선택과 해방'}<small>{offset+1}–{offset+10}</small></h2>
+   {[0,10,20].map(offset=><section className="chapter" key={offset} aria-label={`${offset+1}~${offset+10}단계 ${['첫 만남','선택과 해방','같은 숫자, 다른 위치'][offset/10]}`}>
+    <h2>{['첫 만남','선택과 해방','같은 숫자, 다른 위치'][offset/10]}<small>{offset+1}–{offset+10}</small></h2>
     <div className="stage-grid">{STAGES.slice(offset,offset+10).map(item=>{
      const cleared=progress.cleared.includes(item.id),unlocked=item.id<=nextId||cleared;
      return <button key={item.id} data-stage={item.id} className={`stage-card ${cleared?'completed':''} ${item.id===nextId&&!allCleared?'current':''}`} disabled={!unlocked} aria-label={`${item.id}단계 ${item.name}${cleared?', 클리어':!unlocked?', 잠김':''}`} onClick={()=>start(item.id-1)}>
@@ -80,7 +81,7 @@ function App(){
      </button>;
     })}</div>
    </section>)}
-   {allCleared&&<p className="journey-complete">20단계 여정 완료! 원하는 섬에 다시 도전해 보세요.</p>}
+   {allCleared&&<p className="journey-complete">{STAGES.length}단계 여정 완료! 원하는 섬에 다시 도전해 보세요.</p>}
   </section>}
   {screen==='game'&&<section className="game-content">
    <header className="game-header"><button className="round" aria-label="스테이지 선택으로" onClick={()=>navigate('stages')}><ArrowLeft/></button><h1>시퀀스팡<span>3</span></h1><button className="round" aria-label="게임 방법" onClick={()=>setHelp(true)}><HelpCircle/></button></header>
@@ -103,16 +104,10 @@ function App(){
    <div className="sparkles" aria-hidden="true">✦　✧　✦</div><img className="mascot clear-mascot" src="/coconut/mascot.webp" alt="기뻐하는 코코넛"/>
    <p className="edition">STAGE {stageLabel}</p><h1>{allCleared?'여정 완료!':'클리어!'}</h1><p>{tiles.length}개의 패를 모두 찾았어요</p>
    <div className="clear-badge"><Check size={22}/> 수열 {tiles.length/3}개 완성</div>
-   {stageIndex<STAGES.length-1?<button className="primary" onClick={()=>start(stageIndex+1)}>다음 단계 <Play fill="currentColor" size={21}/></button>:<><p className="journey-note">준비된 20단계를 모두 클리어했어요!</p><button className="primary" onClick={()=>navigate('stages')}>스테이지 선택</button></>}
+   {stageIndex<STAGES.length-1?<button className="primary" onClick={()=>start(stageIndex+1)}>다음 단계 <Play fill="currentColor" size={21}/></button>:<><p className="journey-note">준비된 {STAGES.length}단계를 모두 클리어했어요!</p><button className="primary" onClick={()=>navigate('stages')}>스테이지 선택</button></>}
    <button className="help-button" onClick={()=>start(stageIndex)}><RotateCcw size={19}/> 다시 플레이</button><button className="exit" onClick={()=>navigate('main')}>메인으로</button>
   </section>}
-  {help&&<div className="modal-backdrop" onClick={()=>setHelp(false)}><section className="rules" role="dialog" aria-modal="true" aria-labelledby="rules-title" onClick={e=>e.stopPropagation()}>
-   <button className="close" aria-label="게임 방법 닫기" onClick={()=>setHelp(false)}><X/></button><Leaf className="rules-leaf"/><h2 id="rules-title">세 개를 골라, 수열 완성</h2>
-   <p>위에 다른 패가 덮여 있지 않으면 탭할 수 있어요. 좌우에 패가 있어도 괜찮아요.</p>
-   <div className="example"><b>1 · 3 · 5</b><span>같은 차이 +2 · 등차수열</span></div><div className="example"><b>2 · 4 · 8</b><span>같은 비율 ×2 · 등비수열</span></div>
-   <p>고르는 순서는 상관없어요.<br/>같은 숫자가 섞인 조합은 안 돼요.</p><p>선택한 패를 다시 누르면 취소돼요.<br/>세 패가 사라진 뒤, 그 아래의 패가 열려요.</p>
-   <p>11단계부터는 제거 순서에 따라 막힐 수 있어요. 되돌리기로 다른 길을 찾아보세요.</p><button className="mint" onClick={()=>setHelp(false)}>알겠어요</button>
-  </section></div>}
+  {help&&<HelpDialog onClose={()=>setHelp(false)}/>}
  </main>;
 }
 createRoot(document.getElementById('root')!).render(<App/>);

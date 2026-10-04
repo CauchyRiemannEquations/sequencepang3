@@ -3,3 +3,10 @@
 @media(max-height:740px){.home-mascot{width:145px;height:145px}.home-content{padding-block:17px}.tagline{margin-top:21px}.showcase{height:80px}.home-progress{margin-bottom:13px}.stage-select{margin-top:18px}.game-content{padding-top:10px;padding-bottom:10px}.stats{height:70px}.stage-name{margin-bottom:10px;font-size:17px}.board-frame{padding-top:24px;padding-bottom:18px}.selection-tray{height:48px;margin-top:14px}.notice{font-size:13px;min-height:40px}.clear-mascot{width:170px;height:170px}}
 
 .notice,.quiet,.home-progress,.rules p,.example span,.exit,.stage-card small{font-family:Jua,system-ui,sans-serif}
+.text-button{font-size:16px;background:none;border:0;color:#c5d7b8;padding:12px 14px;border-radius:12px}
+.text-button>span{display:inline-grid;place-items:center;width:22px;height:22px;border:1px solid #829c76;border-radius:50%;font-size:15px;margin-right:6px}
+.home-links{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:5px}
+.home-links .text-button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;white-space:nowrap;text-decoration:none;font-size:14px;padding:8px 9px}
+.home-links .text-button>span{flex:none;font-size:13px;width:20px;height:20px}
+.home-links .contact-button{color:#b9d1b0}
+@media(max-width:359px){.home-links{gap:3px}.home-links .text-button{font-size:13px;padding-inline:7px}}

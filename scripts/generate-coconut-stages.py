@@ -1,4 +1,4 @@
-"""Deterministic offline authoring of the first 19 boards; preserve demo as stage 20.
+"""Deterministic offline authoring of 30 boards; preserve demo as stage 20.
 
 Run from the repository root: python scripts/generate-coconut-stages.py
 Runtime consumes the committed JSON, never a random board.
@@ -10,8 +10,6 @@ from functools import lru_cache
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-AP = [(a, a + d, a + 2 * d) for d in range(1, 5) for a in range(1, 10 - 2 * d)]
-GP = [(1, 2, 4), (1, 3, 9), (2, 4, 8), (4, 6, 9)]
 SPECS = [
     ('첫 세 조각', 3, 2, 0, [(1, 2, 3)], '열린 패 세 개를 골라 보세요.'),
     ('멀리 있어도', 3, 3, 0, [(1, 3, 5)], '떨어진 패도 함께 고를 수 있어요.'),
@@ -34,11 +32,26 @@ SPECS = [
     ('마지막을 생각하며', 6, 3, 6, [(1, 2, 4), (2, 5, 8), (3, 6, 9), (4, 5, 6)], '끝에 남을 세 숫자도 생각해 보세요.'),
 ]
 
+POSITION_SPECS = [
+    ('다시 만난 갈림길', 6, 3, 6, [(1, 2, 4), (2, 4, 8), (2, 4, 6)], '같은 숫자라도 아래에 무엇이 있는지 살펴보세요.'),
+    ('왼쪽의 같은 숫자', 6, 3, 6, [(1, 3, 5), (2, 4, 8), (3, 6, 9)], '왼쪽과 오른쪽의 같은 숫자를 비교해 보세요.'),
+    ('한 칸 너머', 6, 3, 6, [(2, 5, 8), (1, 2, 4), (4, 6, 9)], '어느 패를 지우면 필요한 숫자가 열릴까요?'),
+    ('서로 다른 문', 6, 3, 6, [(1, 4, 7), (2, 4, 8), (4, 5, 6)], '같은 수열로 서로 다른 길을 열 수 있어요.'),
+    ('가운데의 조각', 6, 3, 6, [(1, 3, 9), (3, 5, 7), (2, 4, 8)], '중앙의 패 아래에 있는 숫자도 살펴보세요.'),
+    ('두 길의 만남', 6, 3, 6, [(2, 3, 4), (2, 4, 8), (3, 6, 9), (1, 4, 7)], '서로 다른 구역에서 다음 조합을 찾아보세요.'),
+    ('먼저 열 문', 6, 3, 6, [(1, 2, 4), (2, 5, 8), (4, 6, 9)], '열고 싶은 숫자부터 정한 뒤 위층을 골라 보세요.'),
+    ('짝처럼 보이지만', 6, 3, 6, [(1, 3, 5), (1, 3, 9), (4, 6, 8)], '같은 숫자의 패도 서로 다른 역할을 해요.'),
+    ('남겨 둘 위치', 6, 3, 6, [(2, 4, 8), (1, 4, 7), (3, 6, 9), (2, 5, 8)], '숫자뿐 아니라 남길 위치도 생각해 보세요.'),
+    ('코코넛 섬의 세 갈래', 6, 3, 8, [(1, 2, 4), (2, 4, 8), (1, 4, 7), (3, 5, 7), (2, 5, 8)], '지울 숫자와 열릴 숫자를 함께 생각해 보세요.'),
+]
+
 
 def geometry(cols, rows, upper, stage_id):
     tiles = [dict(id=f'L{r+1}{c+1}', layer=0, row=r, col=c,
                   x=c*52, y=(28 if upper else 0)+r*88, value=0)
              for r in range(rows) for c in range(cols)]
+    if stage_id == 30:
+        tiles = [t for t in tiles if (t['row'], t['col']) not in [(1, 2), (1, 3)]]
     if upper:
         start = (cols-3)*26
         xs = [start+c*52+12 for c in range(3)]
@@ -46,8 +59,18 @@ def geometry(cols, rows, upper, stage_id):
             xs = [26, 130, 234]
         elif stage_id == 18:
             xs = [26, 104, 208]
+        elif stage_id in [21, 24, 27, 29]:
+            xs = [26, 130, 234]
+        elif stage_id in [22, 26]:
+            xs = [0, 104, 208]
+        elif stage_id == 23:
+            xs = [52, 130, 234]
+        elif stage_id == 25:
+            xs = [26, 104, 182]
+        elif stage_id == 30:
+            xs = [26, 78, 182, 234]
         for i in range(upper):
-            r, c = divmod(i, 3)
+            r, c = divmod(i, len(xs))
             tiles.append(dict(id=f'U{r+1}{c+1}', layer=1, row=r, col=c,
                               x=xs[c], y=r*94, value=0))
     return tiles
@@ -88,8 +111,27 @@ def analyze(tiles, require_safe=False):
                 verifiedStates=safe.cache_info().currsize if require_safe else 0)
 
 
-stages = []
-for number, (name, cols, rows, upper, pool, lesson) in enumerate(SPECS, 1):
+def position_choices(tiles):
+    """Same number triple, different physical tiles, different newly opened tiles."""
+    blocks = blockers(tiles)
+    initial = (1 << len(tiles))-1
+    exposed = [i for i in range(len(tiles)) if not blocks[i]]
+    seen = {}
+    count = 0
+    for ids in itertools.combinations(exposed, 3):
+        values = tuple(sorted(tiles[i]['value'] for i in ids))
+        if not valid(values):
+            continue
+        after = initial ^ sum(1 << i for i in ids)
+        opened = tuple(i for i in range(len(tiles)) if blocks[i]
+                       and after & (1 << i) and not blocks[i] & after)
+        count += sum(previous != opened for previous in seen.get(values, []))
+        seen.setdefault(values, []).append(opened)
+    return count
+
+
+def make_stage(number, spec):
+    name, cols, rows, upper, pool, lesson = spec
     rng = random.Random(30000+number)
     accepted = None
     for attempt in range(20000):
@@ -112,20 +154,27 @@ for number, (name, cols, rows, upper, pool, lesson) in enumerate(SPECS, 1):
         if remaining:
             continue
         result = analyze(tiles, require_safe=number <= 10)
-        if result and result['initialMoves'] >= (1 if number == 1 else 2):
+        branches = position_choices(tiles) if number >= 21 else 0
+        if result and result['initialMoves'] >= (1 if number == 1 else 2) and (number < 21 or branches > 0):
+            if number >= 21:
+                result['positionChoices'] = branches
             accepted = dict(id=number, name=name, lesson=lesson,
-                            focus='입문' if number <= 10 else '선택과 해방',
+                            focus='입문' if number <= 10 else '같은 숫자, 다른 위치' if number >= 21 else '선택과 해방',
                             tiles=tiles, solution=solution, validation=result)
             break
     if not accepted:
         raise RuntimeError(f'No acceptable board for stage {number}')
-    stages.append(accepted)
     print(number, name, len(accepted['tiles']), 'attempt', attempt,
           accepted['validation'], flush=True)
+    return accepted
+
+
+stages = [make_stage(number, spec) for number, spec in enumerate(SPECS, 1)]
 
 demo = json.loads((ROOT/'src/coconut/board.json').read_text())
 stages.append(dict(id=20, name='코코넛 섬의 첫 여정',
                    lesson='어느 패가 다음 길을 여는지 살펴보세요.', focus='종합',
                    **demo, validation=analyze(demo['tiles'])))
+stages.extend(make_stage(number, spec) for number, spec in enumerate(POSITION_SPECS, 21))
 (ROOT/'src/coconut/stages.json').write_text(
     json.dumps(stages, ensure_ascii=False, indent=2)+'\n')
