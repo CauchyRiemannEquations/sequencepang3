@@ -1,0 +1,118 @@
+{
+  "rulesTests": 47,
+  "browser": "Chromium",
+  "viewport": "390x844 + 320x640 + 1280x900",
+  "stages": [
+    {
+      "stage": 1,
+      "removals": 2,
+      "clear": true
+    },
+    {
+      "stage": 2,
+      "removals": 3,
+      "clear": true
+    },
+    {
+      "stage": 3,
+      "removals": 3,
+      "clear": true
+    },
+    {
+      "stage": 4,
+      "removals": 4,
+      "clear": true
+    },
+    {
+      "stage": 5,
+      "removals": 4,
+      "clear": true
+    },
+    {
+      "stage": 6,
+      "removals": 5,
+      "clear": true
+    },
+    {
+      "stage": 7,
+      "removals": 4,
+      "clear": true
+    },
+    {
+      "stage": 8,
+      "removals": 5,
+      "clear": true
+    },
+    {
+      "stage": 9,
+      "removals": 5,
+      "clear": true
+    },
+    {
+      "stage": 10,
+      "removals": 5,
+      "clear": true
+    },
+    {
+      "stage": 11,
+      "removals": 6,
+      "clear": true
+    },
+    {
+      "stage": 12,
+      "removals": 6,
+      "clear": true
+    },
+    {
+      "stage": 13,
+      "removals": 6,
+      "clear": true
+    },
+    {
+      "stage": 14,
+      "removals": 6,
+      "clear": true
+    },
+    {
+      "stage": 15,
+      "removals": 7,
+      "clear": true
+    },
+    {
+      "stage": 16,
+      "removals": 7,
+      "clear": true
+    },
+    {
+      "stage": 17,
+      "removals": 8,
+      "clear": true
+    },
+    {
+      "stage": 18,
+      "removals": 8,
+      "clear": true
+    },
+    {
+      "stage": 19,
+      "removals": 8,
+      "clear": true
+    },
+    {
+      "stage": 20,
+      "removals": 8,
+      "clear": true
+    }
+  ],
+  "checks": [
+    "stage unlocks",
+    "undo",
+    "restart cancels pending removal",
+    "next stage",
+    "final journey completion",
+    "progress survives reload",
+    "no horizontal overflow",
+    "legacy root still renders"
+  ],
+  "pageErrors": []
+}

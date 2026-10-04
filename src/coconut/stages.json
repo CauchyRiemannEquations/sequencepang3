@@ -1,0 +1,3822 @@
+[
+  {
+    "id": 1,
+    "name": "첫 세 조각",
+    "lesson": "열린 패 세 개를 골라 보세요.",
+    "focus": "입문",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 0,
+        "value": 3
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 0,
+        "value": 2
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 0,
+        "value": 2
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 88,
+        "value": 1
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 88,
+        "value": 3
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 88,
+        "value": 1
+      }
+    ],
+    "solution": [
+      [
+        "L22",
+        "L23",
+        "L13"
+      ],
+      [
+        "L12",
+        "L21",
+        "L11"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 8,
+      "allChoicesSolvable": true,
+      "verifiedStates": 10
+    }
+  },
+  {
+    "id": 2,
+    "name": "멀리 있어도",
+    "lesson": "떨어진 패도 함께 고를 수 있어요.",
+    "focus": "입문",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 0,
+        "value": 1
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 0,
+        "value": 5
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 0,
+        "value": 5
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 88,
+        "value": 1
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 88,
+        "value": 3
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 88,
+        "value": 3
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 176,
+        "value": 3
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 176,
+        "value": 5
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 176,
+        "value": 1
+      }
+    ],
+    "solution": [
+      [
+        "L11",
+        "L22",
+        "L12"
+      ],
+      [
+        "L31",
+        "L21",
+        "L32"
+      ],
+      [
+        "L23",
+        "L13",
+        "L33"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 27,
+      "allChoicesSolvable": true,
+      "verifiedStates": 56
+    }
+  },
+  {
+    "id": 3,
+    "name": "아래의 숫자",
+    "lesson": "위의 패를 없애면 아래가 열려요.",
+    "focus": "입문",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 1
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 3
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 2
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 1
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 1
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 3
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 12,
+        "y": 0,
+        "value": 3
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 64,
+        "y": 0,
+        "value": 2
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 116,
+        "y": 0,
+        "value": 2
+      }
+    ],
+    "solution": [
+      [
+        "L22",
+        "U13",
+        "U11"
+      ],
+      [
+        "L23",
+        "U12",
+        "L11"
+      ],
+      [
+        "L12",
+        "L13",
+        "L21"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 8,
+      "allChoicesSolvable": true,
+      "verifiedStates": 16
+    }
+  },
+  {
+    "id": 4,
+    "name": "두 개의 같은 숫자",
+    "lesson": "같은 숫자라도 위치를 살펴보세요.",
+    "focus": "입문",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 2
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 2
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 6
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 4
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 6
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 4
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 6
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 12,
+        "y": 0,
+        "value": 2
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 64,
+        "y": 0,
+        "value": 2
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 116,
+        "y": 0,
+        "value": 6
+      }
+    ],
+    "solution": [
+      [
+        "L32",
+        "U11",
+        "U13"
+      ],
+      [
+        "U12",
+        "L22",
+        "L21"
+      ],
+      [
+        "L31",
+        "L23",
+        "L11"
+      ],
+      [
+        "L12",
+        "L13",
+        "L33"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 24,
+      "allChoicesSolvable": true,
+      "verifiedStates": 92
+    }
+  },
+  {
+    "id": 5,
+    "name": "두 배씩",
+    "lesson": "2 · 4 · 8도 수열이에요.",
+    "focus": "입문",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 2
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 8
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 8
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 2
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 2
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 8
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 2
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 12,
+        "y": 0,
+        "value": 8
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 64,
+        "y": 0,
+        "value": 4
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 116,
+        "y": 0,
+        "value": 4
+      }
+    ],
+    "solution": [
+      [
+        "L33",
+        "L31",
+        "L32"
+      ],
+      [
+        "U13",
+        "L21",
+        "L23"
+      ],
+      [
+        "U11",
+        "L22",
+        "U12"
+      ],
+      [
+        "L12",
+        "L11",
+        "L13"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 27,
+      "allChoicesSolvable": true,
+      "verifiedStates": 110
+    }
+  },
+  {
+    "id": 6,
+    "name": "두 가지 수열",
+    "lesson": "같은 차이, 같은 비율을 찾아보세요.",
+    "focus": "입문",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 8
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 2
+      },
+      {
+        "id": "L14",
+        "layer": 0,
+        "row": 0,
+        "col": 3,
+        "x": 156,
+        "y": 28,
+        "value": 3
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 3
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 2
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 2
+      },
+      {
+        "id": "L24",
+        "layer": 0,
+        "row": 1,
+        "col": 3,
+        "x": 156,
+        "y": 116,
+        "value": 4
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 3
+      },
+      {
+        "id": "L34",
+        "layer": 0,
+        "row": 2,
+        "col": 3,
+        "x": 156,
+        "y": 204,
+        "value": 2
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 38,
+        "y": 0,
+        "value": 4
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 90,
+        "y": 0,
+        "value": 2
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 142,
+        "y": 0,
+        "value": 8
+      }
+    ],
+    "solution": [
+      [
+        "L21",
+        "U12",
+        "L24"
+      ],
+      [
+        "U13",
+        "L23",
+        "L32"
+      ],
+      [
+        "U11",
+        "L33",
+        "L22"
+      ],
+      [
+        "L13",
+        "L11",
+        "L12"
+      ],
+      [
+        "L34",
+        "L14",
+        "L31"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 48,
+      "allChoicesSolvable": true,
+      "verifiedStates": 616
+    }
+  },
+  {
+    "id": 7,
+    "name": "어느 조각부터",
+    "lesson": "지울 위치에 따라 열리는 패가 달라져요.",
+    "focus": "입문",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 2
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 2
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 1
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 1
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 8
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 2
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 8
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 12,
+        "y": 0,
+        "value": 2
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 64,
+        "y": 0,
+        "value": 4
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 116,
+        "y": 0,
+        "value": 4
+      }
+    ],
+    "solution": [
+      [
+        "L21",
+        "U11",
+        "U12"
+      ],
+      [
+        "L32",
+        "L33",
+        "L31"
+      ],
+      [
+        "L22",
+        "L11",
+        "U13"
+      ],
+      [
+        "L13",
+        "L12",
+        "L23"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 24,
+      "allChoicesSolvable": true,
+      "verifiedStates": 98
+    }
+  },
+  {
+    "id": 8,
+    "name": "모서리를 보세요",
+    "lesson": "아래층 모서리의 숫자도 살펴보세요.",
+    "focus": "입문",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 3
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 7
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 5
+      },
+      {
+        "id": "L14",
+        "layer": 0,
+        "row": 0,
+        "col": 3,
+        "x": 156,
+        "y": 28,
+        "value": 3
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 3
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 7
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 5
+      },
+      {
+        "id": "L24",
+        "layer": 0,
+        "row": 1,
+        "col": 3,
+        "x": 156,
+        "y": 116,
+        "value": 7
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 3
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 5
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 7
+      },
+      {
+        "id": "L34",
+        "layer": 0,
+        "row": 2,
+        "col": 3,
+        "x": 156,
+        "y": 204,
+        "value": 7
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 38,
+        "y": 0,
+        "value": 3
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 90,
+        "y": 0,
+        "value": 5
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 142,
+        "y": 0,
+        "value": 5
+      }
+    ],
+    "solution": [
+      [
+        "U11",
+        "L24",
+        "L32"
+      ],
+      [
+        "L31",
+        "L34",
+        "L23"
+      ],
+      [
+        "U13",
+        "L22",
+        "L11"
+      ],
+      [
+        "L21",
+        "U12",
+        "L33"
+      ],
+      [
+        "L13",
+        "L14",
+        "L12"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 48,
+      "allChoicesSolvable": true,
+      "verifiedStates": 594
+    }
+  },
+  {
+    "id": 9,
+    "name": "위에서 아래로",
+    "lesson": "새로 열린 패와 수열을 이어 보세요.",
+    "focus": "입문",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 9
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 3
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 1
+      },
+      {
+        "id": "L14",
+        "layer": 0,
+        "row": 0,
+        "col": 3,
+        "x": 156,
+        "y": 28,
+        "value": 1
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 3
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 3
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 9
+      },
+      {
+        "id": "L24",
+        "layer": 0,
+        "row": 1,
+        "col": 3,
+        "x": 156,
+        "y": 116,
+        "value": 9
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 9
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 3
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 1
+      },
+      {
+        "id": "L34",
+        "layer": 0,
+        "row": 2,
+        "col": 3,
+        "x": 156,
+        "y": 204,
+        "value": 3
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 38,
+        "y": 0,
+        "value": 9
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 90,
+        "y": 0,
+        "value": 1
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 142,
+        "y": 0,
+        "value": 1
+      }
+    ],
+    "solution": [
+      [
+        "U13",
+        "L21",
+        "L24"
+      ],
+      [
+        "L33",
+        "U11",
+        "L34"
+      ],
+      [
+        "L32",
+        "L31",
+        "L14"
+      ],
+      [
+        "L22",
+        "L23",
+        "U12"
+      ],
+      [
+        "L13",
+        "L12",
+        "L11"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 48,
+      "allChoicesSolvable": true,
+      "verifiedStates": 530
+    }
+  },
+  {
+    "id": 10,
+    "name": "작은 코코넛 섬",
+    "lesson": "배운 방법으로 섬을 비워 보세요.",
+    "focus": "입문",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 1
+      },
+      {
+        "id": "L14",
+        "layer": 0,
+        "row": 0,
+        "col": 3,
+        "x": 156,
+        "y": 28,
+        "value": 2
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 8
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 1
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 2
+      },
+      {
+        "id": "L24",
+        "layer": 0,
+        "row": 1,
+        "col": 3,
+        "x": 156,
+        "y": 116,
+        "value": 4
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 2
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 8
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 1
+      },
+      {
+        "id": "L34",
+        "layer": 0,
+        "row": 2,
+        "col": 3,
+        "x": 156,
+        "y": 204,
+        "value": 2
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 38,
+        "y": 0,
+        "value": 4
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 90,
+        "y": 0,
+        "value": 4
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 142,
+        "y": 0,
+        "value": 2
+      }
+    ],
+    "solution": [
+      [
+        "L24",
+        "L22",
+        "L31"
+      ],
+      [
+        "L34",
+        "L32",
+        "U11"
+      ],
+      [
+        "L33",
+        "U13",
+        "L11"
+      ],
+      [
+        "L21",
+        "U12",
+        "L23"
+      ],
+      [
+        "L13",
+        "L14",
+        "L12"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 48,
+      "allChoicesSolvable": true,
+      "verifiedStates": 530
+    }
+  },
+  {
+    "id": 11,
+    "name": "첫 갈림길",
+    "lesson": "다음에 열릴 숫자도 생각해 보세요.",
+    "focus": "선택과 해방",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 9
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 3
+      },
+      {
+        "id": "L14",
+        "layer": 0,
+        "row": 0,
+        "col": 3,
+        "x": 156,
+        "y": 28,
+        "value": 8
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 4
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 6
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 6
+      },
+      {
+        "id": "L24",
+        "layer": 0,
+        "row": 1,
+        "col": 3,
+        "x": 156,
+        "y": 116,
+        "value": 1
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 9
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 8
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 3
+      },
+      {
+        "id": "L34",
+        "layer": 0,
+        "row": 2,
+        "col": 3,
+        "x": 156,
+        "y": 204,
+        "value": 5
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 38,
+        "y": 0,
+        "value": 1
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 90,
+        "y": 0,
+        "value": 2
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 142,
+        "y": 0,
+        "value": 5
+      },
+      {
+        "id": "U21",
+        "layer": 1,
+        "row": 1,
+        "col": 0,
+        "x": 38,
+        "y": 94,
+        "value": 3
+      },
+      {
+        "id": "U22",
+        "layer": 1,
+        "row": 1,
+        "col": 1,
+        "x": 90,
+        "y": 94,
+        "value": 2
+      },
+      {
+        "id": "U23",
+        "layer": 1,
+        "row": 1,
+        "col": 2,
+        "x": 142,
+        "y": 94,
+        "value": 3
+      }
+    ],
+    "solution": [
+      [
+        "U11",
+        "U23",
+        "L34"
+      ],
+      [
+        "L11",
+        "L32",
+        "U22"
+      ],
+      [
+        "L31",
+        "L33",
+        "L23"
+      ],
+      [
+        "U13",
+        "U21",
+        "L24"
+      ],
+      [
+        "L14",
+        "U12",
+        "L21"
+      ],
+      [
+        "L12",
+        "L22",
+        "L13"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 21,
+      "allChoicesSolvable": null,
+      "verifiedStates": 0
+    }
+  },
+  {
+    "id": 12,
+    "name": "양쪽의 길",
+    "lesson": "왼쪽과 오른쪽의 패를 함께 살펴보세요.",
+    "focus": "선택과 해방",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 3
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 3
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 6
+      },
+      {
+        "id": "L14",
+        "layer": 0,
+        "row": 0,
+        "col": 3,
+        "x": 156,
+        "y": 28,
+        "value": 8
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 1
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 4
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 2
+      },
+      {
+        "id": "L24",
+        "layer": 0,
+        "row": 1,
+        "col": 3,
+        "x": 156,
+        "y": 116,
+        "value": 9
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 3
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L34",
+        "layer": 0,
+        "row": 2,
+        "col": 3,
+        "x": 156,
+        "y": 204,
+        "value": 2
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 38,
+        "y": 0,
+        "value": 4
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 90,
+        "y": 0,
+        "value": 6
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 142,
+        "y": 0,
+        "value": 9
+      },
+      {
+        "id": "U21",
+        "layer": 1,
+        "row": 1,
+        "col": 0,
+        "x": 38,
+        "y": 94,
+        "value": 1
+      },
+      {
+        "id": "U22",
+        "layer": 1,
+        "row": 1,
+        "col": 1,
+        "x": 90,
+        "y": 94,
+        "value": 8
+      },
+      {
+        "id": "U23",
+        "layer": 1,
+        "row": 1,
+        "col": 2,
+        "x": 142,
+        "y": 94,
+        "value": 3
+      }
+    ],
+    "solution": [
+      [
+        "L34",
+        "L33",
+        "U23"
+      ],
+      [
+        "L32",
+        "U21",
+        "L24"
+      ],
+      [
+        "U12",
+        "U11",
+        "U22"
+      ],
+      [
+        "L22",
+        "L12",
+        "L23"
+      ],
+      [
+        "L21",
+        "U13",
+        "L11"
+      ],
+      [
+        "L14",
+        "L13",
+        "L31"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 27,
+      "allChoicesSolvable": null,
+      "verifiedStates": 0
+    }
+  },
+  {
+    "id": 13,
+    "name": "남겨 둔 조각",
+    "lesson": "필요한 숫자를 남겨 두는 것도 방법이에요.",
+    "focus": "선택과 해방",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 8
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 7
+      },
+      {
+        "id": "L14",
+        "layer": 0,
+        "row": 0,
+        "col": 3,
+        "x": 156,
+        "y": 28,
+        "value": 2
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 1
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 7
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 5
+      },
+      {
+        "id": "L24",
+        "layer": 0,
+        "row": 1,
+        "col": 3,
+        "x": 156,
+        "y": 116,
+        "value": 4
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 8
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 5
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 2
+      },
+      {
+        "id": "L34",
+        "layer": 0,
+        "row": 2,
+        "col": 3,
+        "x": 156,
+        "y": 204,
+        "value": 3
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 38,
+        "y": 0,
+        "value": 4
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 90,
+        "y": 0,
+        "value": 3
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 142,
+        "y": 0,
+        "value": 1
+      },
+      {
+        "id": "U21",
+        "layer": 1,
+        "row": 1,
+        "col": 0,
+        "x": 38,
+        "y": 94,
+        "value": 7
+      },
+      {
+        "id": "U22",
+        "layer": 1,
+        "row": 1,
+        "col": 1,
+        "x": 90,
+        "y": 94,
+        "value": 4
+      },
+      {
+        "id": "U23",
+        "layer": 1,
+        "row": 1,
+        "col": 2,
+        "x": 142,
+        "y": 94,
+        "value": 7
+      }
+    ],
+    "solution": [
+      [
+        "U23",
+        "U22",
+        "U13"
+      ],
+      [
+        "U11",
+        "L14",
+        "L31"
+      ],
+      [
+        "L23",
+        "U21",
+        "U12"
+      ],
+      [
+        "L21",
+        "L13",
+        "L24"
+      ],
+      [
+        "L12",
+        "L11",
+        "L33"
+      ],
+      [
+        "L34",
+        "L22",
+        "L32"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 25,
+      "allChoicesSolvable": null,
+      "verifiedStates": 0
+    }
+  },
+  {
+    "id": 14,
+    "name": "두 겹의 계단",
+    "lesson": "위층을 정리하며 다음 길을 열어 보세요.",
+    "focus": "선택과 해방",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 2
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 3
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 9
+      },
+      {
+        "id": "L14",
+        "layer": 0,
+        "row": 0,
+        "col": 3,
+        "x": 156,
+        "y": 28,
+        "value": 2
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 2
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 8
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 5
+      },
+      {
+        "id": "L24",
+        "layer": 0,
+        "row": 1,
+        "col": 3,
+        "x": 156,
+        "y": 116,
+        "value": 6
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 9
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 6
+      },
+      {
+        "id": "L34",
+        "layer": 0,
+        "row": 2,
+        "col": 3,
+        "x": 156,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 38,
+        "y": 0,
+        "value": 5
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 90,
+        "y": 0,
+        "value": 1
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 142,
+        "y": 0,
+        "value": 3
+      },
+      {
+        "id": "U21",
+        "layer": 1,
+        "row": 1,
+        "col": 0,
+        "x": 38,
+        "y": 94,
+        "value": 8
+      },
+      {
+        "id": "U22",
+        "layer": 1,
+        "row": 1,
+        "col": 1,
+        "x": 90,
+        "y": 94,
+        "value": 1
+      },
+      {
+        "id": "U23",
+        "layer": 1,
+        "row": 1,
+        "col": 2,
+        "x": 142,
+        "y": 94,
+        "value": 2
+      }
+    ],
+    "solution": [
+      [
+        "U21",
+        "U23",
+        "U11"
+      ],
+      [
+        "L32",
+        "L21",
+        "U22"
+      ],
+      [
+        "U13",
+        "L31",
+        "L33"
+      ],
+      [
+        "L22",
+        "L23",
+        "L14"
+      ],
+      [
+        "L34",
+        "U12",
+        "L11"
+      ],
+      [
+        "L12",
+        "L13",
+        "L24"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 28,
+      "allChoicesSolvable": null,
+      "verifiedStates": 0
+    }
+  },
+  {
+    "id": 15,
+    "name": "넓어진 섬",
+    "lesson": "멀리 떨어진 패도 조합해 보세요.",
+    "focus": "선택과 해방",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 6
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 3
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 8
+      },
+      {
+        "id": "L14",
+        "layer": 0,
+        "row": 0,
+        "col": 3,
+        "x": 156,
+        "y": 28,
+        "value": 5
+      },
+      {
+        "id": "L15",
+        "layer": 0,
+        "row": 0,
+        "col": 4,
+        "x": 208,
+        "y": 28,
+        "value": 3
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 4
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 4
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 1
+      },
+      {
+        "id": "L24",
+        "layer": 0,
+        "row": 1,
+        "col": 3,
+        "x": 156,
+        "y": 116,
+        "value": 9
+      },
+      {
+        "id": "L25",
+        "layer": 0,
+        "row": 1,
+        "col": 4,
+        "x": 208,
+        "y": 116,
+        "value": 2
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 5
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 1
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L34",
+        "layer": 0,
+        "row": 2,
+        "col": 3,
+        "x": 156,
+        "y": 204,
+        "value": 3
+      },
+      {
+        "id": "L35",
+        "layer": 0,
+        "row": 2,
+        "col": 4,
+        "x": 208,
+        "y": 204,
+        "value": 9
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 64,
+        "y": 0,
+        "value": 8
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 116,
+        "y": 0,
+        "value": 1
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 168,
+        "y": 0,
+        "value": 6
+      },
+      {
+        "id": "U21",
+        "layer": 1,
+        "row": 1,
+        "col": 0,
+        "x": 64,
+        "y": 94,
+        "value": 4
+      },
+      {
+        "id": "U22",
+        "layer": 1,
+        "row": 1,
+        "col": 1,
+        "x": 116,
+        "y": 94,
+        "value": 2
+      },
+      {
+        "id": "U23",
+        "layer": 1,
+        "row": 1,
+        "col": 2,
+        "x": 168,
+        "y": 94,
+        "value": 5
+      }
+    ],
+    "solution": [
+      [
+        "L34",
+        "L31",
+        "L32"
+      ],
+      [
+        "U11",
+        "U22",
+        "L21"
+      ],
+      [
+        "L33",
+        "L35",
+        "L11"
+      ],
+      [
+        "L12",
+        "U12",
+        "U23"
+      ],
+      [
+        "L13",
+        "L25",
+        "U21"
+      ],
+      [
+        "L24",
+        "L22",
+        "U13"
+      ],
+      [
+        "L14",
+        "L15",
+        "L23"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 64,
+      "allChoicesSolvable": null,
+      "verifiedStates": 0
+    }
+  },
+  {
+    "id": 16,
+    "name": "위치의 차이",
+    "lesson": "같은 숫자 중 어느 패가 길을 열까요?",
+    "focus": "선택과 해방",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 2
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 8
+      },
+      {
+        "id": "L14",
+        "layer": 0,
+        "row": 0,
+        "col": 3,
+        "x": 156,
+        "y": 28,
+        "value": 5
+      },
+      {
+        "id": "L15",
+        "layer": 0,
+        "row": 0,
+        "col": 4,
+        "x": 208,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 2
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 5
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 1
+      },
+      {
+        "id": "L24",
+        "layer": 0,
+        "row": 1,
+        "col": 3,
+        "x": 156,
+        "y": 116,
+        "value": 3
+      },
+      {
+        "id": "L25",
+        "layer": 0,
+        "row": 1,
+        "col": 4,
+        "x": 208,
+        "y": 116,
+        "value": 2
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 1
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 8
+      },
+      {
+        "id": "L34",
+        "layer": 0,
+        "row": 2,
+        "col": 3,
+        "x": 156,
+        "y": 204,
+        "value": 8
+      },
+      {
+        "id": "L35",
+        "layer": 0,
+        "row": 2,
+        "col": 4,
+        "x": 208,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 64,
+        "y": 0,
+        "value": 8
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 116,
+        "y": 0,
+        "value": 2
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 168,
+        "y": 0,
+        "value": 2
+      },
+      {
+        "id": "U21",
+        "layer": 1,
+        "row": 1,
+        "col": 0,
+        "x": 64,
+        "y": 94,
+        "value": 7
+      },
+      {
+        "id": "U22",
+        "layer": 1,
+        "row": 1,
+        "col": 1,
+        "x": 116,
+        "y": 94,
+        "value": 5
+      },
+      {
+        "id": "U23",
+        "layer": 1,
+        "row": 1,
+        "col": 2,
+        "x": 168,
+        "y": 94,
+        "value": 2
+      }
+    ],
+    "solution": [
+      [
+        "L31",
+        "U13",
+        "L11"
+      ],
+      [
+        "L35",
+        "L33",
+        "U23"
+      ],
+      [
+        "U12",
+        "L34",
+        "U22"
+      ],
+      [
+        "L14",
+        "L24",
+        "U21"
+      ],
+      [
+        "L23",
+        "L32",
+        "L21"
+      ],
+      [
+        "L15",
+        "L25",
+        "U11"
+      ],
+      [
+        "L12",
+        "L22",
+        "L13"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 63,
+      "allChoicesSolvable": null,
+      "verifiedStates": 0
+    }
+  },
+  {
+    "id": 17,
+    "name": "세 개의 다리",
+    "lesson": "여러 구역의 숫자를 함께 활용해 보세요.",
+    "focus": "선택과 해방",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 8
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 1
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 2
+      },
+      {
+        "id": "L14",
+        "layer": 0,
+        "row": 0,
+        "col": 3,
+        "x": 156,
+        "y": 28,
+        "value": 6
+      },
+      {
+        "id": "L15",
+        "layer": 0,
+        "row": 0,
+        "col": 4,
+        "x": 208,
+        "y": 28,
+        "value": 2
+      },
+      {
+        "id": "L16",
+        "layer": 0,
+        "row": 0,
+        "col": 5,
+        "x": 260,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 3
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 9
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 4
+      },
+      {
+        "id": "L24",
+        "layer": 0,
+        "row": 1,
+        "col": 3,
+        "x": 156,
+        "y": 116,
+        "value": 4
+      },
+      {
+        "id": "L25",
+        "layer": 0,
+        "row": 1,
+        "col": 4,
+        "x": 208,
+        "y": 116,
+        "value": 6
+      },
+      {
+        "id": "L26",
+        "layer": 0,
+        "row": 1,
+        "col": 5,
+        "x": 260,
+        "y": 116,
+        "value": 6
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 9
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 2
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 9
+      },
+      {
+        "id": "L34",
+        "layer": 0,
+        "row": 2,
+        "col": 3,
+        "x": 156,
+        "y": 204,
+        "value": 1
+      },
+      {
+        "id": "L35",
+        "layer": 0,
+        "row": 2,
+        "col": 4,
+        "x": 208,
+        "y": 204,
+        "value": 9
+      },
+      {
+        "id": "L36",
+        "layer": 0,
+        "row": 2,
+        "col": 5,
+        "x": 260,
+        "y": 204,
+        "value": 2
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 26,
+        "y": 0,
+        "value": 8
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 130,
+        "y": 0,
+        "value": 3
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 234,
+        "y": 0,
+        "value": 6
+      },
+      {
+        "id": "U21",
+        "layer": 1,
+        "row": 1,
+        "col": 0,
+        "x": 26,
+        "y": 94,
+        "value": 3
+      },
+      {
+        "id": "U22",
+        "layer": 1,
+        "row": 1,
+        "col": 1,
+        "x": 130,
+        "y": 94,
+        "value": 4
+      },
+      {
+        "id": "U23",
+        "layer": 1,
+        "row": 1,
+        "col": 2,
+        "x": 234,
+        "y": 94,
+        "value": 3
+      }
+    ],
+    "solution": [
+      [
+        "U23",
+        "L31",
+        "L34"
+      ],
+      [
+        "U22",
+        "L25",
+        "L36"
+      ],
+      [
+        "U11",
+        "L24",
+        "L32"
+      ],
+      [
+        "L35",
+        "U21",
+        "L26"
+      ],
+      [
+        "L12",
+        "L33",
+        "U12"
+      ],
+      [
+        "L13",
+        "U13",
+        "L23"
+      ],
+      [
+        "L11",
+        "L16",
+        "L15"
+      ],
+      [
+        "L14",
+        "L22",
+        "L21"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 40,
+      "allChoicesSolvable": null,
+      "verifiedStates": 0
+    }
+  },
+  {
+    "id": 18,
+    "name": "비껴 쌓은 패",
+    "lesson": "가려진 숫자를 보고 순서를 정해 보세요.",
+    "focus": "선택과 해방",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 2
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 2
+      },
+      {
+        "id": "L14",
+        "layer": 0,
+        "row": 0,
+        "col": 3,
+        "x": 156,
+        "y": 28,
+        "value": 3
+      },
+      {
+        "id": "L15",
+        "layer": 0,
+        "row": 0,
+        "col": 4,
+        "x": 208,
+        "y": 28,
+        "value": 9
+      },
+      {
+        "id": "L16",
+        "layer": 0,
+        "row": 0,
+        "col": 5,
+        "x": 260,
+        "y": 28,
+        "value": 1
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 4
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 6
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 4
+      },
+      {
+        "id": "L24",
+        "layer": 0,
+        "row": 1,
+        "col": 3,
+        "x": 156,
+        "y": 116,
+        "value": 8
+      },
+      {
+        "id": "L25",
+        "layer": 0,
+        "row": 1,
+        "col": 4,
+        "x": 208,
+        "y": 116,
+        "value": 3
+      },
+      {
+        "id": "L26",
+        "layer": 0,
+        "row": 1,
+        "col": 5,
+        "x": 260,
+        "y": 116,
+        "value": 4
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 7
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 7
+      },
+      {
+        "id": "L34",
+        "layer": 0,
+        "row": 2,
+        "col": 3,
+        "x": 156,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L35",
+        "layer": 0,
+        "row": 2,
+        "col": 4,
+        "x": 208,
+        "y": 204,
+        "value": 2
+      },
+      {
+        "id": "L36",
+        "layer": 0,
+        "row": 2,
+        "col": 5,
+        "x": 260,
+        "y": 204,
+        "value": 1
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 26,
+        "y": 0,
+        "value": 8
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 104,
+        "y": 0,
+        "value": 2
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 208,
+        "y": 0,
+        "value": 4
+      },
+      {
+        "id": "U21",
+        "layer": 1,
+        "row": 1,
+        "col": 0,
+        "x": 26,
+        "y": 94,
+        "value": 4
+      },
+      {
+        "id": "U22",
+        "layer": 1,
+        "row": 1,
+        "col": 1,
+        "x": 104,
+        "y": 94,
+        "value": 9
+      },
+      {
+        "id": "U23",
+        "layer": 1,
+        "row": 1,
+        "col": 2,
+        "x": 208,
+        "y": 94,
+        "value": 6
+      }
+    ],
+    "solution": [
+      [
+        "L16",
+        "L31",
+        "L34"
+      ],
+      [
+        "U21",
+        "L35",
+        "L24"
+      ],
+      [
+        "L22",
+        "L21",
+        "U22"
+      ],
+      [
+        "U12",
+        "L23",
+        "L14"
+      ],
+      [
+        "L33",
+        "L36",
+        "U13"
+      ],
+      [
+        "L13",
+        "U11",
+        "L26"
+      ],
+      [
+        "U23",
+        "L15",
+        "L32"
+      ],
+      [
+        "L12",
+        "L25",
+        "L11"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 110,
+      "allChoicesSolvable": null,
+      "verifiedStates": 0
+    }
+  },
+  {
+    "id": 19,
+    "name": "마지막을 생각하며",
+    "lesson": "끝에 남을 세 숫자도 생각해 보세요.",
+    "focus": "선택과 해방",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 2
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L14",
+        "layer": 0,
+        "row": 0,
+        "col": 3,
+        "x": 156,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L15",
+        "layer": 0,
+        "row": 0,
+        "col": 4,
+        "x": 208,
+        "y": 28,
+        "value": 9
+      },
+      {
+        "id": "L16",
+        "layer": 0,
+        "row": 0,
+        "col": 5,
+        "x": 260,
+        "y": 28,
+        "value": 2
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 6
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 3
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 6
+      },
+      {
+        "id": "L24",
+        "layer": 0,
+        "row": 1,
+        "col": 3,
+        "x": 156,
+        "y": 116,
+        "value": 5
+      },
+      {
+        "id": "L25",
+        "layer": 0,
+        "row": 1,
+        "col": 4,
+        "x": 208,
+        "y": 116,
+        "value": 9
+      },
+      {
+        "id": "L26",
+        "layer": 0,
+        "row": 1,
+        "col": 5,
+        "x": 260,
+        "y": 116,
+        "value": 4
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 1
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 8
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 1
+      },
+      {
+        "id": "L34",
+        "layer": 0,
+        "row": 2,
+        "col": 3,
+        "x": 156,
+        "y": 204,
+        "value": 5
+      },
+      {
+        "id": "L35",
+        "layer": 0,
+        "row": 2,
+        "col": 4,
+        "x": 208,
+        "y": 204,
+        "value": 6
+      },
+      {
+        "id": "L36",
+        "layer": 0,
+        "row": 2,
+        "col": 5,
+        "x": 260,
+        "y": 204,
+        "value": 3
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 90,
+        "y": 0,
+        "value": 5
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 142,
+        "y": 0,
+        "value": 8
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 194,
+        "y": 0,
+        "value": 5
+      },
+      {
+        "id": "U21",
+        "layer": 1,
+        "row": 1,
+        "col": 0,
+        "x": 90,
+        "y": 94,
+        "value": 6
+      },
+      {
+        "id": "U22",
+        "layer": 1,
+        "row": 1,
+        "col": 1,
+        "x": 142,
+        "y": 94,
+        "value": 2
+      },
+      {
+        "id": "U23",
+        "layer": 1,
+        "row": 1,
+        "col": 2,
+        "x": 194,
+        "y": 94,
+        "value": 2
+      }
+    ],
+    "solution": [
+      [
+        "L11",
+        "L26",
+        "L31"
+      ],
+      [
+        "U22",
+        "U12",
+        "U13"
+      ],
+      [
+        "L15",
+        "L36",
+        "L35"
+      ],
+      [
+        "U21",
+        "L14",
+        "U11"
+      ],
+      [
+        "U23",
+        "L33",
+        "L13"
+      ],
+      [
+        "L16",
+        "L32",
+        "L34"
+      ],
+      [
+        "L22",
+        "L25",
+        "L23"
+      ],
+      [
+        "L24",
+        "L21",
+        "L12"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 88,
+      "allChoicesSolvable": null,
+      "verifiedStates": 0
+    }
+  },
+  {
+    "id": 20,
+    "name": "코코넛 섬의 첫 여정",
+    "lesson": "어느 패가 다음 길을 여는지 살펴보세요.",
+    "focus": "종합",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 2
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 7
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 8
+      },
+      {
+        "id": "L14",
+        "layer": 0,
+        "row": 0,
+        "col": 3,
+        "x": 156,
+        "y": 28,
+        "value": 5
+      },
+      {
+        "id": "L15",
+        "layer": 0,
+        "row": 0,
+        "col": 4,
+        "x": 208,
+        "y": 28,
+        "value": 6
+      },
+      {
+        "id": "L16",
+        "layer": 0,
+        "row": 0,
+        "col": 5,
+        "x": 260,
+        "y": 28,
+        "value": 3
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 4
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 2
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 2
+      },
+      {
+        "id": "L24",
+        "layer": 0,
+        "row": 1,
+        "col": 3,
+        "x": 156,
+        "y": 116,
+        "value": 3
+      },
+      {
+        "id": "L25",
+        "layer": 0,
+        "row": 1,
+        "col": 4,
+        "x": 208,
+        "y": 116,
+        "value": 9
+      },
+      {
+        "id": "L26",
+        "layer": 0,
+        "row": 1,
+        "col": 5,
+        "x": 260,
+        "y": 116,
+        "value": 8
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 1
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 5
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 8
+      },
+      {
+        "id": "L34",
+        "layer": 0,
+        "row": 2,
+        "col": 3,
+        "x": 156,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L35",
+        "layer": 0,
+        "row": 2,
+        "col": 4,
+        "x": 208,
+        "y": 204,
+        "value": 9
+      },
+      {
+        "id": "L36",
+        "layer": 0,
+        "row": 2,
+        "col": 5,
+        "x": 260,
+        "y": 204,
+        "value": 1
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 78,
+        "y": 0,
+        "value": 2
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 130,
+        "y": 0,
+        "value": 6
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 182,
+        "y": 0,
+        "value": 3
+      },
+      {
+        "id": "U21",
+        "layer": 1,
+        "row": 1,
+        "col": 0,
+        "x": 78,
+        "y": 94,
+        "value": 5
+      },
+      {
+        "id": "U22",
+        "layer": 1,
+        "row": 1,
+        "col": 1,
+        "x": 130,
+        "y": 94,
+        "value": 3
+      },
+      {
+        "id": "U23",
+        "layer": 1,
+        "row": 1,
+        "col": 2,
+        "x": 182,
+        "y": 94,
+        "value": 4
+      }
+    ],
+    "solution": [
+      [
+        "U11",
+        "L21",
+        "L26"
+      ],
+      [
+        "L31",
+        "L16",
+        "U21"
+      ],
+      [
+        "L22",
+        "U13",
+        "U23"
+      ],
+      [
+        "U22",
+        "U12",
+        "L25"
+      ],
+      [
+        "L36",
+        "L11",
+        "L24"
+      ],
+      [
+        "L32",
+        "L12",
+        "L35"
+      ],
+      [
+        "L34",
+        "L15",
+        "L33"
+      ],
+      [
+        "L23",
+        "L14",
+        "L13"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 126,
+      "allChoicesSolvable": null,
+      "verifiedStates": 0
+    }
+  }
+]
