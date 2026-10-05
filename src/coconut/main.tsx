@@ -86,12 +86,13 @@ function App(){
  return <main className={`app ${screen}`} onPointerDownCapture={()=>void audio.unlock()} onClickCapture={()=>void audio.unlock()} onKeyDownCapture={event=>{if(event.key==='Enter'||event.key===' ')void audio.unlock();}}>
   <div className="ambient" aria-hidden="true"/>
   {screen==='main'&&<section className="home-content">
+   {!pwa.installed&&<button className="install-button" disabled={pwa.busy} onClick={installApp}><Download size={16} aria-hidden="true"/> 앱 설치</button>}
    <h1 className="home-brand" aria-label="시퀀스팡3"><img src="/coconut/logos/home-logo.png" alt="" width="1536" height="1024" fetchPriority="high"/></h1>
    <p className="tagline">차곡차곡, 수열을 찾아요</p><div className="showcase" aria-hidden="true"><i>1</i><i>3</i><i>5</i></div>
    <p className="home-progress"><Check size={17}/> 클리어 {progress.cleared.length} / {STAGES.length}</p>
    <button className="primary start" onClick={()=>start(nextId-1)}>{allCleared?'다시 도전':`${nextId}단계 시작`} <Play fill="currentColor" size={24}/></button>
    <button className="help-button stage-select" onClick={()=>navigate('stages')}><Grid2X2 size={21}/> 스테이지 선택</button>
-   <div className="home-links"><button className="text-button" onClick={()=>setHelp(true)}><span aria-hidden="true">?</span> 플레이 방법</button><a className="text-button contact-button" href="mailto:cremationmath@gmail.com" aria-label="문의하기"><span aria-hidden="true">✉</span> 문의하기</a>{settingsButton}</div>{!pwa.installed&&<button className="install-button" disabled={pwa.busy} onClick={installApp}><Download size={15}/> 홈 화면에 설치</button>}<p className="quiet">시간제한 없이, 나만의 속도로</p>
+   <div className="home-links"><button className="text-button" onClick={()=>setHelp(true)}><span aria-hidden="true">?</span> 플레이 방법</button><a className="text-button contact-button" href="mailto:cremationmath@gmail.com" aria-label="문의하기"><span aria-hidden="true">✉</span> 문의하기</a>{settingsButton}</div>
   </section>}
   {screen==='stages'&&<StageSelect progress={progress} nextId={nextId} initialStageId={stageSelectionId} allCleared={allCleared} onStart={id=>start(id-1)} onBack={()=>navigate('main')} footer={settingsButton}/>}
   {screen==='game'&&<section className="game-content">
