@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-08",
+  "tests": 169,
+  "browser": "Codex in-app Chromium",
+  "viewports": [
+    "390x844",
+    "320x640"
+  ],
+  "stages": [
+    {
+      "stage": 41,
+      "removals": 8,
+      "layers": 3,
+      "clear": true
+    },
+    {
+      "stage": 42,
+      "removals": 8,
+      "layers": 3,
+      "clear": true
+    },
+    {
+      "stage": 43,
+      "removals": 8,
+      "layers": 3,
+      "clear": true
+    },
+    {
+      "stage": 44,
+      "removals": 9,
+      "layers": 3,
+      "clear": true
+    },
+    {
+      "stage": 45,
+      "removals": 9,
+      "layers": 3,
+      "clear": true
+    },
+    {
+      "stage": 46,
+      "removals": 9,
+      "layers": 3,
+      "clear": true
+    },
+    {
+      "stage": 47,
+      "removals": 10,
+      "layers": 3,
+      "clear": true,
+      "viewport": "320x640",
+      "horizontalOverflow": false
+    },
+    {
+      "stage": 48,
+      "removals": 10,
+      "layers": 3,
+      "clear": true,
+      "viewport": "320x640",
+      "horizontalOverflow": false
+    },
+    {
+      "stage": 49,
+      "removals": 10,
+      "layers": 3,
+      "clear": true,
+      "viewport": "320x640",
+      "horizontalOverflow": false
+    },
+    {
+      "stage": 50,
+      "removals": 10,
+      "layers": 3,
+      "clear": true,
+      "offline": true
+    }
+  ],
+  "checks": [
+    "All original 40 boards, lessons and solutions unchanged (SHA-256 regression test)",
+    "All 50 certified solutions replayed using the actual engine",
+    "Each new stage has a certified top-to-middle-to-lower unlock sequence",
+    "At least one complete printed corner stays uncovered on every new tile",
+    "Stage 41 introduces three layers with top then middle 1-2-3 removals",
+    "Stage 46 requires both overlapping roof tiles to uncover the middle tile",
+    "40-cleared save resumes at stage 41 and automatically selects chapter 5",
+    "Stages 42-50 initially locked, then unlocked in order",
+    "Stage 41 roof removal exposes the middle while the lower stays blocked; undo restores roofs and blocking",
+    "Stages 41-50 cleared through actual UI tile clicks",
+    "Stages 47-49 playable at 320px with no horizontal overflow",
+    "Offline reload from 49 cleared stages starts stage 50",
+    "Stage 50 completed offline; offline reload restores 50/50 progress"
+  ],
+  "consoleErrors": [],
+  "limitations": [
+    "Perceived difficulty and enjoyment require player feedback"
+  ]
+}
