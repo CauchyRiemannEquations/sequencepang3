@@ -1,12 +1,12 @@
 import {describe,it,expect} from 'vitest';
 import {STAGES,boardBounds} from './stages';
-import {availableMoves,legalMove,blockedReason,WIDTH,HEIGHT} from './engine';
+import {availableMoves,legalMove,blockedReason,classify,WIDTH,HEIGHT} from './engine';
 import {readProgress,nextStage,completeStage} from './progress';
 
-describe('thirty-stage coconut journey',()=>{
- it('has thirty contiguous, distinct fixed boards',()=>{
-  expect(STAGES.map(s=>s.id)).toEqual(Array.from({length:30},(_,i)=>i+1));
-  expect(new Set(STAGES.map(s=>JSON.stringify(s.tiles)))).toHaveLength(30);
+describe('forty-stage coconut journey',()=>{
+ it('has forty contiguous, distinct fixed boards',()=>{
+  expect(STAGES.map(s=>s.id)).toEqual(Array.from({length:40},(_,i)=>i+1));
+  expect(new Set(STAGES.map(s=>JSON.stringify(s.tiles)))).toHaveLength(40);
  });
  it.each(STAGES)('stage $id has a valid complete solution',stage=>{
   const tiles=stage.tiles,bounds=boardBounds(tiles);
@@ -45,6 +45,27 @@ describe('thirty-stage coconut journey',()=>{
   }
   expect([...groups.values()].some(choices=>choices.size>1)).toBe(true);
  });
+ it.each(STAGES.slice(30))('stage $id requires preserving a scarce number for a covered partner',stage=>{
+  const proof=stage.validation.numberPreservation!;
+  expect(proof).toBeDefined();expect(stage.focus).toBe('필요한 숫자 남기기');
+  expect(stage.tiles.length).toBeGreaterThanOrEqual(24);expect(stage.tiles.length).toBeLessThanOrEqual(30);
+  expect(new Set(stage.tiles.map(t=>t.layer))).toEqual(new Set([0,1]));
+  const scarce=stage.tiles.find(t=>t.id===proof.scarceTile)!;
+  expect(scarce.value).toBe(proof.scarceValue);
+  expect(stage.tiles.filter(t=>t.value===scarce.value)).toHaveLength(1);
+  const remaining=stage.tiles.map(t=>t.id);
+  expect(blockedReason(scarce,remaining,stage.tiles)).toBeNull();
+  expect(legalMove(proof.trapMove,remaining,stage.tiles)).toBe(true);
+  expect(proof.trapMove).toContain(scarce.id);
+  const savedStep=stage.solution.findIndex(move=>move.includes(scarce.id));
+  expect(savedStep).toBeGreaterThanOrEqual(2);expect(savedStep+1).toBe(proof.savedUntilMove);
+  expect(stage.solution[savedStep].some(id=>id!==scarce.id&&!!blockedReason(stage.tiles.find(t=>t.id===id)!,remaining,stage.tiles))).toBe(true);
+  // Ignore all covers: if even these numbers cannot be partitioned into legal
+  // triples, no physical removal order can rescue the tempting first move.
+  const after=stage.tiles.filter(t=>!proof.trapMove.includes(t.id)).map(t=>t.value);
+  expect(canPartitionNumbers(after)).toBe(false);
+  expect(canPartitionNumbers(stage.tiles.map(t=>t.value))).toBe(true);
+ });
  it('rejects absent, unknown, and duplicate tile ids',()=>{
   const s=STAGES[0],remaining=s.tiles.map(t=>t.id);
   expect(legalMove(['bad','bad','bad'],remaining,s.tiles)).toBe(false);
@@ -52,6 +73,21 @@ describe('thirty-stage coconut journey',()=>{
   expect(legalMove(s.solution[0],remaining.filter(id=>id!==s.solution[0][0]),s.tiles)).toBe(false);
  });
 });
+
+function canPartitionNumbers(values:number[]){
+ const seen=new Map<string,boolean>();
+ function visit(numbers:number[]):boolean{
+  if(!numbers.length)return true;
+  const key=numbers.join(',');if(seen.has(key))return seen.get(key)!;
+  const first=numbers[0];
+  for(let j=1;j<numbers.length;j++)for(let k=j+1;k<numbers.length;k++){
+   if(!classify([first,numbers[j],numbers[k]]))continue;
+   if(visit(numbers.filter((_,index)=>index!==0&&index!==j&&index!==k))){seen.set(key,true);return true;}
+  }
+  seen.set(key,false);return false;
+ }
+ return visit([...values].sort((a,b)=>a-b));
+}
 
 describe('local stage progress',()=>{
  it('recovers from missing or malformed storage',()=>{
@@ -64,9 +100,13 @@ describe('local stage progress',()=>{
   const progress=readProgress(JSON.stringify({version:1,cleared:Array.from({length:20},(_,i)=>i+1)}),30);
   expect(progress.cleared).toHaveLength(20);expect(nextStage(progress,30)).toBe(21);
  });
- it('unlocks the next unfinished stage and stops at thirty',()=>{
-  let progress=readProgress(null,30);expect(nextStage(progress,30)).toBe(1);
-  for(let id=1;id<=30;id++){progress=completeStage(progress,id,30);expect(nextStage(progress,30)).toBe(Math.min(id+1,30));}
-  expect(progress.cleared).toHaveLength(30);expect(completeStage(progress,30,30).cleared).toHaveLength(30);
+ it('preserves thirty cleared stages and unlocks thirty-one after the update',()=>{
+  const progress=readProgress(JSON.stringify({version:1,cleared:Array.from({length:30},(_,i)=>i+1)}),40);
+  expect(progress.cleared).toHaveLength(30);expect(nextStage(progress,40)).toBe(31);
+ });
+ it('unlocks the next unfinished stage and stops at forty',()=>{
+  let progress=readProgress(null,40);expect(nextStage(progress,40)).toBe(1);
+  for(let id=1;id<=40;id++){progress=completeStage(progress,id,40);expect(nextStage(progress,40)).toBe(Math.min(id+1,40));}
+  expect(progress.cleared).toHaveLength(40);expect(completeStage(progress,40,40).cleared).toHaveLength(40);
  });
 });

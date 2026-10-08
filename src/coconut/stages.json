@@ -6538,5 +6538,3177 @@
       "verifiedStates": 0,
       "positionChoices": 390
     }
+  },
+  {
+    "id": 31,
+    "name": "하나 남은 아홉",
+    "lesson": "하나뿐인 9를 쓰기 전에 아래의 숫자를 살펴보세요.",
+    "focus": "필요한 숫자 남기기",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 6
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L14",
+        "layer": 0,
+        "row": 0,
+        "col": 3,
+        "x": 156,
+        "y": 28,
+        "value": 1
+      },
+      {
+        "id": "L15",
+        "layer": 0,
+        "row": 0,
+        "col": 4,
+        "x": 208,
+        "y": 28,
+        "value": 2
+      },
+      {
+        "id": "L16",
+        "layer": 0,
+        "row": 0,
+        "col": 5,
+        "x": 260,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 5
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 3
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 7
+      },
+      {
+        "id": "L24",
+        "layer": 0,
+        "row": 1,
+        "col": 3,
+        "x": 156,
+        "y": 116,
+        "value": 6
+      },
+      {
+        "id": "L25",
+        "layer": 0,
+        "row": 1,
+        "col": 4,
+        "x": 208,
+        "y": 116,
+        "value": 3
+      },
+      {
+        "id": "L26",
+        "layer": 0,
+        "row": 1,
+        "col": 5,
+        "x": 260,
+        "y": 116,
+        "value": 1
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 2
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 9
+      },
+      {
+        "id": "L34",
+        "layer": 0,
+        "row": 2,
+        "col": 3,
+        "x": 156,
+        "y": 204,
+        "value": 3
+      },
+      {
+        "id": "L35",
+        "layer": 0,
+        "row": 2,
+        "col": 4,
+        "x": 208,
+        "y": 204,
+        "value": 8
+      },
+      {
+        "id": "L36",
+        "layer": 0,
+        "row": 2,
+        "col": 5,
+        "x": 260,
+        "y": 204,
+        "value": 3
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 26,
+        "y": 0,
+        "value": 5
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 130,
+        "y": 0,
+        "value": 7
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 234,
+        "y": 0,
+        "value": 4
+      },
+      {
+        "id": "U21",
+        "layer": 1,
+        "row": 1,
+        "col": 0,
+        "x": 26,
+        "y": 94,
+        "value": 2
+      },
+      {
+        "id": "U22",
+        "layer": 1,
+        "row": 1,
+        "col": 1,
+        "x": 130,
+        "y": 94,
+        "value": 5
+      },
+      {
+        "id": "U23",
+        "layer": 1,
+        "row": 1,
+        "col": 2,
+        "x": 234,
+        "y": 94,
+        "value": 6
+      }
+    ],
+    "solution": [
+      [
+        "U13",
+        "L31",
+        "L35"
+      ],
+      [
+        "U21",
+        "L32",
+        "L34"
+      ],
+      [
+        "U22",
+        "L22",
+        "U12"
+      ],
+      [
+        "L36",
+        "L14",
+        "L21"
+      ],
+      [
+        "L15",
+        "L16",
+        "L24"
+      ],
+      [
+        "L13",
+        "U11",
+        "U23"
+      ],
+      [
+        "L11",
+        "L23",
+        "L26"
+      ],
+      [
+        "L25",
+        "L12",
+        "L33"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 48,
+      "allChoicesSolvable": null,
+      "verifiedStates": 0,
+      "positionChoices": 80,
+      "numberPreservation": {
+        "scarceValue": 9,
+        "scarceTile": "L33",
+        "trapMove": [
+          "L33",
+          "L35",
+          "U12"
+        ],
+        "savedUntilMove": 8
+      }
+    }
+  },
+  {
+    "id": 32,
+    "name": "아직 쓰지 않을 패",
+    "lesson": "지금 만들 수 있는 수열이 마지막에도 도움이 될까요?",
+    "focus": "필요한 숫자 남기기",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 9
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 6
+      },
+      {
+        "id": "L14",
+        "layer": 0,
+        "row": 0,
+        "col": 3,
+        "x": 156,
+        "y": 28,
+        "value": 8
+      },
+      {
+        "id": "L15",
+        "layer": 0,
+        "row": 0,
+        "col": 4,
+        "x": 208,
+        "y": 28,
+        "value": 5
+      },
+      {
+        "id": "L16",
+        "layer": 0,
+        "row": 0,
+        "col": 5,
+        "x": 260,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 3
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 7
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 2
+      },
+      {
+        "id": "L24",
+        "layer": 0,
+        "row": 1,
+        "col": 3,
+        "x": 156,
+        "y": 116,
+        "value": 3
+      },
+      {
+        "id": "L25",
+        "layer": 0,
+        "row": 1,
+        "col": 4,
+        "x": 208,
+        "y": 116,
+        "value": 4
+      },
+      {
+        "id": "L26",
+        "layer": 0,
+        "row": 1,
+        "col": 5,
+        "x": 260,
+        "y": 116,
+        "value": 5
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 6
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 3
+      },
+      {
+        "id": "L34",
+        "layer": 0,
+        "row": 2,
+        "col": 3,
+        "x": 156,
+        "y": 204,
+        "value": 5
+      },
+      {
+        "id": "L35",
+        "layer": 0,
+        "row": 2,
+        "col": 4,
+        "x": 208,
+        "y": 204,
+        "value": 2
+      },
+      {
+        "id": "L36",
+        "layer": 0,
+        "row": 2,
+        "col": 5,
+        "x": 260,
+        "y": 204,
+        "value": 5
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 0,
+        "value": 2
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 104,
+        "y": 0,
+        "value": 8
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 208,
+        "y": 0,
+        "value": 4
+      },
+      {
+        "id": "U21",
+        "layer": 1,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 94,
+        "value": 4
+      },
+      {
+        "id": "U22",
+        "layer": 1,
+        "row": 1,
+        "col": 1,
+        "x": 104,
+        "y": 94,
+        "value": 1
+      },
+      {
+        "id": "U23",
+        "layer": 1,
+        "row": 1,
+        "col": 2,
+        "x": 208,
+        "y": 94,
+        "value": 2
+      }
+    ],
+    "solution": [
+      [
+        "U22",
+        "L32",
+        "L35"
+      ],
+      [
+        "U21",
+        "L14",
+        "L23"
+      ],
+      [
+        "L36",
+        "L21",
+        "L22"
+      ],
+      [
+        "L24",
+        "L12",
+        "U23"
+      ],
+      [
+        "L31",
+        "U13",
+        "L26"
+      ],
+      [
+        "L34",
+        "L16",
+        "L33"
+      ],
+      [
+        "U12",
+        "U11",
+        "L15"
+      ],
+      [
+        "L11",
+        "L25",
+        "L13"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 191,
+      "allChoicesSolvable": null,
+      "verifiedStates": 0,
+      "positionChoices": 1502,
+      "numberPreservation": {
+        "scarceValue": 7,
+        "scarceTile": "L22",
+        "trapMove": [
+          "L14",
+          "L22",
+          "L31"
+        ],
+        "savedUntilMove": 3
+      }
+    }
+  },
+  {
+    "id": 33,
+    "name": "다음 수열의 몫",
+    "lesson": "적게 남은 숫자가 어떤 수열에 필요한지 찾아보세요.",
+    "focus": "필요한 숫자 남기기",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 1
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 7
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 5
+      },
+      {
+        "id": "L14",
+        "layer": 0,
+        "row": 0,
+        "col": 3,
+        "x": 156,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L15",
+        "layer": 0,
+        "row": 0,
+        "col": 4,
+        "x": 208,
+        "y": 28,
+        "value": 2
+      },
+      {
+        "id": "L16",
+        "layer": 0,
+        "row": 0,
+        "col": 5,
+        "x": 260,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 6
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 3
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 5
+      },
+      {
+        "id": "L24",
+        "layer": 0,
+        "row": 1,
+        "col": 3,
+        "x": 156,
+        "y": 116,
+        "value": 3
+      },
+      {
+        "id": "L25",
+        "layer": 0,
+        "row": 1,
+        "col": 4,
+        "x": 208,
+        "y": 116,
+        "value": 8
+      },
+      {
+        "id": "L26",
+        "layer": 0,
+        "row": 1,
+        "col": 5,
+        "x": 260,
+        "y": 116,
+        "value": 4
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 2
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 5
+      },
+      {
+        "id": "L34",
+        "layer": 0,
+        "row": 2,
+        "col": 3,
+        "x": 156,
+        "y": 204,
+        "value": 6
+      },
+      {
+        "id": "L35",
+        "layer": 0,
+        "row": 2,
+        "col": 4,
+        "x": 208,
+        "y": 204,
+        "value": 8
+      },
+      {
+        "id": "L36",
+        "layer": 0,
+        "row": 2,
+        "col": 5,
+        "x": 260,
+        "y": 204,
+        "value": 3
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 52,
+        "y": 0,
+        "value": 9
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 130,
+        "y": 0,
+        "value": 4
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 234,
+        "y": 0,
+        "value": 2
+      },
+      {
+        "id": "U21",
+        "layer": 1,
+        "row": 1,
+        "col": 0,
+        "x": 52,
+        "y": 94,
+        "value": 2
+      },
+      {
+        "id": "U22",
+        "layer": 1,
+        "row": 1,
+        "col": 1,
+        "x": 130,
+        "y": 94,
+        "value": 5
+      },
+      {
+        "id": "U23",
+        "layer": 1,
+        "row": 1,
+        "col": 2,
+        "x": 234,
+        "y": 94,
+        "value": 4
+      }
+    ],
+    "solution": [
+      [
+        "U21",
+        "U12",
+        "L36"
+      ],
+      [
+        "U23",
+        "U22",
+        "L21"
+      ],
+      [
+        "L26",
+        "L32",
+        "L11"
+      ],
+      [
+        "U13",
+        "L14",
+        "L25"
+      ],
+      [
+        "L31",
+        "L33",
+        "L22"
+      ],
+      [
+        "L23",
+        "L35",
+        "L15"
+      ],
+      [
+        "U11",
+        "L16",
+        "L34"
+      ],
+      [
+        "L13",
+        "L24",
+        "L12"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 91,
+      "allChoicesSolvable": null,
+      "verifiedStates": 0,
+      "positionChoices": 371,
+      "numberPreservation": {
+        "scarceValue": 1,
+        "scarceTile": "L11",
+        "trapMove": [
+          "L11",
+          "L36",
+          "U11"
+        ],
+        "savedUntilMove": 3
+      }
+    }
+  },
+  {
+    "id": 34,
+    "name": "늦게 열리는 짝",
+    "lesson": "아직 덮인 패와 짝이 될 숫자를 남겨 보세요.",
+    "focus": "필요한 숫자 남기기",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 5
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L14",
+        "layer": 0,
+        "row": 0,
+        "col": 3,
+        "x": 156,
+        "y": 28,
+        "value": 7
+      },
+      {
+        "id": "L15",
+        "layer": 0,
+        "row": 0,
+        "col": 4,
+        "x": 208,
+        "y": 28,
+        "value": 2
+      },
+      {
+        "id": "L16",
+        "layer": 0,
+        "row": 0,
+        "col": 5,
+        "x": 260,
+        "y": 28,
+        "value": 3
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 3
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 5
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 4
+      },
+      {
+        "id": "L24",
+        "layer": 0,
+        "row": 1,
+        "col": 3,
+        "x": 156,
+        "y": 116,
+        "value": 6
+      },
+      {
+        "id": "L25",
+        "layer": 0,
+        "row": 1,
+        "col": 4,
+        "x": 208,
+        "y": 116,
+        "value": 5
+      },
+      {
+        "id": "L26",
+        "layer": 0,
+        "row": 1,
+        "col": 5,
+        "x": 260,
+        "y": 116,
+        "value": 3
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 2
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 3
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 6
+      },
+      {
+        "id": "L34",
+        "layer": 0,
+        "row": 2,
+        "col": 3,
+        "x": 156,
+        "y": 204,
+        "value": 7
+      },
+      {
+        "id": "L35",
+        "layer": 0,
+        "row": 2,
+        "col": 4,
+        "x": 208,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L36",
+        "layer": 0,
+        "row": 2,
+        "col": 5,
+        "x": 260,
+        "y": 204,
+        "value": 1
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 26,
+        "y": 0,
+        "value": 5
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 130,
+        "y": 0,
+        "value": 1
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 234,
+        "y": 0,
+        "value": 4
+      },
+      {
+        "id": "U21",
+        "layer": 1,
+        "row": 1,
+        "col": 0,
+        "x": 26,
+        "y": 94,
+        "value": 2
+      },
+      {
+        "id": "U22",
+        "layer": 1,
+        "row": 1,
+        "col": 1,
+        "x": 130,
+        "y": 94,
+        "value": 6
+      },
+      {
+        "id": "U23",
+        "layer": 1,
+        "row": 1,
+        "col": 2,
+        "x": 234,
+        "y": 94,
+        "value": 3
+      },
+      {
+        "id": "U31",
+        "layer": 1,
+        "row": 2,
+        "col": 0,
+        "x": 26,
+        "y": 188,
+        "value": 4
+      },
+      {
+        "id": "U32",
+        "layer": 1,
+        "row": 2,
+        "col": 1,
+        "x": 130,
+        "y": 188,
+        "value": 9
+      },
+      {
+        "id": "U33",
+        "layer": 1,
+        "row": 2,
+        "col": 2,
+        "x": 234,
+        "y": 188,
+        "value": 8
+      }
+    ],
+    "solution": [
+      [
+        "U33",
+        "U21",
+        "U13"
+      ],
+      [
+        "L36",
+        "U23",
+        "L22"
+      ],
+      [
+        "U31",
+        "L21",
+        "L15"
+      ],
+      [
+        "U32",
+        "L26",
+        "U22"
+      ],
+      [
+        "L33",
+        "L31",
+        "L23"
+      ],
+      [
+        "L35",
+        "U11",
+        "L24"
+      ],
+      [
+        "L12",
+        "U12",
+        "L34"
+      ],
+      [
+        "L16",
+        "L11",
+        "L13"
+      ],
+      [
+        "L25",
+        "L32",
+        "L14"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 22,
+      "allChoicesSolvable": null,
+      "verifiedStates": 0,
+      "positionChoices": 8,
+      "numberPreservation": {
+        "scarceValue": 9,
+        "scarceTile": "U32",
+        "trapMove": [
+          "U11",
+          "U12",
+          "U32"
+        ],
+        "savedUntilMove": 4
+      }
+    }
+  },
+  {
+    "id": 35,
+    "name": "빈자리의 약속",
+    "lesson": "먼저 열 길을 정한 뒤 남길 숫자를 골라 보세요.",
+    "focus": "필요한 숫자 남기기",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 3
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 7
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 6
+      },
+      {
+        "id": "L14",
+        "layer": 0,
+        "row": 0,
+        "col": 3,
+        "x": 156,
+        "y": 28,
+        "value": 2
+      },
+      {
+        "id": "L15",
+        "layer": 0,
+        "row": 0,
+        "col": 4,
+        "x": 208,
+        "y": 28,
+        "value": 8
+      },
+      {
+        "id": "L16",
+        "layer": 0,
+        "row": 0,
+        "col": 5,
+        "x": 260,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 5
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 4
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 2
+      },
+      {
+        "id": "L24",
+        "layer": 0,
+        "row": 1,
+        "col": 3,
+        "x": 156,
+        "y": 116,
+        "value": 6
+      },
+      {
+        "id": "L25",
+        "layer": 0,
+        "row": 1,
+        "col": 4,
+        "x": 208,
+        "y": 116,
+        "value": 4
+      },
+      {
+        "id": "L26",
+        "layer": 0,
+        "row": 1,
+        "col": 5,
+        "x": 260,
+        "y": 116,
+        "value": 2
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 9
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 5
+      },
+      {
+        "id": "L34",
+        "layer": 0,
+        "row": 2,
+        "col": 3,
+        "x": 156,
+        "y": 204,
+        "value": 2
+      },
+      {
+        "id": "L35",
+        "layer": 0,
+        "row": 2,
+        "col": 4,
+        "x": 208,
+        "y": 204,
+        "value": 5
+      },
+      {
+        "id": "L36",
+        "layer": 0,
+        "row": 2,
+        "col": 5,
+        "x": 260,
+        "y": 204,
+        "value": 8
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 0,
+        "value": 2
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 104,
+        "y": 0,
+        "value": 6
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 208,
+        "y": 0,
+        "value": 3
+      },
+      {
+        "id": "U21",
+        "layer": 1,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 94,
+        "value": 4
+      },
+      {
+        "id": "U22",
+        "layer": 1,
+        "row": 1,
+        "col": 1,
+        "x": 104,
+        "y": 94,
+        "value": 1
+      },
+      {
+        "id": "U23",
+        "layer": 1,
+        "row": 1,
+        "col": 2,
+        "x": 208,
+        "y": 94,
+        "value": 5
+      },
+      {
+        "id": "U31",
+        "layer": 1,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 188,
+        "value": 4
+      },
+      {
+        "id": "U32",
+        "layer": 1,
+        "row": 2,
+        "col": 1,
+        "x": 104,
+        "y": 188,
+        "value": 4
+      },
+      {
+        "id": "U33",
+        "layer": 1,
+        "row": 2,
+        "col": 2,
+        "x": 208,
+        "y": 188,
+        "value": 3
+      }
+    ],
+    "solution": [
+      [
+        "U22",
+        "U32",
+        "L34"
+      ],
+      [
+        "L32",
+        "U13",
+        "U23"
+      ],
+      [
+        "U11",
+        "L36",
+        "L16"
+      ],
+      [
+        "U33",
+        "L33",
+        "L12"
+      ],
+      [
+        "U21",
+        "L11",
+        "L14"
+      ],
+      [
+        "U31",
+        "L21",
+        "U12"
+      ],
+      [
+        "L24",
+        "L22",
+        "L23"
+      ],
+      [
+        "L15",
+        "L35",
+        "L26"
+      ],
+      [
+        "L25",
+        "L31",
+        "L13"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 206,
+      "allChoicesSolvable": null,
+      "verifiedStates": 0,
+      "positionChoices": 2741,
+      "numberPreservation": {
+        "scarceValue": 7,
+        "scarceTile": "L12",
+        "trapMove": [
+          "L12",
+          "L24",
+          "L36"
+        ],
+        "savedUntilMove": 4
+      }
+    }
+  },
+  {
+    "id": 36,
+    "name": "두 번의 기다림",
+    "lesson": "몇 수 뒤에 열릴 숫자도 미리 생각해 보세요.",
+    "focus": "필요한 숫자 남기기",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 5
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L14",
+        "layer": 0,
+        "row": 0,
+        "col": 3,
+        "x": 156,
+        "y": 28,
+        "value": 2
+      },
+      {
+        "id": "L15",
+        "layer": 0,
+        "row": 0,
+        "col": 4,
+        "x": 208,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L16",
+        "layer": 0,
+        "row": 0,
+        "col": 5,
+        "x": 260,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 2
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 5
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 4
+      },
+      {
+        "id": "L24",
+        "layer": 0,
+        "row": 1,
+        "col": 3,
+        "x": 156,
+        "y": 116,
+        "value": 5
+      },
+      {
+        "id": "L25",
+        "layer": 0,
+        "row": 1,
+        "col": 4,
+        "x": 208,
+        "y": 116,
+        "value": 5
+      },
+      {
+        "id": "L26",
+        "layer": 0,
+        "row": 1,
+        "col": 5,
+        "x": 260,
+        "y": 116,
+        "value": 6
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 6
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 9
+      },
+      {
+        "id": "L34",
+        "layer": 0,
+        "row": 2,
+        "col": 3,
+        "x": 156,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L35",
+        "layer": 0,
+        "row": 2,
+        "col": 4,
+        "x": 208,
+        "y": 204,
+        "value": 3
+      },
+      {
+        "id": "L36",
+        "layer": 0,
+        "row": 2,
+        "col": 5,
+        "x": 260,
+        "y": 204,
+        "value": 8
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 26,
+        "y": 0,
+        "value": 7
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 104,
+        "y": 0,
+        "value": 2
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 182,
+        "y": 0,
+        "value": 3
+      },
+      {
+        "id": "U21",
+        "layer": 1,
+        "row": 1,
+        "col": 0,
+        "x": 26,
+        "y": 94,
+        "value": 2
+      },
+      {
+        "id": "U22",
+        "layer": 1,
+        "row": 1,
+        "col": 1,
+        "x": 104,
+        "y": 94,
+        "value": 2
+      },
+      {
+        "id": "U23",
+        "layer": 1,
+        "row": 1,
+        "col": 2,
+        "x": 182,
+        "y": 94,
+        "value": 8
+      },
+      {
+        "id": "U31",
+        "layer": 1,
+        "row": 2,
+        "col": 0,
+        "x": 26,
+        "y": 188,
+        "value": 3
+      },
+      {
+        "id": "U32",
+        "layer": 1,
+        "row": 2,
+        "col": 1,
+        "x": 104,
+        "y": 188,
+        "value": 6
+      },
+      {
+        "id": "U33",
+        "layer": 1,
+        "row": 2,
+        "col": 2,
+        "x": 182,
+        "y": 188,
+        "value": 1
+      }
+    ],
+    "solution": [
+      [
+        "L16",
+        "U21",
+        "U33"
+      ],
+      [
+        "U23",
+        "L34",
+        "L21"
+      ],
+      [
+        "L25",
+        "U11",
+        "U31"
+      ],
+      [
+        "U13",
+        "U12",
+        "L12"
+      ],
+      [
+        "L26",
+        "L22",
+        "L13"
+      ],
+      [
+        "L11",
+        "L35",
+        "L32"
+      ],
+      [
+        "L24",
+        "U22",
+        "L36"
+      ],
+      [
+        "L14",
+        "U32",
+        "L15"
+      ],
+      [
+        "L31",
+        "L23",
+        "L33"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 36,
+      "allChoicesSolvable": null,
+      "verifiedStates": 0,
+      "positionChoices": 75,
+      "numberPreservation": {
+        "scarceValue": 7,
+        "scarceTile": "U11",
+        "trapMove": [
+          "L26",
+          "L36",
+          "U11"
+        ],
+        "savedUntilMove": 3
+      }
+    }
+  },
+  {
+    "id": 37,
+    "name": "섬 끝의 한 조각",
+    "lesson": "섬 가장자리의 숫자도 나중에 필요할 수 있어요.",
+    "focus": "필요한 숫자 남기기",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 2
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 3
+      },
+      {
+        "id": "L14",
+        "layer": 0,
+        "row": 0,
+        "col": 3,
+        "x": 156,
+        "y": 28,
+        "value": 5
+      },
+      {
+        "id": "L15",
+        "layer": 0,
+        "row": 0,
+        "col": 4,
+        "x": 208,
+        "y": 28,
+        "value": 1
+      },
+      {
+        "id": "L16",
+        "layer": 0,
+        "row": 0,
+        "col": 5,
+        "x": 260,
+        "y": 28,
+        "value": 8
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 6
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 3
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 6
+      },
+      {
+        "id": "L24",
+        "layer": 0,
+        "row": 1,
+        "col": 3,
+        "x": 156,
+        "y": 116,
+        "value": 6
+      },
+      {
+        "id": "L25",
+        "layer": 0,
+        "row": 1,
+        "col": 4,
+        "x": 208,
+        "y": 116,
+        "value": 5
+      },
+      {
+        "id": "L26",
+        "layer": 0,
+        "row": 1,
+        "col": 5,
+        "x": 260,
+        "y": 116,
+        "value": 1
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 3
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 2
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L34",
+        "layer": 0,
+        "row": 2,
+        "col": 3,
+        "x": 156,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L35",
+        "layer": 0,
+        "row": 2,
+        "col": 4,
+        "x": 208,
+        "y": 204,
+        "value": 2
+      },
+      {
+        "id": "L36",
+        "layer": 0,
+        "row": 2,
+        "col": 5,
+        "x": 260,
+        "y": 204,
+        "value": 7
+      },
+      {
+        "id": "L41",
+        "layer": 0,
+        "row": 3,
+        "col": 0,
+        "x": 0,
+        "y": 292,
+        "value": 4
+      },
+      {
+        "id": "L42",
+        "layer": 0,
+        "row": 3,
+        "col": 1,
+        "x": 52,
+        "y": 292,
+        "value": 8
+      },
+      {
+        "id": "L43",
+        "layer": 0,
+        "row": 3,
+        "col": 2,
+        "x": 104,
+        "y": 292,
+        "value": 5
+      },
+      {
+        "id": "L44",
+        "layer": 0,
+        "row": 3,
+        "col": 3,
+        "x": 156,
+        "y": 292,
+        "value": 4
+      },
+      {
+        "id": "L45",
+        "layer": 0,
+        "row": 3,
+        "col": 4,
+        "x": 208,
+        "y": 292,
+        "value": 6
+      },
+      {
+        "id": "L46",
+        "layer": 0,
+        "row": 3,
+        "col": 5,
+        "x": 260,
+        "y": 292,
+        "value": 9
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 26,
+        "y": 0,
+        "value": 2
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 130,
+        "y": 0,
+        "value": 3
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 234,
+        "y": 0,
+        "value": 4
+      },
+      {
+        "id": "U21",
+        "layer": 1,
+        "row": 1,
+        "col": 0,
+        "x": 26,
+        "y": 94,
+        "value": 3
+      },
+      {
+        "id": "U22",
+        "layer": 1,
+        "row": 1,
+        "col": 1,
+        "x": 130,
+        "y": 94,
+        "value": 1
+      },
+      {
+        "id": "U23",
+        "layer": 1,
+        "row": 1,
+        "col": 2,
+        "x": 234,
+        "y": 94,
+        "value": 7
+      }
+    ],
+    "solution": [
+      [
+        "L35",
+        "L42",
+        "L33"
+      ],
+      [
+        "L43",
+        "U12",
+        "U22"
+      ],
+      [
+        "U21",
+        "L32",
+        "L44"
+      ],
+      [
+        "U23",
+        "L22",
+        "L14"
+      ],
+      [
+        "U13",
+        "L45",
+        "U11"
+      ],
+      [
+        "L34",
+        "L24",
+        "L25"
+      ],
+      [
+        "L12",
+        "L36",
+        "L26"
+      ],
+      [
+        "L15",
+        "L13",
+        "L11"
+      ],
+      [
+        "L16",
+        "L41",
+        "L23"
+      ],
+      [
+        "L31",
+        "L46",
+        "L21"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 166,
+      "allChoicesSolvable": null,
+      "verifiedStates": 0,
+      "positionChoices": 1290,
+      "numberPreservation": {
+        "scarceValue": 9,
+        "scarceTile": "L46",
+        "trapMove": [
+          "L36",
+          "L42",
+          "L46"
+        ],
+        "savedUntilMove": 10
+      }
+    }
+  },
+  {
+    "id": 38,
+    "name": "남겨야 이어지는 길",
+    "lesson": "여러 조합에 쓸 수 있는 숫자를 서둘러 쓰지 마세요.",
+    "focus": "필요한 숫자 남기기",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 5
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 3
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 3
+      },
+      {
+        "id": "L14",
+        "layer": 0,
+        "row": 0,
+        "col": 3,
+        "x": 156,
+        "y": 28,
+        "value": 6
+      },
+      {
+        "id": "L15",
+        "layer": 0,
+        "row": 0,
+        "col": 4,
+        "x": 208,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L16",
+        "layer": 0,
+        "row": 0,
+        "col": 5,
+        "x": 260,
+        "y": 28,
+        "value": 3
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 5
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 6
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 5
+      },
+      {
+        "id": "L24",
+        "layer": 0,
+        "row": 1,
+        "col": 3,
+        "x": 156,
+        "y": 116,
+        "value": 2
+      },
+      {
+        "id": "L25",
+        "layer": 0,
+        "row": 1,
+        "col": 4,
+        "x": 208,
+        "y": 116,
+        "value": 3
+      },
+      {
+        "id": "L26",
+        "layer": 0,
+        "row": 1,
+        "col": 5,
+        "x": 260,
+        "y": 116,
+        "value": 5
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 9
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L34",
+        "layer": 0,
+        "row": 2,
+        "col": 3,
+        "x": 156,
+        "y": 204,
+        "value": 2
+      },
+      {
+        "id": "L35",
+        "layer": 0,
+        "row": 2,
+        "col": 4,
+        "x": 208,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L36",
+        "layer": 0,
+        "row": 2,
+        "col": 5,
+        "x": 260,
+        "y": 204,
+        "value": 2
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 0,
+        "value": 6
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 78,
+        "y": 0,
+        "value": 4
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 156,
+        "y": 0,
+        "value": 5
+      },
+      {
+        "id": "U14",
+        "layer": 1,
+        "row": 0,
+        "col": 3,
+        "x": 234,
+        "y": 0,
+        "value": 8
+      },
+      {
+        "id": "U21",
+        "layer": 1,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 94,
+        "value": 7
+      },
+      {
+        "id": "U22",
+        "layer": 1,
+        "row": 1,
+        "col": 1,
+        "x": 78,
+        "y": 94,
+        "value": 1
+      },
+      {
+        "id": "U23",
+        "layer": 1,
+        "row": 1,
+        "col": 2,
+        "x": 156,
+        "y": 94,
+        "value": 2
+      },
+      {
+        "id": "U24",
+        "layer": 1,
+        "row": 1,
+        "col": 3,
+        "x": 234,
+        "y": 94,
+        "value": 8
+      },
+      {
+        "id": "U31",
+        "layer": 1,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 188,
+        "value": 4
+      },
+      {
+        "id": "U32",
+        "layer": 1,
+        "row": 2,
+        "col": 1,
+        "x": 78,
+        "y": 188,
+        "value": 2
+      },
+      {
+        "id": "U33",
+        "layer": 1,
+        "row": 2,
+        "col": 2,
+        "x": 156,
+        "y": 188,
+        "value": 4
+      },
+      {
+        "id": "U34",
+        "layer": 1,
+        "row": 2,
+        "col": 3,
+        "x": 234,
+        "y": 188,
+        "value": 4
+      }
+    ],
+    "solution": [
+      [
+        "U22",
+        "U23",
+        "U34"
+      ],
+      [
+        "U24",
+        "U12",
+        "L24"
+      ],
+      [
+        "U21",
+        "L26",
+        "L13"
+      ],
+      [
+        "U31",
+        "L36",
+        "L12"
+      ],
+      [
+        "L35",
+        "U11",
+        "L23"
+      ],
+      [
+        "L21",
+        "L25",
+        "U33"
+      ],
+      [
+        "L22",
+        "L31",
+        "L34"
+      ],
+      [
+        "U13",
+        "U14",
+        "U32"
+      ],
+      [
+        "L33",
+        "L16",
+        "L11"
+      ],
+      [
+        "L14",
+        "L32",
+        "L15"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 55,
+      "allChoicesSolvable": null,
+      "verifiedStates": 0,
+      "positionChoices": 223,
+      "numberPreservation": {
+        "scarceValue": 7,
+        "scarceTile": "U21",
+        "trapMove": [
+          "U11",
+          "U14",
+          "U21"
+        ],
+        "savedUntilMove": 3
+      }
+    }
+  },
+  {
+    "id": 39,
+    "name": "마지막 세 패를 위해",
+    "lesson": "끝에 만들 수열부터 거꾸로 생각해 보세요.",
+    "focus": "필요한 숫자 남기기",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 5
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 3
+      },
+      {
+        "id": "L14",
+        "layer": 0,
+        "row": 0,
+        "col": 3,
+        "x": 156,
+        "y": 28,
+        "value": 6
+      },
+      {
+        "id": "L15",
+        "layer": 0,
+        "row": 0,
+        "col": 4,
+        "x": 208,
+        "y": 28,
+        "value": 4
+      },
+      {
+        "id": "L16",
+        "layer": 0,
+        "row": 0,
+        "col": 5,
+        "x": 260,
+        "y": 28,
+        "value": 9
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 2
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 3
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 4
+      },
+      {
+        "id": "L24",
+        "layer": 0,
+        "row": 1,
+        "col": 3,
+        "x": 156,
+        "y": 116,
+        "value": 5
+      },
+      {
+        "id": "L25",
+        "layer": 0,
+        "row": 1,
+        "col": 4,
+        "x": 208,
+        "y": 116,
+        "value": 7
+      },
+      {
+        "id": "L26",
+        "layer": 0,
+        "row": 1,
+        "col": 5,
+        "x": 260,
+        "y": 116,
+        "value": 2
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 5
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 2
+      },
+      {
+        "id": "L34",
+        "layer": 0,
+        "row": 2,
+        "col": 3,
+        "x": 156,
+        "y": 204,
+        "value": 8
+      },
+      {
+        "id": "L35",
+        "layer": 0,
+        "row": 2,
+        "col": 4,
+        "x": 208,
+        "y": 204,
+        "value": 6
+      },
+      {
+        "id": "L36",
+        "layer": 0,
+        "row": 2,
+        "col": 5,
+        "x": 260,
+        "y": 204,
+        "value": 2
+      },
+      {
+        "id": "L41",
+        "layer": 0,
+        "row": 3,
+        "col": 0,
+        "x": 0,
+        "y": 292,
+        "value": 3
+      },
+      {
+        "id": "L42",
+        "layer": 0,
+        "row": 3,
+        "col": 1,
+        "x": 52,
+        "y": 292,
+        "value": 6
+      },
+      {
+        "id": "L43",
+        "layer": 0,
+        "row": 3,
+        "col": 2,
+        "x": 104,
+        "y": 292,
+        "value": 4
+      },
+      {
+        "id": "L44",
+        "layer": 0,
+        "row": 3,
+        "col": 3,
+        "x": 156,
+        "y": 292,
+        "value": 3
+      },
+      {
+        "id": "L45",
+        "layer": 0,
+        "row": 3,
+        "col": 4,
+        "x": 208,
+        "y": 292,
+        "value": 4
+      },
+      {
+        "id": "L46",
+        "layer": 0,
+        "row": 3,
+        "col": 5,
+        "x": 260,
+        "y": 292,
+        "value": 4
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 0,
+        "value": 1
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 104,
+        "y": 0,
+        "value": 5
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 208,
+        "y": 0,
+        "value": 2
+      },
+      {
+        "id": "U21",
+        "layer": 1,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 94,
+        "value": 5
+      },
+      {
+        "id": "U22",
+        "layer": 1,
+        "row": 1,
+        "col": 1,
+        "x": 104,
+        "y": 94,
+        "value": 4
+      },
+      {
+        "id": "U23",
+        "layer": 1,
+        "row": 1,
+        "col": 2,
+        "x": 208,
+        "y": 94,
+        "value": 8
+      }
+    ],
+    "solution": [
+      [
+        "U11",
+        "L46",
+        "L33"
+      ],
+      [
+        "L45",
+        "U23",
+        "L26"
+      ],
+      [
+        "L44",
+        "L12",
+        "L25"
+      ],
+      [
+        "L22",
+        "L36",
+        "L32"
+      ],
+      [
+        "L43",
+        "L24",
+        "L14"
+      ],
+      [
+        "U21",
+        "U22",
+        "L41"
+      ],
+      [
+        "L21",
+        "L34",
+        "U12"
+      ],
+      [
+        "L11",
+        "L31",
+        "L35"
+      ],
+      [
+        "L13",
+        "L23",
+        "U13"
+      ],
+      [
+        "L42",
+        "L15",
+        "L16"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 459,
+      "allChoicesSolvable": null,
+      "verifiedStates": 0,
+      "positionChoices": 7877,
+      "numberPreservation": {
+        "scarceValue": 9,
+        "scarceTile": "L16",
+        "trapMove": [
+          "L14",
+          "L16",
+          "L22"
+        ],
+        "savedUntilMove": 10
+      }
+    }
+  },
+  {
+    "id": 40,
+    "name": "코코넛 섬의 비축",
+    "lesson": "열릴 패와 남길 숫자를 함께 계획해 섬을 비워 보세요.",
+    "focus": "필요한 숫자 남기기",
+    "tiles": [
+      {
+        "id": "L11",
+        "layer": 0,
+        "row": 0,
+        "col": 0,
+        "x": 0,
+        "y": 28,
+        "value": 3
+      },
+      {
+        "id": "L12",
+        "layer": 0,
+        "row": 0,
+        "col": 1,
+        "x": 52,
+        "y": 28,
+        "value": 7
+      },
+      {
+        "id": "L13",
+        "layer": 0,
+        "row": 0,
+        "col": 2,
+        "x": 104,
+        "y": 28,
+        "value": 7
+      },
+      {
+        "id": "L14",
+        "layer": 0,
+        "row": 0,
+        "col": 3,
+        "x": 156,
+        "y": 28,
+        "value": 5
+      },
+      {
+        "id": "L15",
+        "layer": 0,
+        "row": 0,
+        "col": 4,
+        "x": 208,
+        "y": 28,
+        "value": 6
+      },
+      {
+        "id": "L16",
+        "layer": 0,
+        "row": 0,
+        "col": 5,
+        "x": 260,
+        "y": 28,
+        "value": 7
+      },
+      {
+        "id": "L21",
+        "layer": 0,
+        "row": 1,
+        "col": 0,
+        "x": 0,
+        "y": 116,
+        "value": 3
+      },
+      {
+        "id": "L22",
+        "layer": 0,
+        "row": 1,
+        "col": 1,
+        "x": 52,
+        "y": 116,
+        "value": 3
+      },
+      {
+        "id": "L23",
+        "layer": 0,
+        "row": 1,
+        "col": 2,
+        "x": 104,
+        "y": 116,
+        "value": 1
+      },
+      {
+        "id": "L24",
+        "layer": 0,
+        "row": 1,
+        "col": 3,
+        "x": 156,
+        "y": 116,
+        "value": 4
+      },
+      {
+        "id": "L25",
+        "layer": 0,
+        "row": 1,
+        "col": 4,
+        "x": 208,
+        "y": 116,
+        "value": 5
+      },
+      {
+        "id": "L26",
+        "layer": 0,
+        "row": 1,
+        "col": 5,
+        "x": 260,
+        "y": 116,
+        "value": 5
+      },
+      {
+        "id": "L31",
+        "layer": 0,
+        "row": 2,
+        "col": 0,
+        "x": 0,
+        "y": 204,
+        "value": 2
+      },
+      {
+        "id": "L32",
+        "layer": 0,
+        "row": 2,
+        "col": 1,
+        "x": 52,
+        "y": 204,
+        "value": 6
+      },
+      {
+        "id": "L33",
+        "layer": 0,
+        "row": 2,
+        "col": 2,
+        "x": 104,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "L34",
+        "layer": 0,
+        "row": 2,
+        "col": 3,
+        "x": 156,
+        "y": 204,
+        "value": 2
+      },
+      {
+        "id": "L35",
+        "layer": 0,
+        "row": 2,
+        "col": 4,
+        "x": 208,
+        "y": 204,
+        "value": 1
+      },
+      {
+        "id": "L36",
+        "layer": 0,
+        "row": 2,
+        "col": 5,
+        "x": 260,
+        "y": 204,
+        "value": 4
+      },
+      {
+        "id": "U11",
+        "layer": 1,
+        "row": 0,
+        "col": 0,
+        "x": 26,
+        "y": 0,
+        "value": 3
+      },
+      {
+        "id": "U12",
+        "layer": 1,
+        "row": 0,
+        "col": 1,
+        "x": 78,
+        "y": 0,
+        "value": 4
+      },
+      {
+        "id": "U13",
+        "layer": 1,
+        "row": 0,
+        "col": 2,
+        "x": 182,
+        "y": 0,
+        "value": 6
+      },
+      {
+        "id": "U14",
+        "layer": 1,
+        "row": 0,
+        "col": 3,
+        "x": 234,
+        "y": 0,
+        "value": 9
+      },
+      {
+        "id": "U21",
+        "layer": 1,
+        "row": 1,
+        "col": 0,
+        "x": 26,
+        "y": 94,
+        "value": 7
+      },
+      {
+        "id": "U22",
+        "layer": 1,
+        "row": 1,
+        "col": 1,
+        "x": 78,
+        "y": 94,
+        "value": 8
+      },
+      {
+        "id": "U23",
+        "layer": 1,
+        "row": 1,
+        "col": 2,
+        "x": 182,
+        "y": 94,
+        "value": 4
+      },
+      {
+        "id": "U24",
+        "layer": 1,
+        "row": 1,
+        "col": 3,
+        "x": 234,
+        "y": 94,
+        "value": 1
+      },
+      {
+        "id": "U31",
+        "layer": 1,
+        "row": 2,
+        "col": 0,
+        "x": 26,
+        "y": 188,
+        "value": 5
+      },
+      {
+        "id": "U32",
+        "layer": 1,
+        "row": 2,
+        "col": 1,
+        "x": 78,
+        "y": 188,
+        "value": 2
+      },
+      {
+        "id": "U33",
+        "layer": 1,
+        "row": 2,
+        "col": 2,
+        "x": 182,
+        "y": 188,
+        "value": 3
+      },
+      {
+        "id": "U34",
+        "layer": 1,
+        "row": 2,
+        "col": 3,
+        "x": 234,
+        "y": 188,
+        "value": 4
+      }
+    ],
+    "solution": [
+      [
+        "U32",
+        "U23",
+        "U22"
+      ],
+      [
+        "U11",
+        "L23",
+        "U31"
+      ],
+      [
+        "L31",
+        "U33",
+        "L33"
+      ],
+      [
+        "L32",
+        "L11",
+        "U14"
+      ],
+      [
+        "U34",
+        "L34",
+        "U13"
+      ],
+      [
+        "U12",
+        "L14",
+        "L15"
+      ],
+      [
+        "L35",
+        "L12",
+        "L36"
+      ],
+      [
+        "L24",
+        "U24",
+        "U21"
+      ],
+      [
+        "L21",
+        "L16",
+        "L25"
+      ],
+      [
+        "L13",
+        "L26",
+        "L22"
+      ]
+    ],
+    "validation": {
+      "initialMoves": 49,
+      "allChoicesSolvable": null,
+      "verifiedStates": 0,
+      "positionChoices": 56,
+      "numberPreservation": {
+        "scarceValue": 9,
+        "scarceTile": "U14",
+        "trapMove": [
+          "U14",
+          "U21",
+          "U22"
+        ],
+        "savedUntilMove": 4
+      }
+    }
   }
 ]

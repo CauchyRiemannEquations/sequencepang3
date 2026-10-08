@@ -4,7 +4,7 @@ import {STAGES} from './stages';
 import type {Progress} from './progress';
 
 const CHAPTER_SIZE=10;
-const CHAPTER_NAMES=['첫 만남','선택과 해방','같은 숫자, 다른 위치'];
+const CHAPTER_NAMES=['첫 만남','선택과 해방','같은 숫자, 다른 위치','필요한 숫자 남기기'];
 const CHAPTERS=Array.from({length:Math.ceil(STAGES.length/CHAPTER_SIZE)},(_,index)=>({
  name:CHAPTER_NAMES[index]||'새로운 여정',
  stages:STAGES.slice(index*CHAPTER_SIZE,(index+1)*CHAPTER_SIZE),

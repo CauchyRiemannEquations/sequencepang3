@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-08",
+  "rulesTests": 125,
+  "browser": "Codex in-app Chromium",
+  "viewports": [
+    "default",
+    "390x844",
+    "320x640"
+  ],
+  "stages": [
+    {
+      "stage": 31,
+      "removals": 8,
+      "clear": true
+    },
+    {
+      "stage": 32,
+      "removals": 8,
+      "clear": true
+    },
+    {
+      "stage": 33,
+      "removals": 8,
+      "clear": true
+    },
+    {
+      "stage": 34,
+      "removals": 9,
+      "clear": true
+    },
+    {
+      "stage": 35,
+      "removals": 9,
+      "clear": true
+    },
+    {
+      "stage": 36,
+      "removals": 9,
+      "clear": true
+    },
+    {
+      "stage": 37,
+      "removals": 10,
+      "clear": true
+    },
+    {
+      "stage": 38,
+      "removals": 10,
+      "clear": true
+    },
+    {
+      "stage": 39,
+      "removals": 10,
+      "clear": true
+    },
+    {
+      "stage": 40,
+      "removals": 10,
+      "clear": true,
+      "offline": true
+    }
+  ],
+  "checks": [
+    "original thirty stages unchanged, SHA-256 regression test",
+    "thirty-cleared save opens stage31",
+    "chapter4 automatically selected and stages32-40 initially locked",
+    "stages31-40 cleared using actual UI tile clicks and next-stage buttons",
+    "stage31 tempting move removes three tiles and undo restores all24",
+    "30-tile four-row board playable at320px with no horizontal overflow",
+    "offline reload preserves39 cleared stages and offers stage40",
+    "stage40 clears offline and shows journey complete",
+    "offline reload restores40/40 completed progress"
+  ],
+  "limitations": [
+    "perceived difficulty and enjoyment require player feedback"
+  ]
+}
