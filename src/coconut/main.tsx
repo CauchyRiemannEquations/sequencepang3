@@ -1,6 +1,6 @@
 import React,{useState,useEffect,useRef} from 'react';
 import {createRoot} from 'react-dom/client';
-import {ArrowLeft,RotateCcw,Undo2,Play,HelpCircle,Check,Grid2X2,Download,Settings} from 'lucide-react';
+import {ArrowLeft,RotateCcw,Undo2,Play,HelpCircle,Check,Grid2X2,Download,Volume2} from 'lucide-react';
 import {WIDTH,HEIGHT,blockedReason,classify,hasMove} from './engine';
 import {STAGES,boardBounds} from './stages';
 import {PROGRESS_KEY,readProgress,nextStage,completeStage,type Progress} from './progress';
@@ -44,7 +44,7 @@ function App(){
  },[audio]);
  useEffect(()=>audio.setModal(help||audioSettings||installGuide),[audio,help,audioSettings,installGuide]);
  function changeAudio(patch:Parameters<GameAudio['setPreferences']>[0]){audio.setPreferences(patch);setAudioPreferences({...audio.preferences});}
- const settingsButton=<button className="text-button audio-settings-button" onClick={()=>setAudioSettings(true)}><Settings size={16}/> 소리 설정</button>;
+ const settingsButton=<button className="text-button audio-settings-button" aria-haspopup="dialog" onClick={()=>setAudioSettings(true)}><Volume2 size={16} aria-hidden="true"/> 소리 설정</button>;
  useEffect(()=>{try{localStorage.setItem(PROGRESS_KEY,JSON.stringify(progress));}catch{/* Storage is optional. */}},[progress]);
  function start(index:number){
   cancel();audio.setScene('play');const target=STAGES[index];setStageIndex(index);setRemaining(target.tiles.map(t=>t.id));
@@ -99,6 +99,7 @@ function App(){
    <header className="game-header"><button className="round" aria-label="스테이지 선택으로" onClick={()=>navigate('stages')}><ArrowLeft/></button><h1 className="game-brand" aria-label="시퀀스팡3"><img src="/coconut/logos/game-logo.png" alt="" width="1536" height="1024"/></h1><button className="round" aria-label="게임 방법" onClick={()=>setHelp(true)}><HelpCircle/></button></header>
    <div className="stats"><div><span>STAGE</span><strong data-testid="stage">{stageLabel}</strong></div><img className="mascot tiny" src="/coconut/mascot.webp" alt=""/><div><span>남은 패</span><strong data-testid="remaining">{remaining.length}<small> / {tiles.length}</small></strong></div></div>
    <p className="stage-name">{stage.name}</p>
+   {layerCount>1&&<p className="tile-legend" id="tile-legend"><span><i aria-hidden="true"/>실선: 열린 패</span><span><i className="covered-key" aria-hidden="true"/>점선: 막힌 패</span></p>}
    <div className="board-frame"><div className="board" aria-label={`${layerCount}층 수열 마작 보드`} style={{aspectRatio:`${bounds.width}/${bounds.height}`,maxWidth:bounds.width*1.15}}>
     {tiles.filter(t=>remaining.includes(t.id)).map(tile=>{
      const reason=blockedReason(tile,remaining,tiles),isSelected=selected.includes(tile.id);

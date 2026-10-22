@@ -10,3 +10,7 @@
 @keyframes demo-tap{50%{transform:translate(-3px,-5px) scale(.94)}}@keyframes demo-match{to{transform:translateY(-5px);box-shadow:0 5px 0 #aa8050,0 0 15px #77ba80}}@keyframes demo-open{from{filter:brightness(.75)}to{filter:brightness(1)}}
 @media(prefers-reduced-motion:reduce){.help-dialog *{animation:none!important;transition:none!important}}
 @media(max-width:359px){.help-dialog{padding:24px 14px 16px}.help-dialog h2{font-size:21px}.demo-tabs button{font-size:12px}.demo-description{font-size:13px}}
+.mini-tile{border:2px solid #fff9e1}
+.mini-tile.covered{border:2px dashed #786e51;background:#c9bb9c;color:#4e4634;filter:none}
+.demo-tabs button,.demo-controls button{min-height:44px}
+.demo-close{min-width:44px;min-height:44px}

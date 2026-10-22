@@ -66,7 +66,7 @@ export function HelpDialog({onClose}:{onClose:()=>void}){
    <button onClick={()=>{setFrame(0);setPaused(false);}}><RotateCcw size={15}/> 다시 보기</button>
   </div>
   <p className="demo-rules">고르는 순서는 자유, 숫자는 서로 다르게!<br/>위에 겹친 패만 먼저 없애 주세요.<br/>좌우에 패가 있어도 고를 수 있어요.</p>
-  <p className="demo-tip">막혔다면 되돌리기로 다른 길을 찾아보세요.<br/>21단계부터는 같은 숫자도 위치를 살펴보세요.</p>
+  <p className="demo-tip">실선 테두리는 열린 패, 점선 테두리는 막힌 패예요.<br/>막혔다면 되돌리기로 다른 길을 찾아보세요.<br/>21단계부터는 같은 숫자도 위치를 살펴보세요.</p>
   <button className="mint demo-done" onClick={onClose}>알겠어요</button>
  </dialog>;
 }
