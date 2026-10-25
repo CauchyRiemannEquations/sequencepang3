@@ -20,8 +20,11 @@ describe('user-supplied coconut logos',()=>{
   expect(source).not.toContain('className="mascot home-mascot"');
   expect(source).toContain('className="mascot tiny"');expect(source).toContain('className="mascot clear-mascot"');
  });
- it('includes the logo directory in generated offline precache',()=>{
+ it('precaches only runtime logos, keeping social artwork deployed',()=>{
   const builder=read('scripts/build-coconut-sw.mjs').toString();
-  expect(builder).toContain("files('coconut/logos')");expect(builder).toContain('...logos');
+  expect(builder).toContain("const logos=['coconut/logos/home-logo.png','coconut/logos/game-logo.png'];");
+  expect(builder).toContain('...logos');
+  expect(read('public/coconut/logos/share-logo-20261007.png').equals(read('public/coconut/logos/home-logo.png'))).toBe(true);
+  expect(read('index.html').toString()).toContain('/coconut/logos/share-logo-20261007.png');
  });
 });

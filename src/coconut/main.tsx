@@ -3,23 +3,22 @@ import {createRoot} from 'react-dom/client';
 import {ArrowLeft,RotateCcw,Undo2,Play,HelpCircle,Check,Grid2X2,Download,Volume2} from 'lucide-react';
 import {WIDTH,HEIGHT,blockedReason,classify,hasMove} from './engine';
 import {STAGES,boardBounds} from './stages';
-import {PROGRESS_KEY,readProgress,nextStage,completeStage,type Progress} from './progress';
+import {loadStoredProgress,saveCompletion,mergeProgress,isProgressKey,nextStage,type Progress} from './progress';
 import {HelpDialog} from './HelpDialog';
 import {usePwaInstall} from './usePwaInstall';
 import {InstallGuide} from './InstallGuide';
 import {AudioSettings} from './AudioSettings';
 import {GameAudio} from './audio';
 import {StageSelect} from './StageSelect';
+import {focusDestination,shouldRestoreMatchFocus} from './focus';
 import './style.css';
 import './journey.css';
 import './logos.css';
 import './stage-select.css';
 
 type Screen='main'|'stages'|'game'|'clear';
-function loadProgress(){
- try{return readProgress(localStorage.getItem(PROGRESS_KEY),STAGES.length);}
- catch{return readProgress(null,STAGES.length);}
-}
+function progressStorage(){try{return localStorage;}catch{return undefined;}}
+function loadProgress(){return loadStoredProgress(progressStorage(),STAGES.length);}
 function App(){
  const [audio]=useState(()=>{let storage:Storage|undefined;try{storage=localStorage;}catch{}return new GameAudio({storage});});
  const [audioSettings,setAudioSettings]=useState(false),[audioPreferences,setAudioPreferences]=useState(audio.preferences);
@@ -33,6 +32,7 @@ function App(){
  const stage=STAGES[stageIndex],tiles=stage.tiles,bounds=boardBounds(tiles);
  const [remaining,setRemaining]=useState(tiles.map(t=>t.id)),[selected,setSelected]=useState<string[]>([]),[history,setHistory]=useState<string[][]>([]);
  const [phase,setPhase]=useState<'idle'|'valid'|'invalid'>('idle'),[notice,setNotice]=useState(stage.lesson),[fresh,setFresh]=useState<string[]>([]);
+ const appRef=useRef<HTMLElement>(null),keyboard=useRef(false),pendingFocus=useRef(false);
  const timer=useRef<ReturnType<typeof setTimeout>|null>(null);
  const nextId=nextStage(progress,STAGES.length),allCleared=progress.cleared.length===STAGES.length;
  const cancel=()=>{if(timer.current)clearTimeout(timer.current);timer.current=null;};
@@ -45,12 +45,23 @@ function App(){
  useEffect(()=>audio.setModal(help||audioSettings||installGuide),[audio,help,audioSettings,installGuide]);
  function changeAudio(patch:Parameters<GameAudio['setPreferences']>[0]){audio.setPreferences(patch);setAudioPreferences({...audio.preferences});}
  const settingsButton=<button className="text-button audio-settings-button" aria-haspopup="dialog" onClick={()=>setAudioSettings(true)}><Volume2 size={16} aria-hidden="true"/> 소리 설정</button>;
- useEffect(()=>{try{localStorage.setItem(PROGRESS_KEY,JSON.stringify(progress));}catch{/* Storage is optional. */}},[progress]);
+ useEffect(()=>{
+  const refresh=()=>setProgress(previous=>mergeProgress(previous,loadProgress()));
+  const changed=(event:StorageEvent)=>{if(isProgressKey(event.key))refresh();};
+  window.addEventListener('storage',changed);window.addEventListener('pageshow',refresh);
+  refresh();return()=>{window.removeEventListener('storage',changed);window.removeEventListener('pageshow',refresh);};
+ },[]);
+ useEffect(()=>{
+  if(!pendingFocus.current||help||audioSettings||installGuide)return;
+  if(appRef.current){focusDestination(appRef.current,screen);pendingFocus.current=false;}
+ },[screen,stageIndex,remaining,help,audioSettings,installGuide]);
  function start(index:number){
+  pendingFocus.current=keyboard.current;
   cancel();audio.setScene('play');const target=STAGES[index];setStageIndex(index);setRemaining(target.tiles.map(t=>t.id));
   setSelected([]);setHistory([]);setFresh([]);setPhase('idle');setNotice(target.lesson);setScreen('game');
  }
  function navigate(target:Screen){
+  pendingFocus.current=keyboard.current;
   if(target==='stages')setStageSelectionId(screen==='game'||screen==='clear'?stage.id:nextId);
   cancel();audio.setScene(target==='game'?'play':'menu');setPhase('idle');setSelected([]);setHelp(false);setScreen(target);
  }
@@ -70,9 +81,10 @@ function App(){
   setPhase('valid');setNotice(`${[...values].sort((a,b)=>a-b).join(' · ')}  ${kind==='arithmetic'?'등차수열':'등비수열'}!`);
   timer.current=setTimeout(()=>{
    const nextRemaining=remaining.filter(id=>!next.includes(id));
+   pendingFocus.current=keyboard.current&&(!nextRemaining.length||shouldRestoreMatchFocus(true,document.activeElement,next));
    setFresh(nextRemaining.filter(id=>{const tile=tiles.find(t=>t.id===id)!;return blockedReason(tile,remaining,tiles)&&!blockedReason(tile,nextRemaining,tiles);}));
    setHistory(previous=>[...previous,[...remaining]]);setRemaining(nextRemaining);setSelected([]);setPhase('idle');timer.current=null;
-   if(!nextRemaining.length){const completed=completeStage(progress,stage.id,STAGES.length);setProgress(completed);setScreen('clear');void audio.play(completed.cleared.length===STAGES.length&&!allCleared?'complete':'clear');}
+   if(!nextRemaining.length){const completed=saveCompletion(progressStorage(),progress,stage.id,STAGES.length);setProgress(completed);setScreen('clear');void audio.play(completed.cleared.length===STAGES.length&&!allCleared?'complete':'clear');}
    else if(!hasMove(nextRemaining,tiles))setNotice('만들 수 있는 수열이 없어요 · 되돌리기로 다른 길을 찾아보세요');
    else setNotice('열린 패 세 개로 다음 수열을 찾아보세요');
   },420);
@@ -83,7 +95,7 @@ function App(){
  }
  const values=selected.map(id=>tiles.find(t=>t.id===id)!.value).sort((a,b)=>a-b);
  const layerCount=Math.max(...tiles.map(t=>t.layer))+1,stageLabel=String(stage.id).padStart(2,'0');
- return <main className={`app ${screen}`} onPointerDownCapture={()=>void audio.unlock()} onClickCapture={()=>void audio.unlock()} onKeyDownCapture={event=>{if(event.key==='Enter'||event.key===' ')void audio.unlock();}}>
+ return <main ref={appRef} className={`app ${screen}`} onPointerDownCapture={()=>{keyboard.current=false;pendingFocus.current=false;void audio.unlock();}} onClickCapture={()=>void audio.unlock()} onKeyDownCapture={event=>{keyboard.current=true;if(event.key==='Enter'||event.key===' ')void audio.unlock();}}>
   <div className="ambient" aria-hidden="true"/>
   {screen==='main'&&<section className="home-content">
    {!pwa.installed&&<button className="install-button" disabled={pwa.busy} onClick={installApp}><Download size={16} aria-hidden="true"/> 앱 설치</button>}
@@ -109,7 +121,7 @@ function App(){
     })}
    </div></div>
    <div className={`selection-tray ${phase}`} aria-label="선택한 숫자">{[0,1,2].map(i=><React.Fragment key={i}>{i>0&&<span className="dot">·</span>}<span className={values[i]?'chosen-number':'empty-slot'}>{values[i]||' '}</span></React.Fragment>)}</div>
-   <p className="notice" role="status" aria-live="polite">{notice}</p>
+   <p className="notice" tabIndex={-1} role="status" aria-live="polite">{notice}</p>
    <div className="actions"><button className="wood" disabled={!history.length||phase!=='idle'} onClick={undo}><Undo2 size={21}/>되돌리기</button><button className="mint" onClick={()=>start(stageIndex)}><RotateCcw size={20}/>다시 시작</button></div>
    <div className="game-bottom-links"><button className="exit" onClick={()=>navigate('main')}>메인으로 나가기</button>{settingsButton}</div>
   </section>}
