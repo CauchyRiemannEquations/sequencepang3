@@ -1,4 +1,4 @@
-"""Deterministic offline authoring of 50 boards; preserve demo as stage 20.
+"""Deterministic offline authoring of 60 boards; preserve demo as stage 20.
 
 Run from the repository root: python scripts/generate-coconut-stages.py
 Runtime consumes the committed JSON, never a random board.
@@ -327,6 +327,119 @@ def make_stage(number, spec):
     return accepted
 
 
+# Each digit is the height of a stack; a dot is open water. The two footprints
+# are authored separately so the gap stays open even on a three-layer board.
+ISLAND_SPECS = [
+    ('물길 건너 첫 수열', ('222', '211', '111'), ('121', '121', '111'), 0,
+     [(1, 2, 3)], '왼쪽 섬의 1과 오른쪽 섬의 3 사이에 2를 골라 보세요.'),
+    ('서로의 빈자리', ('212', '122', '111'), ('112', '122', '1.1'), 22,
+     [(1, 3, 5), (2, 4, 6)], '한 섬에 없는 숫자를 건너편에서 찾아보세요.'),
+    ('돌아 나오는 만', ('211', '221', '.22'), ('12.', '122', '111'), 0,
+     [(2, 4, 8), (2, 4, 6), (1, 3, 5)], '같은 4라도 어느 섬에서 쓰느냐에 따라 다른 패가 열려요.'),
+    ('엇갈린 두 해안', ('122', '221', '211'), ('212', '112', '211'), 28,
+     [(3, 5, 7), (1, 4, 7), (2, 4, 8), (4, 6, 9)], '두 섬의 가장자리를 살펴보고 다음 숫자를 열어 보세요.'),
+    ('작은 섬의 높은 탑', ('312', '111', '221'), ('112', '213', '1.2'), 0,
+     [(1, 2, 4), (2, 3, 4), (3, 6, 9), (1, 3, 5)], '세 겹으로 쌓인 곳에서는 맨 위 패부터 꺼낼 수 있어요.'),
+    ('먼 등대의 신호', ('211', '222', '123'), ('1.2', '132', '1.1'), 22,
+     [(1, 3, 9), (3, 5, 7), (2, 4, 8), (2, 5, 8)], '작은 섬의 패를 어디에 쓸지 먼저 생각해 보세요.'),
+    ('서로 마주 본 부두', ('112', '322', '221'), ('211', '123', '121'), 0,
+     [(1, 4, 7), (2, 4, 6), (3, 6, 9), (1, 3, 9), (4, 6, 9)], '한쪽 부두에서 열린 숫자와 건너편 패를 이어 보세요.'),
+    ('쌍둥이 등대', ('221', '312', '122'), ('2.2', '332', '1.1'), 28,
+     [(1, 3, 5), (2, 4, 8), (2, 5, 8), (4, 6, 9), (3, 5, 7)], '나란히 쌓인 두 탑 중 어떤 숫자부터 열까요?'),
+    ('좁은 물목', ('313', '1.2', '222'), ('132', '221', '.12'), 12,
+     [(2, 4, 8), (1, 2, 4), (3, 6, 9), (2, 5, 8), (1, 4, 7)], '남겨 둔 패가 반대편에서 열릴 숫자와 이어지는지 살펴보세요.'),
+    ('코코넛 군도의 다리', ('223', '321', '.12'), ('2.2', '132', '211'), 0,
+     [(2, 4, 8), (4, 6, 9), (1, 3, 5), (2, 5, 8), (1, 3, 9)], '양쪽 섬의 위층을 열고 새로 드러난 숫자로 물길을 건너세요.'),
+]
+
+
+def island_geometry(shores, offset):
+    tiles = []
+    layers = max(int(height) for shore in shores for row in shore for height in row if height != '.')
+    row_step = 70 + 24 * (layers - 1)
+    for bank, shore in enumerate(shores):
+        for row, heights in enumerate(shore):
+            for col, height in enumerate(heights):
+                if height == '.':
+                    continue
+                for layer in range(int(height)):
+                    tiles.append(dict(id=f'{"AB"[bank]}{row+1}{col+1}-{layer}', layer=layer,
+                                      row=row, col=bank*3+col, x=bank*186+col*52,
+                                      y=row*row_step+(layers-1-layer)*24+bank*offset, value=0))
+    return tiles
+
+
+def number_intro_stacks(tiles):
+    """Every legal move can finish: each remaining number tops its own stacks."""
+    twos = {(0, 1), (1, 2), (2, 0), (2, 2), (0, 4), (2, 5)}
+    for tile in tiles:
+        if (tile['row'], tile['col']) in twos:
+            tile['value'] = 2
+        else:
+            tile['value'] = 1 if tile['col'] < 3 else 3
+
+
+def links_newly_opened_tile(tiles, solution):
+    """A tile exposed on one turn is used across the water on the next."""
+    blocks = blockers(tiles)
+    by_id = {tile['id']: i for i, tile in enumerate(tiles)}
+    remaining = (1 << len(tiles)) - 1
+    newly_opened = set()
+    for move in solution:
+        indices = [by_id[tile_id] for tile_id in move]
+        if newly_opened.intersection(indices) and len({tiles[i]['col'] < 3 for i in indices}) == 2:
+            return True
+        after = remaining ^ sum(1 << i for i in indices)
+        newly_opened = {i for i in range(len(tiles)) if after & (1 << i)
+                        and blocks[i] & remaining and not blocks[i] & after}
+        remaining = after
+    return False
+
+
+def make_island_stage(number, spec):
+    name, left, right, offset, pool, lesson = spec
+    rng = random.Random(30000+number)
+    for _ in range(20000):
+        tiles = island_geometry((left, right), offset)
+        if number == 51:
+            number_intro_stacks(tiles)
+        blocks = blockers(tiles)
+        remaining = set(range(len(tiles)))
+        solution = []
+        while remaining:
+            mask = sum(1 << i for i in remaining)
+            exposed = [i for i in sorted(remaining) if not blocks[i] & mask]
+            if len(exposed) < 3:
+                break
+            if number == 51:
+                indices = [rng.choice([i for i in exposed if tiles[i]['value'] == value])
+                           for value in (1, 2, 3)]
+            else:
+                indices = rng.sample(exposed, 3)
+                values = rng.sample(pool[len(solution) % len(pool)], 3)
+                for i, value in zip(indices, values):
+                    tiles[i]['value'] = value
+            solution.append([tiles[i]['id'] for i in indices])
+            remaining.difference_update(indices)
+        if remaining or not links_newly_opened_tile(tiles, solution):
+            continue
+        choices = position_choices(tiles)
+        if not choices:
+            continue
+        validation = analyze(tiles)
+        validation['positionChoices'] = choices
+        if number == 51:
+            validation['allChoicesSolvable'] = True
+        if number == 60:
+            chain = layer_unlock(tiles, solution)
+            if not chain:
+                continue
+            validation['layerUnlock'] = chain
+        return dict(id=number, name=name, lesson=lesson, focus='나뉜 구역 연결',
+                    tiles=tiles, solution=solution, validation=validation)
+    raise RuntimeError(f'No acceptable island board for stage {number}')
+
+
 def main():
     stages = [make_stage(number, spec) for number, spec in enumerate(SPECS, 1)]
     demo = json.loads((ROOT/'src/coconut/board.json').read_text(encoding='utf-8'))
@@ -336,6 +449,7 @@ def main():
     stages.extend(make_stage(number, spec) for number, spec in enumerate(POSITION_SPECS, 21))
     stages.extend(make_stage(number, spec) for number, spec in enumerate(PRESERVATION_SPECS, 31))
     stages.extend(make_stage(number, spec) for number, spec in enumerate(LAYER_SPECS, 41))
+    stages.extend(make_island_stage(number, spec) for number, spec in enumerate(ISLAND_SPECS, 51))
     (ROOT/'src/coconut/stages.json').write_text(
         json.dumps(stages, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
 

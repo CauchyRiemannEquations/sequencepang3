@@ -13,3 +13,9 @@ it('preserves the first forty stages when adding the third-layer chapter',()=>{
  expect(createHash('sha256').update(JSON.stringify(STAGES.slice(0,40))).digest('hex'))
   .toBe('8fa9e45364113567bbf66707e56725c7b6c296c3b37cb63c5966486bf073e6d1');
 });
+
+it('preserves the first fifty boards, lessons, and solutions in the island chapter',()=>{
+ // First fifty stages on main before the island chapter, commit 5c1f985.
+ expect(createHash('sha256').update(JSON.stringify(STAGES.slice(0,50))).digest('hex'))
+  .toBe('58c4e31f33dc1d2d04bdfeedce4a1ea3396b25a6c033af19bb5d67d1ce91116d');
+});
