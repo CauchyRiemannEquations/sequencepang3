@@ -5,7 +5,7 @@ import {PROGRESS_KEY,COMPLETION_PREFIX,loadStoredProgress} from '../src/coconut/
 function solve(app:ReturnType<typeof appHarness>,number:number,mode:'keyboard'|'pointer'='pointer'){
  for(const move of stages[number-1].solution){for(const id of move)app.click(node=>node.props?.['data-tile']===id,mode);app.flush();}
 }
-const saved=(data:Map<string,string>)=>loadStoredProgress({getItem:key=>data.get(key)??null,setItem(){}},50);
+const saved=(data:Map<string,string>)=>loadStoredProgress({getItem:key=>data.get(key)??null,setItem(){}},stages.length);
 describe('actual App handler regression checks (mocked DOM)',()=>{
  it('preserves progress when stale B clears 1 after A clears 1 and 2, and refreshes B on storage events',()=>{
   const data=new Map<string,string>(),a=appHarness(data),b=appHarness(data);a.start();solve(a,1);a.next();solve(a,2);b.start();solve(b,1);
@@ -14,11 +14,20 @@ describe('actual App handler regression checks (mocked DOM)',()=>{
   b.click(node=>node.props?.className==='exit');
   expect(b.nodes().find(node=>node.props?.className==='primary start')?.props.children.flat()).toContain('4단계 시작');
  });
- it('clears all 50 official solutions through selection and timer handlers',()=>{
-  for(let n=1;n<=50;n++){
+ it('clears all official solutions through selection and timer handlers',()=>{
+  for(let n=1;n<=stages.length;n++){
    const data=new Map([[PROGRESS_KEY,JSON.stringify({version:1,cleared:Array.from({length:n-1},(_,i)=>i+1)})]]),app=appHarness(data);
    app.start();solve(app,n);expect(saved(data).cleared).toContain(n);
    expect(app.nodes().some(node=>node.props?.className==='clear-content')).toBe(true);
+   if(n===50){
+    app.next();
+    const stageNumber=app.nodes().find(node=>node.props?.['data-testid']==='stage');
+    expect(stageNumber?.props.children.flat()).toContain('51');
+   }
+   if(n===60){
+    const heading=app.nodes().find(node=>node.type==='h1');
+    expect(heading?.props.children.flat()).toContain('여정 완료!');
+   }
   }
  });
  it('moves keyboard focus on start, match, clear and next stage',()=>{
